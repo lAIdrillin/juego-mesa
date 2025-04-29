@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de las tarjetas</title>
+    <link rel="stylesheet" href="styles.css"
+    <title>Juego de tarjetas</title>
 </head>
 <body>
-    <h1>Cambio</h1>
+    <h1>¡Bienvenid@ al juego de las tarjetas!😊</h1>
+    <h4>Por favor, elige el nivel de dificultad y el tema de las cartas</h4>
+    <table>
+        <tr>
+            <th>Dificultad:</th>
+            <td>
+                <select id="dificultad_partida">
+                    <option selected default disabled>Selecciona la dificultad:</option>
+                    <option value="facil">Fácil (4x4)</option>
+                    <option value="medio">Medio (5x5)</option>
+                    <option value="dificil">Difícil (6x6)</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Tema:</th>
+            <td>
+                <select id="tema_partida">
+                    <option selected default disabled>Selecciona el tema de las cartas:</option>
+                    <option value="animales">Animales</option>
+                    <option value="comidas">Comidas</option>
+                    <option value="deportes">Deportes</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <script src="script.js"></script>
 </body>
 </html>
