@@ -25,21 +25,21 @@ body{
 }
 .th_text{
     color: #D3D3D3;
-    font-family:monospace;
+    font-family:serif;
     font-size: large;
 }
 #dificultad_partida{
     background-color: #D3D3D3;
-    font-family:monospace;
+    font-family:serif;
 }
 #tema_partida{
     background-color: #D3D3D3;
-    font-family:monospace;
+    font-family:serif;
     border-style: ridge;
 }
 #empezar_partida{
     background-color: #D3D3D3;
-    font-family:monospace;
+    font-family:serif;
     border-style: ridge;
 }
 #footer{
