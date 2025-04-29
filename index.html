@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Juego de tarjetas</title>
 </head>
+
 <body>
+<<<<<<< HEAD
     <h1 id="mensaje_bienvenida">¡Bienvenid@ al juego de las tarjetas!😊</h1>
     <h4 id="mensaje_opciones">Por favor, elige el nivel de dificultad y el tema de las cartas</h4>
     <table id="table1">
@@ -41,6 +44,52 @@
 
     <div id="tablero"></div>
 
+=======
+    <header id="header">
+        <h1>¡Bienvenid@ al juego de las tarjetas!😊</h1>
+        <h4>Por favor, elige el nivel de dificultad y el tema de las cartas</h4>
+    </header>
+    <main>
+        <table id="table1">
+            <tr>
+                <th class="th_text">Dificultad:</th>
+                <td>
+                    <select id="dificultad_partida">
+                        <option selected default disabled>Selecciona la dificultad:</option>
+                        <option value="facil">Fácil (4x4)</option>
+                        <option value="medio">Medio (5x5)</option>
+                        <option value="dificil">Difícil (6x6)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="th_text">Tema:</th>
+                <td>
+                    <select id="tema_partida">
+                        <option selected default disabled>Selecciona el tema de las cartas:</option>
+                        <option value="animales">Animales</option>
+                        <option value="comidas">Comidas</option>
+                        <option value="deportes">Deportes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button id="empezar_partida" class="boton">
+                        <boton href="juego.html"> Empezar partida </boton>
+                    </button>
+                </th>
+            </tr>
+        </table>
+    </main> 
+    <footer id="footer">
+        <p>
+                    GAME DEVELOPED BY
+            EQUIPO E. JUANJO, GABRIEL & DAVID
+                        ©2025
+        </p>
+    </footer>
+>>>>>>> 6a2babc4c0b2a6b864f40a8f15152dbcc7b170fb
     <script src="script.js"></script>
 </body>
 </html>
