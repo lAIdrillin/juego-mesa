@@ -23,8 +23,13 @@ body{
   0 0 0 2px rgb(255, 255, 255),
   0.3em 0.3em 1em rgba(0, 0, 0, 0.3);;
 }
+.th_text{
+    color: #D3D3D3;
+    font-family:monospace;
+    font-size: large;
+}
 #dificultad_partida{
-    background-color: #DCDCDC;
+    background-color: #D3D3D3;
     font-family:monospace;
 }
 #tema_partida{
