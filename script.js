@@ -18,7 +18,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     tablero.style.display = "block"
 
     tablero.innerHTML = `
-    <h2>Cronómetro${cronometro}</h2>
+    <h2>Cronómetro: ${cronometro}</h2>
     <h4>Intentos: ${contador}</h4>
 `;
 });
