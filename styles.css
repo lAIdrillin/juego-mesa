@@ -1,14 +1,42 @@
 body{
-    background-color: rgb(15, 215, 148);
+    background-color:#DCDCDC;
     margin: 0;
     align-content: center;
     height: 100%;
+}
+#header{
+    width: 300px;
+    min-height: 50px;
+    margin: auto;
+    color:#00ABE4;
+    
 }
 #table1{
     width: 300px;
   min-height: 250px;
   margin: auto;
-  background: indigo;
+  background: #00ABE4;
   color: white;
   padding: 2rem;
+}
+#dificultad_partida{
+    background-color: #DCDCDC;
+    font-family:monospace;
+}
+#tema_partida{
+    background-color: #D3D3D3;
+    font-family:monospace;
+    border-style: ridge;
+}
+#empezar_partida{
+    background-color: #D3D3D3;
+    font-family:monospace;
+    border-style: ridge;
+}
+#footer{
+    width: 300px;
+    min-height: 50px;
+    margin: auto;
+    color:#00ABE4;
+    text-align: center;
 }
