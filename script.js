@@ -8,8 +8,8 @@ const header = document.getElementById("header")
 
 btnEmpezarPartida.addEventListener('click', () => {
 
-    const cronometro = document.getElementById("cronometro").value;
-    const contador = document.getElementById("contador").value;
+    const cronometro = document.getElementById("cronometro").textContent;
+    const contador = document.getElementById("contador").textContent;
 
     header.style.display = "none"; 
 
@@ -18,7 +18,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     tablero.style.display = "block"
 
     tablero.innerHTML = `
-    <h2>Cronómetro: ${cronometro}</h2>
-    <h4>Intentos: ${contador}</h4>
+    <h3>Cronómetro: ${cronometro}</h3>
+    <h3>Intentos: ${contador}</h3>
 `;
 });
