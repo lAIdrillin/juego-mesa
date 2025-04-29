@@ -12,6 +12,6 @@ btnEmpezarPartida.addEventListener('click', () => {
 
     header.style.display = "none"; 
 
-    main.style.display = "none"; 
+    table1.style.display = "none"; 
     
 });
