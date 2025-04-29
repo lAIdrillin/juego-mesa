@@ -8,10 +8,19 @@ const header = document.getElementById("header")
 
 btnEmpezarPartida.addEventListener('click', () => {
     
-    tablero.style.display = "block";
+    if(table1.style.display !== "none") {
 
-    header.style.display = "none"; 
+        tablero.style.display = "block";
 
-    table1.style.display = "none"; 
+        header.style.display = "none"; 
     
+        table1.style.display = "none"; 
+    }
+
+    else {
+
+        
+
+    }
+
 });
