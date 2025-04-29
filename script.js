@@ -8,8 +8,8 @@ const header = document.getElementById("header")
 
 btnEmpezarPartida.addEventListener('click', () => {
 
-    const cronometro = document.getElementById("cronometro").value;
-    const contador = document.getElementById("contador").value;
+    const cronometro = document.getElementById("cronometro").textContent;
+    const contador = document.getElementById("contador").textContent;
 
     header.style.display = "none"; 
 
