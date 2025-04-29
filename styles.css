@@ -18,7 +18,7 @@ body{
     width: 300px;
   min-height: 250px;
   margin: auto;
-  background: #e6d69000;
+  background: #ffffff9c;
   color: white;
   padding: 2rem;
   box-shadow:
@@ -31,19 +31,29 @@ body{
     font-family:serif;
     font-size: large;
 }
+#input-name{
+    background-color: #f0d4ad;
+    font-family:serif;
+    border-style: ridge;
+    color: #70624c;
+}
 #dificultad_partida{
     background-color: #f0d4ad;
     font-family:serif;
+    border-style: ridge;
+    color: #70624c;
 }
 #tema_partida{
     background-color: #f0d4ad;
     font-family:serif;
     border-style: ridge;
+    color: #70624c;
 }
 #empezar_partida{
     background-color: #f0d4ad;
     font-family:serif;
     border-style: ridge;
+    color: #70624c;
 }
 #footer{
     position: absolute;
@@ -57,11 +67,11 @@ body{
 #tablero{
     background-image:url("/images/fondo_juego.jpg");
     color: #70624c;
+    padding: 20px;
     font-family:serif;
     width: 800px;
-   
-   
     margin: auto;
+    text-align: center;
     box-shadow:
     inset 0 -3em 3em rgba(0, 0, 0, 0.1),
     0 0 0 2px rgb(255, 255, 255),
