@@ -2,7 +2,7 @@
 # Sesión 1
 
 ## Resumen
-
+- En esta sesion hemos empezado creando el repositorio y compartiendolo con todos, luego hemos empezado haciendo la pagina en la que viene las dimensiones y el tema, el css y la pantalla de juego que tiene de momento el cronometro, el contador y el tablero base
 
 ## Dificultades encontradas
 - **Problema #1:** Tuvimos problemas para compartir el repositorio con los miembros del equipo.
