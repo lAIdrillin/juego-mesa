@@ -32,16 +32,16 @@ body{
     font-size: large;
 }
 #dificultad_partida{
-    background-color: #D3D3D3;
+    background-color: #f0d4ad;
     font-family:serif;
 }
 #tema_partida{
-    background-color: #D3D3D3;
+    background-color: #f0d4ad;
     font-family:serif;
     border-style: ridge;
 }
 #empezar_partida{
-    background-color: #D3D3D3;
+    background-color: #f0d4ad;
     font-family:serif;
     border-style: ridge;
 }
