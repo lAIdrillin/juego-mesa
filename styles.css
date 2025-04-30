@@ -32,7 +32,7 @@ body{
     font-size: large;
 }
 .input_numero{
-    width: 30px;
+    width: 50px;
 }
 #nombre{
     background-color: #f0d4ad;
@@ -47,6 +47,18 @@ body{
     color: #70624c;
 }
 #tema_partida{
+    background-color: #f0d4ad;
+    font-family:serif;
+    border-style: ridge;
+    color: #70624c;
+}
+#numero1{
+    background-color: #f0d4ad;
+    font-family:serif;
+    border-style: ridge;
+    color: #70624c;
+}
+#numero2{
     background-color: #f0d4ad;
     font-family:serif;
     border-style: ridge;
@@ -80,11 +92,5 @@ body{
     0 0 0 2px rgb(255, 255, 255),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
-#pers{
-    display: flex;
-    flex-direction: column;
-    column-gap: 10px;
-}
-.item{
-    width: 100px;
-}
+
+
