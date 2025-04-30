@@ -18,6 +18,9 @@ btnEmpezarPartida.addEventListener('click', () => {
     const resultado = numero1 * numero2;
     //const tema = document.getElementById("tema_partida").value;
 
+
+    //AÑADIR VALIDACIÓN PARA QUE SI HAY SELECCIONADA UNA DIFICULTAD, NO SE PUEDA PERSONALIZAR EL TABLERO Y VICEVERSA
+    
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
         accederJuego = false;
@@ -28,11 +31,6 @@ btnEmpezarPartida.addEventListener('click', () => {
         alert("Por favor, selecciona una dificultad o crea un tablero personalizado.");
         accederJuego = false;
         return;
-    }
-
-    if (dificultad !== "") {
-        document.getElementById("numero1").disabled = true;
-        document.getElementById("numero2").disabled = true;
     }
 
     if (resultado % 2) {
