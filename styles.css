@@ -52,6 +52,18 @@ body{
     border-style: ridge;
     color: #70624c;
 }
+#numero1{
+    background-color: #f0d4ad;
+    font-family:serif;
+    border-style: ridge;
+    color: #70624c;
+}
+#numero2{
+    background-color: #f0d4ad;
+    font-family:serif;
+    border-style: ridge;
+    color: #70624c;
+}
 #empezar_partida{
     background-color: #f0d4ad;
     font-family:serif;
