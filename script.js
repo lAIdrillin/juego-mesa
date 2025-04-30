@@ -12,6 +12,9 @@ btnEmpezarPartida.addEventListener('click', () => {
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
     const dificultad = document.getElementById("dificultad_partida").value;
+    const numero1 = document.getElementById("numero1").value;
+    const numero2 = document.getElementById("numero2").value;
+    const resultado = numero1 * numero2;
     //const tema = document.getElementById("tema_partida").value;
 
     if(nombre === "") {
@@ -19,7 +22,7 @@ btnEmpezarPartida.addEventListener('click', () => {
         return;
     }
 
-    if(dificultad === "") {
+    if(dificultad === "" || numero1 === "" && numero2 === "") {
         alert("Por favor, selecciona una dificultad para tu partida.")
         return;
     }
