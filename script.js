@@ -24,13 +24,16 @@ btnEmpezarPartida.addEventListener('click', () => {
         return;
     }
 
-    if ((dificultad === "" && (numero1 === "" || numero2 === "")) || 
-    (numero1 === "" && numero2 === "" && dificultad !== "")) {
-    alert("Por favor, selecciona una dificultad y completa ambos números.");
-    accederJuego = false;
-    return;
+    if (dificultad === "" && (numero1 === "" || numero2 === "")) {
+        alert("Por favor, selecciona una dificultad o crea un tablero personalizado.");
+        accederJuego = false;
+        return;
     }
 
+    if (resultado % 2) {
+        alert("Error, para el juego de las parejas las cartas tienen que ser pares.")
+    }
+    
     if(accederJuego){
         
     header.style.display = "none"; 
@@ -45,7 +48,23 @@ btnEmpezarPartida.addEventListener('click', () => {
         <h3>Intentos: ${contador}</h3>
     `;
 
+    crearCartas();
+
     }
 });
 
+/*function crearCartas() {
+    for(let i = 1; i <=10; i++) {
+        const tablero = document.createElement('table')
+        const carta = document.createElement('div')
 
+        carta.classList.add("carta");
+        carta.style.border = "Solid"
+        carta.style.width = '100px';
+        carta.style.height = '150px';
+        carta.style.margin = '10px';
+        carta.style.border = '2px solid black';
+        document.tablero.appendChild(carta);
+    }
+}
+*/
