@@ -32,6 +32,20 @@ btnEmpezarPartida.addEventListener('click', () => {
 
     if (resultado % 2) {
         alert("Error, para el juego de las parejas las cartas tienen que ser pares.")
+        accederJuego = false;
+        return;
+    }
+
+    if (resultado < 0) {
+        alert("Error, el número de cartas tiene que ser un número positivo.")
+        accederJuego = false;
+        return;
+    }
+
+    if (resultado > 64) {
+        alert("Actualmente no disponemos de tantas cartas, el número máximo de cartas es 64.")
+        accederJuego = false;
+        return;
     }
     
     if(accederJuego){
