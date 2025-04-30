@@ -24,7 +24,6 @@ btnEmpezarPartida.addEventListener('click', () => {
         return;
     }
     
-    
     if(nombre !== "" && dificultad !== ""){
         
     header.style.display = "none"; 
