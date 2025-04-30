@@ -1,4 +1,5 @@
 body{
+
     background-image:url("/images/fondo_juego.jpg");
     margin: auto;
     height: 100%;
@@ -7,6 +8,7 @@ body{
     column-gap: 20px; 
     align-content: center;
 }
+
 #header{
     width: 300px;
     min-height: 50px;
@@ -14,6 +16,7 @@ body{
     color:#70624c;
     
 }
+
 #table1{
     width: 300px;
   min-height: 250px;

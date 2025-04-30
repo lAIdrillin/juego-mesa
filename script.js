@@ -8,6 +8,7 @@ const header = document.getElementById("header");
 
 btnEmpezarPartida.addEventListener('click', () => {
 
+
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
@@ -54,6 +55,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     tablero.style.display = "block"
 
     tablero.innerHTML = `
+
         <h2>${nombre}</h2>
         <h3>Cronómetro: ${cronometro}</h3>
         <h3>Intentos: ${contador}</h3>
