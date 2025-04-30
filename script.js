@@ -13,17 +13,17 @@ btnEmpezarPartida.addEventListener('click', () => {
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
 
-    if(nombre === "") {
-        alert("¡Nombre vacío! Necesitas un nombre para jugar.")
-        return;
-    }
-
     header.style.display = "none"; 
 
     table1.style.display = "none"; 
 
     tablero.style.display = "block"
 
+    if(nombre === "") {
+        alert("¡Nombre vacío! Necesitas un nombre para jugar.")
+        return;
+    }
+    
     tablero.innerHTML = `
     <h3>Cronómetro: ${cronometro}</h3>
     <h3>Intentos: ${contador}</h3>
