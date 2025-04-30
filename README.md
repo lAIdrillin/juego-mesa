@@ -32,17 +32,18 @@
 # Sesión 2 Transición de Pantallas y Preparación de Partida 30/04/2025
 
 ## Resumen
-
+- En la sesion de hoy nos hemos encargado de las transiciones entre paginas,generar tableros basados en las distintas preferencias del usuario, realizar las diferentes validaciones
 
 ## Dificultades encontradas
-
+- **Problema #1:** Implementacion de transiciones
+- **Problema #2:** Generacion del tablero
 
 ## Soluciones aplicadas
-
+- **solucion Problema #1:** Optar por una transicion mas simple
 
 ## Fuentes consultadas
-- 
-
+- Apuntes de clases anteriores
+- Diferentes paginas web y blogs
 ## Decisiones técnicas
 - 
 
