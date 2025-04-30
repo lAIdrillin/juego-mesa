@@ -6,19 +6,16 @@ const table1 = document.getElementById("table1");
 
 const header = document.getElementById("header");
 
-const nombre = document.getElementById("nombre");
-
 btnEmpezarPartida.addEventListener('click', () => {
 
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
+    const nombre = document.getElementById("nombre");
 
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
         return;
     }
-
-    
 
     header.style.display = "none"; 
 
