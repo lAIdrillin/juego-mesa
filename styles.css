@@ -31,6 +31,10 @@ body{
     font-family:serif;
     font-size: large;
 }
+.input_numero{
+    width: 30px;
+
+}
 #nombre{
     background-color: #f0d4ad;
     font-family:serif;
