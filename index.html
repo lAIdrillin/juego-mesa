@@ -52,12 +52,18 @@
     <main>
         <table id="table1">
             <tr>
+                <th class="th_text">Nombre:</th>
+                <td>
+                    <input id="input-name" type="text" id="nombre">
+                </td>
+            </tr>
+            <tr>
                 <th class="th_text">Dificultad:</th>
                 <td>
                     <select id="dificultad_partida">
                         <option selected default disabled>Selecciona la dificultad:</option>
                         <option value="facil">Fácil (4x4)</option>
-                        <option value="medio">Medio (5x5)</option>
+                        <option value="medio">Medio (5x4)</option>
                         <option value="dificil">Difícil (6x6)</option>
                     </select>
                 </td>
@@ -81,15 +87,23 @@
                 </th>
             </tr>
         </table>
-    </main> 
+    </main>
+
+    <div id="tablero" style="display: none;">
+        <div id="cronometro">00.00.00</div>
+        <div id="contador">0</div>
+        <!--Button que retorne al menú principal-->
+    </div>
+
     <footer id="footer">
         <p>
-                    GAME DEVELOPED BY
+            GAME DEVELOPED BY
             EQUIPO E. JUANJO, GABRIEL & DAVID
-                        ©2025
+            ©2025
         </p>
     </footer>
 >>>>>>> 6a2babc4c0b2a6b864f40a8f15152dbcc7b170fb
     <script src="script.js"></script>
 </body>
+
 </html>
