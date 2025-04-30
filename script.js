@@ -30,14 +30,13 @@ btnEmpezarPartida.addEventListener('click', () => {
         return;
     }
 
-    if (resultado % 2) {
-        alert("Error, para el juego de las parejas las cartas tienen que ser pares.")
-        accederJuego = false;
-        return;
+    if (dificultad !== "") {
+        document.getElementById("numero1").disabled = true;
+        document.getElementById("numero2").disabled = true;
     }
 
-    if (resultado < 0) {
-        alert("Error, el número de cartas tiene que ser un número positivo.")
+    if (resultado % 2) {
+        alert("Error, para el juego de las parejas las cartas tienen que ser pares.")
         accederJuego = false;
         return;
     }
