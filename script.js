@@ -8,6 +8,8 @@ const header = document.getElementById("header");
 
 const nombre = document.getElementById("nombre").value;
 
+const dificultad = document.getElementById("dificultad_partida")
+
 btnEmpezarPartida.addEventListener('click', () => {
 
     const cronometro = document.getElementById("cronometro").textContent;
@@ -24,9 +26,15 @@ btnEmpezarPartida.addEventListener('click', () => {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
         return;
     }
+
+    if(dificultad === "") {
+        alert("Por favor, selecciona una dificultad para tu partida.")
+        return;
+    }
     
-    
+
     tablero.innerHTML = `
+    <h2>${nombre}</h2>
     <h3>Cronómetro: ${cronometro}</h3>
     <h3>Intentos: ${contador}</h3>
 `;
