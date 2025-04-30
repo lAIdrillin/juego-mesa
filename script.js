@@ -12,6 +12,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
     const dificultad = document.getElementById("dificultad_partida").value;
+    var accederJuego = true;
     const numero1 = document.getElementById("numero1").value;
     const numero2 = document.getElementById("numero2").value;
     const resultado = numero1 * numero2;
@@ -19,15 +20,18 @@ btnEmpezarPartida.addEventListener('click', () => {
 
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
+        accederJuego = false;
         return;
     }
 
-    if(dificultad === "" || numero1 === "" && numero2 === "") {
-        alert("Por favor, selecciona una dificultad para tu partida.")
-        return;
+    if ((dificultad === "" && (numero1 === "" || numero2 === "")) || 
+    (numero1 === "" && numero2 === "" && dificultad !== "")) {
+    alert("Por favor, selecciona una dificultad y completa ambos números.");
+    accederJuego = false;
+    return;
     }
-    
-    if(nombre !== "" && dificultad !== ""){
+
+    if(accederJuego){
         
     header.style.display = "none"; 
 
