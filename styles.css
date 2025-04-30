@@ -1,20 +1,14 @@
 body{
-<<<<<<< HEAD
-    background-color: rgb(15, 215, 148);
-    margin: 0;
-    align-content: center;
-=======
+
     background-image:url("/images/fondo_juego.jpg");
     margin: auto;
->>>>>>> 28100ec2024bc4867aee5f482eaff67af6519293
     height: 100%;
     display: flex;
     flex-direction: column;
     column-gap: 20px; 
     align-content: center;
 }
-<<<<<<< HEAD
-=======
+
 #header{
     width: 300px;
     min-height: 50px;
@@ -22,16 +16,11 @@ body{
     color:#70624c;
     
 }
->>>>>>> 28100ec2024bc4867aee5f482eaff67af6519293
+
 #table1{
     width: 300px;
   min-height: 250px;
   margin: auto;
-<<<<<<< HEAD
-  background: indigo;
-  color: white;
-  padding: 2rem;
-=======
   background: #ffffff9c;
   color: white;
   padding: 2rem;
@@ -45,7 +34,10 @@ body{
     font-family:serif;
     font-size: large;
 }
-#input-name{
+.input_numero{
+    width: 50px;
+}
+#nombre{
     background-color: #f0d4ad;
     font-family:serif;
     border-style: ridge;
@@ -58,6 +50,18 @@ body{
     color: #70624c;
 }
 #tema_partida{
+    background-color: #f0d4ad;
+    font-family:serif;
+    border-style: ridge;
+    color: #70624c;
+}
+#numero1{
+    background-color: #f0d4ad;
+    font-family:serif;
+    border-style: ridge;
+    color: #70624c;
+}
+#numero2{
     background-color: #f0d4ad;
     font-family:serif;
     border-style: ridge;
@@ -90,5 +94,6 @@ body{
     inset 0 -3em 3em rgba(0, 0, 0, 0.1),
     0 0 0 2px rgb(255, 255, 255),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
->>>>>>> 28100ec2024bc4867aee5f482eaff67af6519293
 }
+
+

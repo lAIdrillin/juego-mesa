@@ -15,7 +15,7 @@
 -
 =======
 # juego-mesa
-# Sesión 1
+# Sesión 1 Creación de la Interfaz Completa 29/04/2025
 
 ## Resumen
 - En esta sesión, hemos empezado creando el repositorio y compartiéndolo con todos, despúes se ha creado el archivo html que recoge el nombre del jugador, la dificultad de la partida y el modo de juego. Por otra parte, se han asignado unos estilos sencillos para que el aspecto de la interfaz sea amigable utilizando un archivo css. Por último, se ha empleado un script para añadir una funcionalidad a un botón que cambia de la pantalla principal al tablero de juego (incluye el cronómetro y número de intentos, aún sin funcionalidad).
@@ -44,3 +44,31 @@
 - Mayor consenso en la toma de decisiones
 - Con las siguientes versiones, ir realizando mejoras en función de las necesidades
 
+
+# Sesión 2 Transición de Pantallas y Preparación de Partida 30/04/2025
+
+## Resumen
+- En la sesion de hoy nos hemos encargado de las transiciones entre paginas,generar tableros basados en las distintas preferencias del usuario y realizar las diferentes validaciones
+
+## Dificultades encontradas
+- **Problema #1:** Implementacion de transiciones(El anunciado no fue lo suficentemente claro)
+- **Problema #2:** Generacion del tablero
+
+
+## Soluciones aplicadas
+- **solucion Problema #1:** Optar por una transicion mas simple
+- **solucion Problema #2:** Estamos trabjando en un tablero con Grid formtaeado con css y vinculado a la funcionalidad de javascript
+
+## Fuentes consultadas
+- Apuntes de clases anteriores
+- Diferentes paginas web y blogs
+
+## Decisiones técnicas
+- Tamaño del tablero
+- Tipo de transicion
+-
+
+## Ideas de mejora futura
+- Un poco mas de consenso a la hora de tomar decisiones 
+- Mas organizacion
+- En las siguientes versiones, realizar mejoras

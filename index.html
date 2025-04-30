@@ -49,19 +49,19 @@
         <h1>¡Bienvenid@ al juego de las tarjetas!😊</h1>
         <h4>Por favor, elige el nivel de dificultad y el tema de las cartas</h4>
     </header>
-    <main>
+    <main id="configuracion" class="vista_activa">
         <table id="table1">
             <tr>
                 <th class="th_text">Nombre:</th>
                 <td>
-                    <input id="input-name" type="text" id="nombre">
+                    <input type="text" id="nombre" placeholder="Nombre">
                 </td>
             </tr>
             <tr>
-                <th class="th_text">Dificultad:</th>
+                <th class="th_text">Selecciona la dificultad:</th>
                 <td>
                     <select id="dificultad_partida">
-                        <option selected default disabled>Selecciona la dificultad:</option>
+                        <option selected disabled value="">Dificultad:</option>
                         <option value="facil">Fácil (4x4)</option>
                         <option value="medio">Medio (5x4)</option>
                         <option value="dificil">Difícil (6x6)</option>
@@ -69,10 +69,20 @@
                 </td>
             </tr>
             <tr>
+                <!--Poner un label o algo pa que quede más claro que los input se refieren a las dimensiones-->
+                <th class="th_text">O crea un tablero personalizado</th>
+                <td>
+                    <input type="number" min="1" step="1" class="input_numero" id="numero1" placeholder="Filas">
+                </td>
+                <td>
+                    <input type="number" min="1" step="1" class="input_numero" id="numero2" placeholder="Columnas">
+                </td>
+            </tr>
+            <tr>
                 <th class="th_text">Tema:</th>
                 <td>
                     <select id="tema_partida">
-                        <option selected default disabled>Selecciona el tema de las cartas:</option>
+                        <option selected disabled value="">Selecciona el tema de las cartas:</option>
                         <option value="animales">Animales</option>
                         <option value="comidas">Comidas</option>
                         <option value="deportes">Deportes</option>
@@ -89,7 +99,7 @@
         </table>
     </main>
 
-    <div id="tablero" style="display: none;">
+    <div id="tablero" class="vista" style="display: none;">
         <div id="cronometro">00.00.00</div>
         <div id="contador">0</div>
         <!--Button que retorne al menú principal-->
