@@ -6,16 +6,13 @@ const table1 = document.getElementById("table1");
 
 const header = document.getElementById("header");
 
-const nombre = document.getElementById("nombre").value;
-
-const dificultad = document.getElementById("dificultad_partida").value;
-
-const tema = document.getElementById("tema_partida").value;
-
 btnEmpezarPartida.addEventListener('click', () => {
 
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
+    const nombre = document.getElementById("nombre").value;
+    const dificultad = document.getElementById("dificultad_partida").value;
+    const tema = document.getElementById("tema_partida").value;
 
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
