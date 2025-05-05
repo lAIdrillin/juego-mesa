@@ -103,32 +103,13 @@ function crearCartas(numero) {
 
     cartas.innerHTML = "";
 
-    let imagenesDuplicadas = [...imagenesAnimales, ...imagenesAnimales];
-
-    mezclarArray(imagenesDuplicadas);
-
-    imagenesDuplicadas = imagenesDuplicadas.slice(0, numero);
-
     for(let i = 1; i <=numero; i++) {
         const carta = document.createElement('div')
         carta.classList.add("carta"); 
-
-        const img = document.createElement('img');
-        img.src = imagenesDuplicadas[i]; 
-        img.classList.add("imagen-carta");
-        carta.appendChild(img);
+        cartas.appendChild(carta);
 
         carta.addEventListener('click', () => {
             carta.classList.toggle("volteada");
         });
-
-        cartas.appendChild(carta);
-    }
-}
-
-function mezclarArray(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
     }
 }
