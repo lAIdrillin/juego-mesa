@@ -100,15 +100,14 @@ function crearCartas(numero) {
         carta.classList.add("carta"); 
 
         const img = document.createElement('img');
-        img.src = imagenesDuplicadas[i];  // Asignar la imagen de la lista mezclada
-        img.alt = "Carta " + (i + 1);  // Texto alternativo
+        img.src = imagenesDuplicadas[i]; 
         img.classList.add("imagen-carta");
         carta.appendChild(img);
 
         carta.addEventListener('click', () => {
             carta.classList.toggle("volteada");
         });
-        
+
         cartas.appendChild(carta);
     }
 }
