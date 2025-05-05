@@ -12,7 +12,6 @@ const cartas = document.getElementById("cartas");
 
 btnEmpezarPartida.addEventListener('click', () => {
 
-
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
@@ -75,7 +74,6 @@ btnEmpezarPartida.addEventListener('click', () => {
     }
 
     crearCartas(numero);
-    voltearCartas();
 
     }
 });
@@ -88,11 +86,8 @@ function crearCartas(numero) {
         const carta = document.createElement('div')
         carta.classList.add("carta"); 
         cartas.appendChild(carta);
+        carta.addEventListener('click', () => {
+            carta.classList.toggle("volteada");
+        });
     }
-}
-
-function voltearCartas() {
-    carta.addEventListener('click', () => {
-    carta.classList.toggle("volteada");
-    });
 }
