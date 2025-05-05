@@ -100,7 +100,7 @@ function crearCartas(numero) {
         carta.classList.add("carta"); 
 
         const img = document.createElement('img');
-        img.src = imagenesDuplicadas[i]; 
+        img.src = imagenesDuplicadas[i];
         img.classList.add("imagen-carta");
         carta.appendChild(img);
 
