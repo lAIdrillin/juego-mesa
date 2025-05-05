@@ -116,7 +116,7 @@ body{
   }
   
   .carta:nth-child(odd) {
-    background-color: #ff7300; /* Por ejemplo, gris oscuro */
+    background-color: #ea7210; /* Por ejemplo, gris oscuro */
   }
   .carta {
     width: 100%;
