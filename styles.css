@@ -127,6 +127,7 @@ body{
   }
   
   .carta.volteada {
+    background-image: #f1c40f;
     transform: rotateY(180deg);
   }
   
