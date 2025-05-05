@@ -63,7 +63,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     let numero;
     
 
-    /*switch (dificultad) {
+    switch (dificultad) {
         case "facil":
             numero = 16
             cartas.className = "grid-4x4";
@@ -78,21 +78,9 @@ btnEmpezarPartida.addEventListener('click', () => {
             break;
         default:
             numero = resultado;
-    }*/
-
-    switch (dificultad) {
-        case "facil":
-            numero = 16
-            cartas.className = "grid-4x4";
-            break;
-        case "medio":
-            numero = 20;
-            cartas.className = "grid-5x4";
-            break;
-        case "dificil":
-            numero = 36;
-            cartas.className = "grid-6x6";
     }
+
+    
  
 
     crearCartas(numero);
@@ -108,7 +96,6 @@ function crearCartas(numero) {
         const carta = document.createElement('div')
         carta.classList.add("carta"); 
         cartas.appendChild(carta);
-
         carta.addEventListener('click', () => {
             carta.classList.toggle("volteada");
         });
