@@ -9,6 +9,7 @@ const header = document.getElementById("header");
 const cartas = document.getElementById("cartas");
 
 
+
 btnEmpezarPartida.addEventListener('click', () => {
 
 
@@ -24,9 +25,6 @@ btnEmpezarPartida.addEventListener('click', () => {
     const resultado = numero1 * numero2;
     //const tema = document.getElementById("tema_partida").value;
 
-
-    //AÑADIR VALIDACIÓN PARA QUE SI HAY SELECCIONADA UNA DIFICULTAD, NO SE PUEDA PERSONALIZAR EL TABLERO Y VICEVERSA
-    
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
         accederJuego = false;
@@ -75,9 +73,9 @@ btnEmpezarPartida.addEventListener('click', () => {
         default:
             numero = resultado;
     }
- 
 
     crearCartas(numero);
+    voltearCartas();
 
     }
 });
@@ -93,3 +91,8 @@ function crearCartas(numero) {
     }
 }
 
+function voltearCartas() {
+    carta.addEventListener('click', () => {
+    carta.classList.toggle("volteada");
+    });
+}
