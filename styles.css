@@ -87,45 +87,55 @@ body{
     color: #70624c;
     padding: 20px;
     font-family:serif;
-    width: 800px;
     margin: auto;
     text-align: center;
     box-shadow:
     inset 0 -3em 3em rgba(0, 0, 0, 0.1),
     0 0 0 2px rgb(255, 255, 255),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-    display: grid; /* O usa flexbox */
-    grid-template-columns: repeat(8, 1fr); /* O flex-basis: 100%; */
-    grid-template-rows: repeat(8, 1fr); /* O height: 100px; */
+    display: grid;
     gap: 5px;
-    width: 350px; /* Ajusta el ancho */
-    height: 450px; /* Ajusta la altura */
+   
     margin: auto;
 }
-  .carta {
-    width: 100%;
-    height: 100%;
-    /* Ajusta el color de fondo según sea par o impar */
-    background-color: #fff; /* Por ejemplo, blanco */
-    border-radius: 15%;
+#cartas {
+    display: grid;
+    grid-template-columns: repeat(); /* 8 columnas */
+    gap: 10px;
+    width: 480px; /* ajusta al tamaño de las cartas * 8 + espacio */
+    margin: auto;
   }
   
-  /* Opcional: Para el color de las cartas */
+  .carta {
+    width: 100px;
+    height: 200px;
+    background-color: #fff; 
+    border-radius: 15%;
+  }
+  .grid-4x4#cartas {
+    grid-template-columns: repeat(4, 1fr);
+    width: calc(80px * 4 + 10px * 3); /* 4 cartas + 3 espacios */
+  }
+  
+  .grid-5x4#cartas {
+    grid-template-columns: repeat(5, 1fr);
+    width: calc(80px * 4 + 10px * 3);
+  }
+  
+  .grid-6x6#cartas {
+    grid-template-columns: repeat(6, 1fr);
+    width: calc(80px * 6 + 10px * 5);
+  }
+  
+  
   .carta:nth-child(even) {
-    background-color: #ff0000; /* Por ejemplo, gris claro */
+    background-color: #ff0000;
   }
   
   .carta:nth-child(odd) {
-    background-color: #ea7210; /* Por ejemplo, gris oscuro */
+    background-color: #ea7210; 
   }
-  .carta {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-    cursor: pointer;
-  }
+
   
   .carta.volteada {
     transform: rotateY(180deg);
@@ -150,5 +160,4 @@ body{
     color: white;
   }
   
-
 
