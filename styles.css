@@ -94,29 +94,28 @@ body{
     inset 0 -3em 3em rgba(0, 0, 0, 0.1),
     0 0 0 2px rgb(255, 255, 255),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
-    display: grid; /* O usa flexbox */
-    grid-template-columns: repeat(8, 1fr); /* O flex-basis: 100%; */
-    grid-template-rows: repeat(8, 1fr); /* O height: 100px; */
+    display: grid; 
+    grid-template-columns: repeat(8, 1fr); 
+    grid-template-rows: repeat(8, 1fr); 
     gap: 5px;
-    width: 350px; /* Ajusta el ancho */
-    height: 450px; /* Ajusta la altura */
+    width: 350px; 
+    height: 450px;
     margin: auto;
 }
   .carta {
     width: 100%;
     height: 100%;
-    /* Ajusta el color de fondo según sea par o impar */
-    background-color: #fff; /* Por ejemplo, blanco */
+    background-color: #fff; 
     border-radius: 15%;
   }
   
-  /* Opcional: Para el color de las cartas */
+
   .carta:nth-child(even) {
-    background-color: #ff0000; /* Por ejemplo, gris claro */
+    background-color: #ff0000;
   }
   
   .carta:nth-child(odd) {
-    background-color: #ea7210; /* Por ejemplo, gris oscuro */
+    background-color: #ea7210; 
   }
   .carta {
     width: 100%;
