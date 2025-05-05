@@ -72,3 +72,25 @@
 - Un poco mas de consenso a la hora de tomar decisiones 
 - Mas organizacion
 - En las siguientes versiones, realizar mejoras
+
+
+# Sesión 3: Volteo de Cartas y Lógica de Emparejamiento 5/05/2025
+
+## Resumen
+- 
+
+## Dificultades encontradas
+- **Problema #1:** 
+
+
+## Soluciones aplicadas
+- **solucion Problema #1:** 
+
+## Fuentes consultadas
+- 
+
+## Decisiones técnicas
+- 
+
+## Ideas de mejora futura
+- 
