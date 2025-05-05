@@ -6,6 +6,9 @@ const table1 = document.getElementById("table1");
 
 const header = document.getElementById("header");
 
+const cartas = document.querySelectorAll('.carta');
+
+
 btnEmpezarPartida.addEventListener('click', () => {
 
 
@@ -47,6 +50,12 @@ btnEmpezarPartida.addEventListener('click', () => {
     }
     
     if(accederJuego){
+
+        cartas.forEach(carta => {
+            carta.addEventListener('click', () => {
+              carta.classList.toggle("volteada");
+            });
+          });
         
     header.style.display = "none"; 
 
