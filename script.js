@@ -60,19 +60,35 @@ btnEmpezarPartida.addEventListener('click', () => {
 
     tablero.style.display = "block"
 
+    let numero;
+
+    switch (dificultad) {
+        case "facil":
+            numero = 16;
+            break;
+        case "medio":
+            numero = 20;
+            break;
+        case "dificil":
+            numero = 36;
+            break;
+        default:
+            numero = resultado;
+    }
  
 
-    crearCartas();
+    crearCartas(numero);
 
     }
 });
 
-//añadir giro en lugar correcto
 
 
-function crearCartas() {
-    alert("h")
-    for(let i = 1; i <=3; i++) {
+function crearCartas(numero) {
+
+    cartas.innerHTML = "";
+
+    for(let i = 1; i <=numero; i++) {
         const carta = document.createElement('div')
         carta.classList.add("carta"); 
         cartas.appendChild(carta);
