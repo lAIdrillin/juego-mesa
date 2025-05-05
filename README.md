@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-## Sesion 1
-
-**Resumen:**
-
-**Dificultad encontradas:**
--Problema #1: Estamos teniendo problemas para compartir el repositorio con los miembros del equipo.
-**Soluciones aplicadas:**
--Solucion Problema #1: Hemos solucionado el problema de la siguiemte manera, invite a los miembros del equipo y una vez que ellos ya tenian acceso al repositorio lo bajaron en sus respectivos ordenadores y desde la aplicacion del escritorio lo pueden editar y subir cualquier tipo de cambio
-**Fuentes consultadas:**
--
-**Decisiones tecnicas:**
--
-**Ideas de mejora futura:**
--
-=======
-# juego-mesa
 # Sesión 1 Creación de la Interfaz Completa 29/04/2025
 
 ## Resumen
@@ -72,3 +55,35 @@
 - Un poco mas de consenso a la hora de tomar decisiones 
 - Mas organizacion
 - En las siguientes versiones, realizar mejoras
+
+
+# Sesión 3: Volteo de Cartas y Lógica de Emparejamiento 5/05/2025
+
+## Resumen
+- hemos estado trabajando en las taeras pendientes a la vez que hemos trtado de implemnetar las nuevas funcionlidades, implmentacion del tablero con las opciones requeridas
+
+## Dificultades encontradas
+- **Problema #1:** Hemos hecho el tablero con grid con las clases asociadas aun solo beef en el html pero vinculado a las opciones definidas en el script
+- **Problema #2:** Implementacion de imagenes
+- **Problema #3:** Rotacion de las cartas codigo implementado en el css sin funcion aparente
+
+## Soluciones aplicadas
+- **solucion Problema #1:** Una vez desarrollado en eldiseño seguimos trabjando en la funcinalidad
+- **solucion Problema #2:** No hemos conseguido darle una solucion consistnete a las imagnes entan acumaladas en un array en un script
+- **solucion Problema #3:** La solucion esta en proceso
+
+## Fuentes consultadas
+- Youtube
+- mdn web doc
+- w3schools
+
+## Decisiones técnicas
+- Las imagnes estan acumaladas en un array en un script.
+- Creacion de clases de css vinvuladas a las espicificaciones guardadas en el script.
+- Implememtacion de las opciones en un swicht.
+
+## Ideas de mejora futura
+- Seguir trabajando en la rotación.
+- Más organizacion de equipo.
+- Durante la tarde hemos sido capaces de implementar imágenes, orden personalizado y otras funcionalidades, sin embargo hemos tenido problemas en el final de la jornada
+y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos trabajando en los avances para estar al día.

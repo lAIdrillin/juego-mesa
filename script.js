@@ -6,12 +6,17 @@ const table1 = document.getElementById("table1");
 
 const header = document.getElementById("header");
 
+const cartas = document.getElementById("cartas");
+
+
 btnEmpezarPartida.addEventListener('click', () => {
 
 
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
+    const nomJugador = document.getElementById("nomJugador")
+    nomJugador.innerText = nombre;
     const dificultad = document.getElementById("dificultad_partida").value;
     var accederJuego = true;
     const numero1 = document.getElementById("numero1").value;
@@ -47,6 +52,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     }
     
     if(accederJuego){
+
         
     header.style.display = "none"; 
 
@@ -54,30 +60,44 @@ btnEmpezarPartida.addEventListener('click', () => {
 
     tablero.style.display = "block"
 
-    tablero.innerHTML = `
+    let numero;
+    
 
-        <h2>${nombre}</h2>
-        <h3>Cronómetro: ${cronometro}</h3>
-        <h3>Intentos: ${contador}</h3>
-    `;
+    switch (dificultad) {
+        case "facil":
+            numero = 16
+            cartas.className = "grid-4x4";
+            break;
+        case "medio":
+            numero = 20;
+            cartas.className = "grid-5x4";
+            break;
+        case "dificil":
+            numero = 36;
+            cartas.className = "grid-6x6";
+            break;
+        default:
+            numero = resultado;
+    }
 
-    crearCartas();
+    
+ 
+
+    crearCartas(numero);
 
     }
 });
 
-/*function crearCartas() {
-    for(let i = 1; i <=10; i++) {
-        const tablero = document.createElement('table')
-        const carta = document.createElement('div')
+function crearCartas(numero) {
 
-        carta.classList.add("carta");
-        carta.style.border = "Solid"
-        carta.style.width = '100px';
-        carta.style.height = '150px';
-        carta.style.margin = '10px';
-        carta.style.border = '2px solid black';
-        document.tablero.appendChild(carta);
+    cartas.innerHTML = "";
+
+    for(let i = 1; i <=numero; i++) {
+        const carta = document.createElement('div')
+        carta.classList.add("carta"); 
+        cartas.appendChild(carta);
+        carta.addEventListener('click', () => {
+            carta.classList.toggle("volteada");
+        });
     }
 }
-*/
