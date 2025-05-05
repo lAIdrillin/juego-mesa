@@ -82,8 +82,6 @@ btnEmpezarPartida.addEventListener('click', () => {
     }
 });
 
-
-
 function crearCartas(numero) {
 
     cartas.innerHTML = "";
