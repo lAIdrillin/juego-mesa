@@ -75,6 +75,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     }
 });
 
+//añadir giro en lugar correcto
 /*function crearCartas() {
     for(let i = 1; i <=10; i++) {
         const tablero = document.createElement('table')
