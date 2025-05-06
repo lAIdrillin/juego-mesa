@@ -187,6 +187,7 @@ function cronometro() {
         minutos++;
     }
     const formato = 
+        //"Cronometro: "
         (minutos < 10 ? "0" + minutos : minutos) + ":" +
         (segundos < 10 ? "0" + segundos : segundos) + ":" +
         (centesimas < 10 ? "0" + centesimas : centesimas);
