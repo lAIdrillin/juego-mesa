@@ -10,9 +10,9 @@ const header = document.getElementById("header");
 
 const cartas = document.getElementById("cartas");
 
-const imagenesAnimales = ["images/aguila.jpg", "images/ardilla.jpg", "images/cebra.jpg", "images/elefante.jpg", "images/conejo.jpg",
-"images/caballo.jpg", "images/buho.jpg", "images/delfin.jpg", "images/rinoceronte.jpg", "images/tucan.jpg", "images/leon.jpg", 
-"images/leopardo.jpg", "images/koala.jpg", "images/lobo.jpg", "images/oveja.jpg", "images/tigre.jpg"
+const imagenesAnimales = ["/images/aguila.jpg", "/images/ardilla.jpg", "/images/cebra.jpg", "/images/elefante.jpg", "/images/conejo.jpg",
+"/images/caballo.jpg", "/images/buho.jpg", "/images/delfin.jpg", "/images/rinoceronte.jpg", "/images/tucan.jpg", "/images/leon.jpg", 
+"/images/leopardo.jpg", "/images/koala.jpg", "/images/lobo.jpg", "/images/oveja.jpg", "/images/tigre.jpg"
 ]
 
 
@@ -98,14 +98,40 @@ btnEmpezarPartida.addEventListener('click', () => {
 });
 
 function crearCartas(numero) {
+    cartas.innerHTML = ""; // Limpiar el contenedor de cartas
 
-    cartas.innerHTML = "";
+    // Determinamos cuántas imágenes necesitamos (ya que son pares)
+    let totalImagenes = numero / 2;
 
-    for(let i = 1; i <=numero; i++) {
-        const carta = document.createElement('div')
-        carta.classList.add("carta"); 
+    // Creamos un array de imágenes duplicadas
+    let imagenesSeleccionadas = [];
+    while (imagenesSeleccionadas.length < totalImagenes) {
+        let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
+        // Aseguramos que la imagen no se repita
+        if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
+            imagenesSeleccionadas.push(imagenAleatoria);
+        }
+    }
+
+    // Doblamos las imágenes (para que aparezcan dos veces)
+    imagenesSeleccionadas = [...imagenesSeleccionadas, ...imagenesSeleccionadas];
+
+    // Desordenamos las imágenes aleatoriamente
+    imagenesSeleccionadas = imagenesSeleccionadas.sort(() => Math.random() - 0.5);
+
+    // Crear las cartas y asignarles imágenes
+    for (let i = 0; i < numero; i++) { // Empezamos desde 0 para asegurarnos de usar todos los índices
+        const carta = document.createElement('div');
+        carta.classList.add("carta");
+
+        // Asignar la imagen aleatoria a la carta
+        carta.style.backgroundImage = `url('/images/${imagenesSeleccionadas[i]}')`;
+
+        // Añadir la carta al contenedor
         cartas.appendChild(carta);
-        carta.addEventListener('click', () => { 
+
+        // Voltear la carta cuando se hace clic
+        carta.addEventListener('click', () => {
             carta.classList.toggle("volteada");
         });
     }
