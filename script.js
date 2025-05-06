@@ -32,7 +32,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     const resultado = filas * columnas;
     //const tema = document.getElementById("tema_partida").value;
 
-
+   
     //AÑADIR VALIDACIÓN PARA QUE SI HAY SELECCIONADA UNA DIFICULTAD, NO SE PUEDA PERSONALIZAR EL TABLERO Y VICEVERSA
     
     if(nombre === "") {
