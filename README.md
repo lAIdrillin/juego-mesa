@@ -87,3 +87,26 @@
 - Más organizacion de equipo.
 - Durante la tarde hemos sido capaces de implementar imágenes, orden personalizado y otras funcionalidades, sin embargo hemos tenido problemas en el final de la jornada
 y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos trabajando en los avances para estar al día.
+
+# Sesión 4: Reloj Activo y Personalización Avanzada 6/05/2025
+
+## Resumen
+- 
+## Dificultades encontradas
+- **Problema #1:** 
+- **Problema #2:** 
+- **Problema #3:** 
+
+## Soluciones aplicadas
+- **solucion Problema #1:** 
+- **solucion Problema #2:** 
+- **solucion Problema #3:** 
+
+## Fuentes consultadas
+- 
+
+## Decisiones técnicas
+- 
+
+## Ideas de mejora futura
+- 
