@@ -1,5 +1,7 @@
 const btnEmpezarPartida = document.getElementById("empezar_partida");
 
+const btnVolver = document.getElementById("volver");
+
 const tablero = document.getElementById("tablero");
 
 const table1 = document.getElementById("table1");
@@ -101,3 +103,7 @@ function crearCartas(numero) {
         });
     }
 }
+
+btnVolver.addEventListener('click', () => {
+    window.location.href = "index.html";
+});
