@@ -10,11 +10,18 @@ const header = document.getElementById("header");
 
 const cartas = document.getElementById("cartas");
 
-const imagenesAnimales = ["aguila.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
-"caballo.jpg", "buho.jpg", "delfin.jpg", "rinoceronte.jpg", "tucan.jpg", "leon.jpg", 
-"leopardo.jpg", "koala.jpg", "lobo.jpg", "oveja.jpg", "tigre.jpg"
+const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
+"castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
+"gallina.jpg", "koala.jpg", "lobo.jpg", "rana.jpg", "tigre.jpg"
 ];
 
+const imagenesComida = ["burritos.jpg","curry.jpg", "cebiche.jpg", "espaguetis.jpg","pollo.jpg", "salmon.jpg", "sushi.jpg"
+
+];
+
+const imagenesFutbol = [
+
+];
 
 btnEmpezarPartida.addEventListener('click', () => {
 
@@ -95,7 +102,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     cartas.style.display = "grid";
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
     cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
-    cartas.style.gap = "10px"; 
+    cartas.style.gap = "10px";
 
 });
 
@@ -151,7 +158,7 @@ function crearCartas(numero) {
                         segundaCarta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
 
                         resetTurno();
-                    }, 1000);
+                    },500);
                 }
             }
         });
