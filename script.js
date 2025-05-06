@@ -10,9 +10,11 @@ const header = document.getElementById("header");
 
 const cartas = document.getElementById("cartas");
 
+const final_partida = document.getElementById("final_partida")
+
 const imagenesAnimales = ["aguila.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
 "caballo.jpg", "buho.jpg", "delfin.jpg", "rinoceronte.jpg", "tucan.jpg", "leon.jpg", 
-"leopardo.jpg", "koala.jpg", "lobo.jpg", "oveja.jpg", "tigre.jpg"
+"leopardo.jpg", "koala.jpg", "lobo.jpg", "oveja.jpg", "tigre.jpg", "serpiente.jpg", "pinguino.jpg"
 ];
 
 
@@ -67,7 +69,7 @@ btnEmpezarPartida.addEventListener('click', () => {
 
     table1.style.display = "none"; 
 
-    tablero.style.display = "block"
+    tablero.style.display = "block";
 
     let numero;
 
@@ -130,7 +132,7 @@ function crearCartas(numero) {
 
             carta.classList.add("volteada");
             carta.style.backgroundImage = `url('/images/${carta.dataset.imagen}')`;
-
+            iniciarCronometro();
 
             if (!primeraCarta) {
                 primeraCarta = carta;
@@ -141,6 +143,7 @@ function crearCartas(numero) {
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
                     primeraCarta.classList.add("bloqueada");
                     segundaCarta.classList.add("bloqueada");
+                    verificarFinDeJuego();
                     resetTurno();
                 } else {
                     setTimeout(() => {
@@ -151,11 +154,10 @@ function crearCartas(numero) {
                         segundaCarta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
 
                         resetTurno();
-                    }, 1000);
+                    }, 750);
                 }
             }
         });
-
         cartas.appendChild(carta);
     }
 
@@ -201,3 +203,13 @@ function iniciarCronometro() {
 btnVolver.addEventListener('click', () => {
     window.location.href = "index.html";
 });
+
+function verificarFinDeJuego() {
+    const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
+    if (cartasBloqueadas.length === numero) {
+    
+        tablero.style.display = "none";
+
+        final_partida.style.display = "block";
+    }
+}
