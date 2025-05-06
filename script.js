@@ -107,7 +107,40 @@ function crearCartas(numero) {
         cartas.appendChild(carta);
         carta.addEventListener('click', () => { 
             carta.classList.toggle("volteada");
+            iniciarCronometro();
         });
+    }
+}
+let control;
+let centesimas = 0;
+let segundos = 0;
+let minutos = 0;
+let cronometroIniciado = false;
+
+function cronometro() {
+    centesimas++;
+    if (centesimas >= 100) {
+        centesimas = 0;
+        segundos++;
+    }
+    if (segundos >= 60) {
+        segundos = 0;
+        minutos++;
+    }
+
+    // Mostrar solo minutos y segundos
+    const formato = 
+        (minutos < 10 ? "0" + minutos : minutos) + ":" +
+        (segundos < 10 ? "0" + segundos : segundos) + ":" +
+        (centesimas < 10 ? "0" + centesimas : centesimas);
+    
+    document.getElementById("cronometro").textContent = formato;
+}
+
+function iniciarCronometro() {
+    if (!cronometroIniciado) {
+        control = setInterval(cronometro, 10);
+        cronometroIniciado = true;
     }
 }
 
