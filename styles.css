@@ -22,15 +22,16 @@ body{
 }
 
 #header{
-    width: 300px;
-    min-height: 50px;
-    margin: auto;
-    color:#70624c;
+  text-align: center;
+  width: 300px;
+  min-height: 50px;
+  margin: auto;
+  color:#70624c;
     
 }
 
 #table1{
-    width: 300px;
+  width: 600px;
   min-height: 250px;
   margin: auto;
   background: #ffffff9c;
