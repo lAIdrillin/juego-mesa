@@ -1,6 +1,8 @@
 body{
 
     background-image:url("/images/fondo_juego1.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
     margin: auto;
     height: 100%;
     display: flex;
@@ -10,7 +12,7 @@ body{
 }
 
 #memorium{
-  font-family: 'Georgia', serif;
+  font-family: 'Roboto Mono', monospace;
   font-size: 55px;
   font-weight: bold;
   color: #fff;  /* Color blanco o marfil */
@@ -18,7 +20,6 @@ body{
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);  /* Sombra suave para darle profundidad */
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin: 30px;
 }
 
 #header{
@@ -109,6 +110,8 @@ body{
 }
 #tablero{
     background-image:url("/images/fondo_juego1.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
     color: #70624c;
     background: #ffffff9c;
     padding: 20px;
