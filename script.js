@@ -1,6 +1,6 @@
 const btnEmpezarPartida = document.getElementById("empezar_partida");
 
-const btnVolver = document.getElementById("volver");
+const btnMenuPrincipal = document.querySelectorAll(".menu_principal")
 
 const tablero = document.getElementById("tablero");
 
@@ -43,7 +43,6 @@ btnEmpezarPartida.addEventListener('click', () => {
         return;
     }
 
-    
 
     if (dificultad === "" && (numero1 === "" || numero2 === "")) {
         alert("Por favor, selecciona una dificultad o crea un tablero personalizado.");
@@ -202,9 +201,12 @@ function iniciarCronometro() {
     }
 }
 
-btnVolver.addEventListener('click', () => {
-    window.location.href = "index.html";
+btnMenuPrincipal.forEach(boton => {
+    boton.addEventListener('click', () => {
+        window.location.href = "index.html";
+    });
 });
+
 
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
