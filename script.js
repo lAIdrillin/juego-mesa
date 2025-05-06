@@ -100,56 +100,72 @@ btnEmpezarPartida.addEventListener('click', () => {
 });
 
 function crearCartas(numero) {
-    cartas.innerHTML = ""; // Limpiar el contenedor de cartas
+    cartas.innerHTML = "";
 
-    // Determinamos cuántas imágenes necesitamos (ya que son pares)
     let totalImagenes = numero / 2;
-
-    // Creamos un array de imágenes duplicadas
     let imagenesSeleccionadas = [];
+
     while (imagenesSeleccionadas.length < totalImagenes) {
         let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
-        // Aseguramos que la imagen no se repita
         if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
             imagenesSeleccionadas.push(imagenAleatoria);
         }
     }
 
-    // Doblamos las imágenes (para que aparezcan dos veces)
     imagenesSeleccionadas = [...imagenesSeleccionadas, ...imagenesSeleccionadas];
-
-    // Desordenamos las imágenes aleatoriamente
     imagenesSeleccionadas = imagenesSeleccionadas.sort(() => Math.random() - 0.5);
 
-    // Crear las cartas y asignarles imágenes
-    for (let i = 0; i < numero; i++) { // Empezamos desde 0 para asegurarnos de usar todos los índices
+    let primeraCarta = null;
+    let segundaCarta = null;
+    let bloqueo = false;
+
+    for (let i = 0; i < numero; i++) {
         const carta = document.createElement('div');
         carta.classList.add("carta");
-
-        // Establecer el dorso de la carta inicialmente
-        carta.style.backgroundImage = `url('/images/dorso_carta.jpg')`; // Asegúrate de que tengas un dorso de carta
-
-        // Asignar la imagen del animal de manera "oculta" (al voltear la carta)
+        carta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
         carta.dataset.imagen = imagenesSeleccionadas[i];
 
-        // Añadir la carta al contenedor
-        cartas.appendChild(carta);
+        carta.addEventListener('click', () => {
+            if (bloqueo || carta.classList.contains("volteada") || carta.classList.contains("bloqueada")) return;
 
-        // Voltear la carta cuando se hace clic
-        carta.addEventListener('click', () => { 
-            if (carta.classList.contains("volteada")) return;
-            carta.classList.toggle("volteada");
-            iniciarCronometro();
+            carta.classList.add("volteada");
+            carta.style.backgroundImage = `url('/images/${carta.dataset.imagen}')`;
 
-            // Mostrar la imagen del animal al voltear la carta
-            if (carta.classList.contains("volteada")) {
-                carta.style.backgroundImage = `url('/images/${carta.dataset.imagen}')`;
+
+            if (!primeraCarta) {
+                primeraCarta = carta;
             } else {
-                carta.style.backgroundImage = `url('/images/dorso_carta.jpg')`; // Volver al dorso
+                segundaCarta = carta;
+                bloqueo = true;
+
+                if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
+                    primeraCarta.classList.add("bloqueada");
+                    segundaCarta.classList.add("bloqueada");
+                    resetTurno();
+                } else {
+                    setTimeout(() => {
+                        primeraCarta.classList.remove("volteada");
+                        primeraCarta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
+
+                        segundaCarta.classList.remove("volteada");
+                        segundaCarta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
+
+                        resetTurno();
+                    }, 1000);
+                }
             }
         });
+
+        cartas.appendChild(carta);
+    }
+
+    function resetTurno() {
+        primeraCarta = null;
+        segundaCarta = null;
+        bloqueo = false;
     }
 }
+
 
 let control;
 let centesimas = 0;
