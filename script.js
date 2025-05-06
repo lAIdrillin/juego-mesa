@@ -10,6 +10,11 @@ const header = document.getElementById("header");
 
 const cartas = document.getElementById("cartas");
 
+const imagenesAnimales = ["images/aguila.jpg", "images/ardilla.jpg", "images/cebra.jpg", "images/elefante.jpg", "images/conejo.jpg",
+"images/caballo.jpg", "images/buho.jpg", "images/delfin.jpg", "images/rinoceronte.jpg", "images/tucan.jpg", "images/leon.jpg", 
+"images/leopardo.jpg", "images/koala.jpg", "images/lobo.jpg", "images/oveja.jpg", "images/tigre.jpg"
+]
+
 
 btnEmpezarPartida.addEventListener('click', () => {
 
