@@ -10,10 +10,10 @@ const header = document.getElementById("header");
 
 const cartas = document.getElementById("cartas");
 
-const imagenesAnimales = ["/images/aguila.jpg", "/images/ardilla.jpg", "/images/cebra.jpg", "/images/elefante.jpg", "/images/conejo.jpg",
-"/images/caballo.jpg", "/images/buho.jpg", "/images/delfin.jpg", "/images/rinoceronte.jpg", "/images/tucan.jpg", "/images/leon.jpg", 
-"/images/leopardo.jpg", "/images/koala.jpg", "/images/lobo.jpg", "/images/oveja.jpg", "/images/tigre.jpg"
-]
+const imagenesAnimales = ["aguila.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
+"caballo.jpg", "buho.jpg", "delfin.jpg", "rinoceronte.jpg", "tucan.jpg", "leon.jpg", 
+"leopardo.jpg", "koala.jpg", "lobo.jpg", "oveja.jpg", "tigre.jpg"
+];
 
 
 btnEmpezarPartida.addEventListener('click', () => {
@@ -95,27 +95,61 @@ btnEmpezarPartida.addEventListener('click', () => {
     cartas.style.display = "grid";
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
     cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
-    cartas.style.gap = "10px"; // opcional
+    cartas.style.gap = "10px"; 
 
 });
 
 function crearCartas(numero) {
-    cartas.innerHTML = ""; 
+    cartas.innerHTML = ""; // Limpiar el contenedor de cartas
 
-    for (let i = 0; i < numero; i++) { 
+    // Determinamos cuántas imágenes necesitamos (ya que son pares)
+    let totalImagenes = numero / 2;
+
+    // Creamos un array de imágenes duplicadas
+    let imagenesSeleccionadas = [];
+    while (imagenesSeleccionadas.length < totalImagenes) {
+        let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
+        // Aseguramos que la imagen no se repita
+        if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
+            imagenesSeleccionadas.push(imagenAleatoria);
+        }
+    }
+
+    // Doblamos las imágenes (para que aparezcan dos veces)
+    imagenesSeleccionadas = [...imagenesSeleccionadas, ...imagenesSeleccionadas];
+
+    // Desordenamos las imágenes aleatoriamente
+    imagenesSeleccionadas = imagenesSeleccionadas.sort(() => Math.random() - 0.5);
+
+    // Crear las cartas y asignarles imágenes
+    for (let i = 0; i < numero; i++) { // Empezamos desde 0 para asegurarnos de usar todos los índices
         const carta = document.createElement('div');
         carta.classList.add("carta");
+
+        // Establecer el dorso de la carta inicialmente
+        carta.style.backgroundImage = `url('/images/dorso_carta.jpg')`; // Asegúrate de que tengas un dorso de carta
+
+        // Asignar la imagen del animal de manera "oculta" (al voltear la carta)
+        carta.dataset.imagen = imagenesSeleccionadas[i];
+
+        // Añadir la carta al contenedor
         cartas.appendChild(carta);
-        carta.addEventListener('click', () => {
+
+        // Voltear la carta cuando se hace clic
+        carta.addEventListener('click', () => { 
+            if (carta.classList.contains("volteada")) return;
             carta.classList.toggle("volteada");
             iniciarCronometro();
+
+            // Mostrar la imagen del animal al voltear la carta
+            if (carta.classList.contains("volteada")) {
+                carta.style.backgroundImage = `url('/images/${carta.dataset.imagen}')`;
+            } else {
+                carta.style.backgroundImage = `url('/images/dorso_carta.jpg')`; // Volver al dorso
+            }
         });
     }
 }
-
-
-
-
 
 let control;
 let centesimas = 0;
