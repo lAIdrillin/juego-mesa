@@ -83,9 +83,6 @@ btnEmpezarPartida.addEventListener('click', () => {
             numero = resultado;
     }
 
-    
- 
-
     crearCartas(numero);
 
     }
