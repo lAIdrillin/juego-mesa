@@ -22,9 +22,9 @@ btnEmpezarPartida.addEventListener('click', () => {
     const dificultad = document.getElementById("dificultad_partida").value;
     const modo = document.get
     var accederJuego = true;
-    const numero1 = document.getElementById("numero1").value;
-    const numero2 = document.getElementById("numero2").value;
-    const resultado = numero1 * numero2;
+    const filas = document.getElementById("numero1").value;
+    const columnas = document.getElementById("numero2").value;
+    const resultado = filas * columnas;
     //const tema = document.getElementById("tema_partida").value;
 
 
@@ -84,6 +84,12 @@ btnEmpezarPartida.addEventListener('click', () => {
     crearCartas(numero);
 
     }
+
+    cartas.style.display = "grid";
+    cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
+    cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
+    cartas.style.gap = "10px"; // opcional
+
 });
 
 function crearCartas(numero) {
