@@ -18,7 +18,7 @@ body{
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);  /* Sombra suave para darle profundidad */
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin: 20px;
+  margin: 30px;
 }
 
 #header{
