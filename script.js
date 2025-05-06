@@ -10,13 +10,19 @@ const header = document.getElementById("header");
 
 const cartas = document.getElementById("cartas");
 
-const final_partida = document.getElementById("final_partida")
-
-const imagenesAnimales = ["aguila.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
-"caballo.jpg", "buho.jpg", "delfin.jpg", "rinoceronte.jpg", "tucan.jpg", "leon.jpg", 
-"leopardo.jpg", "koala.jpg", "lobo.jpg", "oveja.jpg", "tigre.jpg", "serpiente.jpg", "pinguino.jpg"
+const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
+"castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
+"gallina.jpg", "koala.jpg", "lobo.jpg", "rana.jpg", "tigre.jpg"
 ];
 
+const imagenesComida = ["burritos.jpg","curry.jpg", "cebiche.jpg", "espaguetis.jpg", "pollo.jpg", 
+"salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
+"polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
+];
+
+const imagenesFutbol = [
+
+];
 
 btnEmpezarPartida.addEventListener('click', () => {
 
@@ -98,7 +104,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     cartas.style.display = "grid";
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
     cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
-    cartas.style.gap = "10px"; 
+    cartas.style.gap = "10px";
 
 });
 
@@ -109,7 +115,7 @@ function crearCartas(numero) {
     let imagenesSeleccionadas = [];
 
     while (imagenesSeleccionadas.length < totalImagenes) {
-        let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
+        let imagenAleatoria = imagenesComida[Math.floor(Math.random() * imagenesComida.length)];
         if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
             imagenesSeleccionadas.push(imagenAleatoria);
         }
@@ -155,7 +161,7 @@ function crearCartas(numero) {
                         segundaCarta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
 
                         resetTurno();
-                    }, 750);
+                    },500);
                 }
             }
         });
