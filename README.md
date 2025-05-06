@@ -91,22 +91,26 @@ y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos traba
 # Sesión 4: Reloj Activo y Personalización Avanzada 6/05/2025
 
 ## Resumen
-- 
+- En la sesión de hoy hemos conseguido los siguientes avances. Se han añadido diferentes funcionalidades, tal como, el conómetro, el contador, el tablero recibe todas las preferencias del usuario en cuanto al tamaño del mismo. También se diferencia el anverso y el reverso de las cartas. La rotación está implementada. Hay una finalixación del juego al completar las parejas, aunque se encuentra en fase  de desarrollo. Hemos creado arrays para almacenar las imágenes por temas.
 ## Dificultades encontradas
-- **Problema #1:** 
+- **Problema #1:** Las imágenes seleccionadas no se ajustan a formato de la carta.
 - **Problema #2:** 
 - **Problema #3:** 
 
 ## Soluciones aplicadas
-- **solucion Problema #1:** 
+- **solucion Problema #1:** Sustituir las imágenes por otras más adecuadas.
 - **solucion Problema #2:** 
 - **solucion Problema #3:** 
 
 ## Fuentes consultadas
-- 
+- Codepen
+- Youtube
+- W3school
+
 
 ## Decisiones técnicas
-- 
+- Decisiones principalmente tomadas en cuanto a la interfaz del juego.
 
 ## Ideas de mejora futura
-- 
+- Encuadramiento de las cartas y las imágenes.
+- Mejorar el fin de la partida.
