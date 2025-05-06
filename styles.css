@@ -1,5 +1,4 @@
 body{
-
     background-image:url("/images/fondo_juego1.jpg");
     background-size: cover; 
     background-repeat: no-repeat;
@@ -28,7 +27,13 @@ body{
   min-height: 50px;
   margin: auto;
   color:#70624c;
-    
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  color: #fff;  /* Color blanco o marfil */
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);  /* Sombra suave para darle profundidad */
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 #table1{
@@ -110,10 +115,6 @@ body{
 }
 /* Adaptar la imagen para que sea fija y no cambie en función de las cartas que haya */
 #tablero{
-    background-image:url("/images/fondo_juego1.jpg");
-    background-size: cover; 
-    background-repeat: no-repeat;
-    background-position: center;
     color: #70624c;
     background: #ffffff9c;
     padding: 20px;
