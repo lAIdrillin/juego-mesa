@@ -41,6 +41,8 @@ btnEmpezarPartida.addEventListener('click', () => {
         return;
     }
 
+    
+
     if (dificultad === "" && (numero1 === "" || numero2 === "")) {
         alert("Por favor, selecciona una dificultad o crea un tablero personalizado.");
         accederJuego = false;
@@ -98,45 +100,23 @@ btnEmpezarPartida.addEventListener('click', () => {
 });
 
 function crearCartas(numero) {
-    cartas.innerHTML = ""; // Limpiar el contenedor de cartas
+    cartas.innerHTML = ""; 
 
-    // Determinamos cuántas imágenes necesitamos (ya que son pares)
-    let totalImagenes = numero / 2;
-
-    // Creamos un array de imágenes duplicadas
-    let imagenesSeleccionadas = [];
-    while (imagenesSeleccionadas.length < totalImagenes) {
-        let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
-        // Aseguramos que la imagen no se repita
-        if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
-            imagenesSeleccionadas.push(imagenAleatoria);
-        }
-    }
-
-    // Doblamos las imágenes (para que aparezcan dos veces)
-    imagenesSeleccionadas = [...imagenesSeleccionadas, ...imagenesSeleccionadas];
-
-    // Desordenamos las imágenes aleatoriamente
-    imagenesSeleccionadas = imagenesSeleccionadas.sort(() => Math.random() - 0.5);
-
-    // Crear las cartas y asignarles imágenes
-    for (let i = 0; i < numero; i++) { // Empezamos desde 0 para asegurarnos de usar todos los índices
+    for (let i = 0; i < numero; i++) { 
         const carta = document.createElement('div');
         carta.classList.add("carta");
-
-        // Asignar la imagen aleatoria a la carta
-        carta.style.backgroundImage = `url('/images/${imagenesSeleccionadas[i]}')`;
-
-        // Añadir la carta al contenedor
         cartas.appendChild(carta);
-
-        // Voltear la carta cuando se hace clic
         carta.addEventListener('click', () => {
             carta.classList.toggle("volteada");
             iniciarCronometro();
         });
     }
 }
+
+
+
+
+
 let control;
 let centesimas = 0;
 let segundos = 0;
@@ -153,8 +133,6 @@ function cronometro() {
         segundos = 0;
         minutos++;
     }
-
-    // Mostrar solo minutos y segundos
     const formato = 
         (minutos < 10 ? "0" + minutos : minutos) + ":" +
         (segundos < 10 ? "0" + segundos : segundos) + ":" +
