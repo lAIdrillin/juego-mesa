@@ -94,6 +94,8 @@ btnEmpezarPartida.addEventListener('click', () => {
 
     }
 
+    //
+
     cartas.style.display = "grid";
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
     cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
@@ -207,9 +209,6 @@ btnVolver.addEventListener('click', () => {
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
     if (cartasBloqueadas.length === numero) {
-    
-        tablero.style.display = "none";
-
-        final_partida.style.display = "block";
+        alert("Felicidades")
     }
 }
