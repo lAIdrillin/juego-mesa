@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body{
+  font-family: 'Press Start 2P' , cursive;
     background-image:url("/images/fondo_juego1.jpg");
     background-size: cover; 
     background-repeat: no-repeat;
@@ -11,7 +13,7 @@ body{
 }
 
 #memorium{
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Press Start 2P' , cursive;
   font-size: 55px;
   font-weight: bold;
   color: #fff;  /* Color blanco o marfil */
@@ -50,7 +52,7 @@ body{
 }
 .th_text{
     color: #70624c;
-    font-family:serif;
+    font-family:'Press Start 2P' , cursive;
     font-size: large;
 }
 .input_numero{
