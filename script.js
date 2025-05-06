@@ -48,15 +48,14 @@ btnEmpezarPartida.addEventListener('click', () => {
         return;
     }
 
-    if (resultado > 64) {
-        alert("Actualmente no disponemos de tantas cartas, el número máximo de cartas es 64.")
+    if (resultado > 36) {
+        alert("Actualmente no disponemos de tantas cartas, el número máximo de cartas es 36.")
         accederJuego = false;
         return;
     }
     
     if(accederJuego){
 
-        
     header.style.display = "none"; 
 
     table1.style.display = "none"; 
@@ -64,7 +63,6 @@ btnEmpezarPartida.addEventListener('click', () => {
     tablero.style.display = "block"
 
     let numero;
-    
 
     switch (dificultad) {
         case "facil":
@@ -82,9 +80,6 @@ btnEmpezarPartida.addEventListener('click', () => {
         default:
             numero = resultado;
     }
-
-    
- 
 
     crearCartas(numero);
 

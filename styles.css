@@ -106,8 +106,10 @@ body{
     0 0 0 2px rgb(255, 255, 255),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     display: grid;
-    gap: 5px;
+    gap: 20px;
+    align-items: center;
     margin: auto;
+    width: 1200px;
 }
 #cartas {
     display: grid;
