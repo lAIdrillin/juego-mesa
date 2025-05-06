@@ -161,18 +161,14 @@ body{
   }
   
   
-  .carta:nth-child(even) {
-    background-color: #ff0000;
-  }
-  
-  .carta:nth-child(odd) {
-    background-color: #ea7210; 
+  .carta:nth-child {
+    background-image:url("/images/dorso_carta.jpg");
   }
 
   
   .carta.volteada {
     transform: rotateY(180deg);
-    background-color: #fff;
+    background-color: #100cff66;
   }
   
   .cara {
