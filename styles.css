@@ -85,6 +85,7 @@ body{
 #tablero{
     background-image:url("/images/fondo_juego.jpg");
     color: #70624c;
+    background: #ffffff9c;
     padding: 20px;
     font-family:serif;
     margin: auto;
