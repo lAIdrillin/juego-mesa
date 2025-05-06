@@ -208,7 +208,13 @@ btnVolver.addEventListener('click', () => {
 
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
-    if (cartasBloqueadas.length === numero) {
-        alert("Felicidades")
+    const cartasPartida = document.querySelectorAll(".carta").length;
+
+    if (cartasBloqueadas.length === cartasPartida) {
+        setTimeout(() => {
+            tablero.style.display = "none"
+
+            final_partida.style.display = "block"
+        }, 500);
     }
 }
