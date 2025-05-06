@@ -74,13 +74,13 @@ body{
     color: #70624c;
 }
 #footer{
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 300px;
     margin: auto;
     min-height: 50px;
     color:#70624c;   
-    align-self: center;
+    align-self: right;
 }
 #tablero{
     background-image:url("/images/fondo_juego.jpg");
@@ -95,7 +95,6 @@ body{
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     display: grid;
     gap: 5px;
-   
     margin: auto;
 }
 #cartas {
@@ -139,6 +138,7 @@ body{
   
   .carta.volteada {
     transform: rotateY(180deg);
+    background-color: #fff;
   }
   
   .cara {
