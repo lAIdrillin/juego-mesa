@@ -108,10 +108,12 @@ body{
     color:#70624c;   
     align-self: right;
 }
+/* Adaptar la imagen para que sea fija y no cambie en función de las cartas que haya */
 #tablero{
     background-image:url("/images/fondo_juego1.jpg");
     background-size: cover; 
     background-repeat: no-repeat;
+    background-position: center;
     color: #70624c;
     background: #ffffff9c;
     padding: 20px;
