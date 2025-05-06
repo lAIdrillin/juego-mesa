@@ -11,12 +11,12 @@
 <body>
     <header id="header">
         <h1>¡Bienvenid@ al juego de las tarjetas!😊</h1>
-        <h4>Por favor, elige el nivel de dificultad y el tema de las cartas</h4>
+        <h4>Por favor, elige el nivel de dificultad, el modo de juego y el tema de las cartas</h4>
     </header>
     <main id="configuracion" class="vista_activa">
         <table id="table1">
             <tr>
-                <th class="th_text">Nombre:</th>
+                <th class="th_text">Introduce tu nombre:</th>
                 <td>
                     <input type="text" id="nombre" placeholder="Nombre">
                 </td>
@@ -43,13 +43,23 @@
                 </td>
             </tr>
             <tr>
-                <th class="th_text">Tema:</th>
+                <th class="th_text">Selecciona el modo de juego:</th>
+                <td>
+                    <select id="modo_partida">
+                        <option selected disabled value="">Modo:</option>
+                        <option value="normal">Normal</option>
+                        <option value="flash">Flash</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="th_text">Selecciona el tema de la partida:</th>
                 <td>
                     <select id="tema_partida">
                         <option selected disabled value="">Selecciona el tema de las cartas:</option>
-                        <option value="animales">Animales</option>
-                        <option value="comidas">Comidas</option>
-                        <option value="deportes">Deportes</option>
+                        <option value="animales">Animales🦁</option>
+                        <option value="comidas">Comidas🍕</option>
+                        <option value="deportes">Deportes⚽</option>
                     </select>
                 </td>
             </tr>
