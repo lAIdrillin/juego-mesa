@@ -142,7 +142,7 @@ body{
   .carta {
     width: 50px;
     height: 80px;
-    background-color: #fff; 
+    background-image: url("/images/leon.jpg"); 
     border-radius: 15%;
   }
   .grid-4x4#cartas {
@@ -160,19 +160,9 @@ body{
     width: calc(80px * 6 + 10px * 5);
   }
   
-  
-  .carta:nth-child(even) {
-    background-color: #ff0000;
-  }
-  
-  .carta:nth-child(odd) {
-    background-color: #ea7210; 
-  }
-
-  
   .carta.volteada {
     transform: rotateY(180deg);
-    background-color: #fff;
+    background-image: url("/images/besibol.jpg"); 
   }
   
   .cara {
