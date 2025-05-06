@@ -95,7 +95,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     cartas.style.display = "grid";
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
     cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
-    cartas.style.gap = "10px"; // opcional
+    cartas.style.gap = "10px"; 
 
 });
 
@@ -137,7 +137,9 @@ function crearCartas(numero) {
 
         // Voltear la carta cuando se hace clic
         carta.addEventListener('click', () => { 
+            if (carta.classList.contains("volteada")) return;
             carta.classList.toggle("volteada");
+            iniciarCronometro();
 
             // Mostrar la imagen del animal al voltear la carta
             if (carta.classList.contains("volteada")) {
