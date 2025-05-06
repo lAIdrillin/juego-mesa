@@ -115,7 +115,7 @@ function crearCartas(numero) {
     let imagenesSeleccionadas = [];
 
     while (imagenesSeleccionadas.length < totalImagenes) {
-        let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
+        let imagenAleatoria = imagenesComida[Math.floor(Math.random() * imagenesComida.length)];
         if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
             imagenesSeleccionadas.push(imagenAleatoria);
         }
