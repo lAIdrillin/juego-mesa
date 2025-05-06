@@ -142,7 +142,7 @@ body{
   .carta {
     width: 50px;
     height: 80px;
-    background-image: url("/images/leon.jpg"); 
+    background-image: url("/images/dorso_carta.jpg"); 
     border-radius: 15%;
   }
   .grid-4x4#cartas {
