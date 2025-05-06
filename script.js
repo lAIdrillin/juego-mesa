@@ -18,6 +18,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     const nomJugador = document.getElementById("nomJugador")
     nomJugador.innerText = nombre;
     const dificultad = document.getElementById("dificultad_partida").value;
+    const modo = document.get
     var accederJuego = true;
     const numero1 = document.getElementById("numero1").value;
     const numero2 = document.getElementById("numero2").value;
@@ -96,7 +97,7 @@ function crearCartas(numero) {
         const carta = document.createElement('div')
         carta.classList.add("carta"); 
         cartas.appendChild(carta);
-        carta.addEventListener('click', () => {
+        carta.addEventListener('click', () => { 
             carta.classList.toggle("volteada");
         });
     }
