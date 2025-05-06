@@ -1,6 +1,6 @@
 const btnEmpezarPartida = document.getElementById("empezar_partida");
 
-const btnVolver = document.getElementById("volver");
+const btnMenuPrincipal = document.querySelectorAll(".menu_principal")
 
 const tablero = document.getElementById("tablero");
 
@@ -48,7 +48,6 @@ btnEmpezarPartida.addEventListener('click', () => {
         return;
     }
 
-    
 
     if (dificultad === "" && (numero1 === "" || numero2 === "")) {
         alert("Por favor, selecciona una dificultad o crea un tablero personalizado.");
@@ -74,7 +73,7 @@ btnEmpezarPartida.addEventListener('click', () => {
 
     table1.style.display = "none"; 
 
-    tablero.style.display = "block"
+    tablero.style.display = "block";
 
     let numero;
 
@@ -98,6 +97,8 @@ btnEmpezarPartida.addEventListener('click', () => {
     crearCartas(numero);
 
     }
+
+    //
 
     cartas.style.display = "grid";
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
@@ -137,7 +138,7 @@ function crearCartas(numero) {
 
             carta.classList.add("volteada");
             carta.style.backgroundImage = `url('/images/${carta.dataset.imagen}')`;
-
+            iniciarCronometro();
 
             if (!primeraCarta) {
                 primeraCarta = carta;
@@ -148,6 +149,7 @@ function crearCartas(numero) {
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
                     primeraCarta.classList.add("bloqueada");
                     segundaCarta.classList.add("bloqueada");
+                    verificarFinDeJuego();
                     resetTurno();
                 } else {
                     setTimeout(() => {
@@ -162,7 +164,6 @@ function crearCartas(numero) {
                 }
             }
         });
-
         cartas.appendChild(carta);
     }
 
@@ -191,6 +192,7 @@ function cronometro() {
         minutos++;
     }
     const formato = 
+        //"Cronometro: "
         (minutos < 10 ? "0" + minutos : minutos) + ":" +
         (segundos < 10 ? "0" + segundos : segundos) + ":" +
         (centesimas < 10 ? "0" + centesimas : centesimas);
@@ -205,6 +207,22 @@ function iniciarCronometro() {
     }
 }
 
-btnVolver.addEventListener('click', () => {
-    window.location.href = "index.html";
+btnMenuPrincipal.forEach(boton => {
+    boton.addEventListener('click', () => {
+        window.location.href = "index.html";
+    });
 });
+
+
+function verificarFinDeJuego() {
+    const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
+    const cartasPartida = document.querySelectorAll(".carta").length;
+
+    if (cartasBloqueadas.length === cartasPartida) {
+        setTimeout(() => {
+            tablero.style.display = "none"
+
+            final_partida.style.display = "block"
+        }, 500);
+    }
+}
