@@ -39,7 +39,8 @@ btnEmpezarPartida.addEventListener('click', () => {
     const filas = document.getElementById("numero1").value;
     const columnas = document.getElementById("numero2").value;
     const resultado = filas * columnas;
-    //const tema = document.getElementById("tema_partida").value;
+    const tema = document.getElementById("tema_partida").value;
+
 
    
     //AÑADIR VALIDACIÓN PARA QUE SI HAY SELECCIONADA UNA DIFICULTAD, NO SE PUEDA PERSONALIZAR EL TABLERO Y VICEVERSA
@@ -65,6 +66,12 @@ btnEmpezarPartida.addEventListener('click', () => {
 
     if (resultado > 36) {
         alert("Actualmente no disponemos de tantas cartas, el número máximo de cartas es 36.")
+        accederJuego = false;
+        return;
+    }
+
+    if (tema === "") {
+        alert("Por favor, selecciona el tema que más te guste para tu partida.")
         accederJuego = false;
         return;
     }
@@ -96,7 +103,7 @@ btnEmpezarPartida.addEventListener('click', () => {
             numero = resultado;
     }
 
-    crearCartas(numero);
+    crearCartas(numero, tema);
 
     }
 
@@ -110,19 +117,47 @@ btnEmpezarPartida.addEventListener('click', () => {
 
 });
 
-function crearCartas(numero) {
+function crearCartas(numero, tema) {
     cartas.innerHTML = "";
 
     let totalImagenes = numero / 2;
     let imagenesSeleccionadas = [];
 
+    switch (tema) {
+        case "animales":
+            while (imagenesSeleccionadas.length < totalImagenes) {
+                let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
+                if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
+                    imagenesSeleccionadas.push(imagenAleatoria);
+                   
+                }  
+            }
+            break;        
+        case "comidas":
+            while (imagenesSeleccionadas.length < totalImagenes) {
+                let imagenAleatoria = imagenesComida[Math.floor(Math.random() * imagenesComida.length)];
+                if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
+                    imagenesSeleccionadas.push(imagenAleatoria);
+                   
+                }  
+            }
+            break;   
+        case "futbol":
+            while (imagenesSeleccionadas.length < totalImagenes) {
+                let imagenAleatoria = imagenesFutbol[Math.floor(Math.random() * imagenesFutbol.length)];
+                if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
+                    imagenesSeleccionadas.push(imagenAleatoria);
+                   
+                }  
+            }
+            break;   
+    }
     while (imagenesSeleccionadas.length < totalImagenes) {
-        let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
+        let imagenAleatoria = imagenesFutbol[Math.floor(Math.random() * imagenesFutbol.length)];
         if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
             imagenesSeleccionadas.push(imagenAleatoria);
            
-        }
-        
+        }  
     }
 
     imagenesSeleccionadas = [...imagenesSeleccionadas, ...imagenesSeleccionadas];
