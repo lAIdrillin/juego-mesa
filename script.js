@@ -310,7 +310,7 @@ function guardarPartida() {
     const nombre = document.getElementById("nombre").value;
     
     
-    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;
+    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;  
     let dificultad;
 
 
