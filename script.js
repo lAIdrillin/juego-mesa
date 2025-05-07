@@ -283,16 +283,16 @@ btnHistorial.forEach(boton => {
 
         historial_partidas.style.display = "block";
 
-
+        mostrarHistorial()
     });
 });
-
 
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
     const cartasPartida = document.querySelectorAll(".carta").length;
 
     if (cartasBloqueadas.length === cartasPartida) {
+        agregarPartida();
         setTimeout(() => {
             tablero.style.display = "none"
 
@@ -300,4 +300,58 @@ function verificarFinDeJuego() {
         }, 500);
     }
 }
+
+// Suponiendo que tienes la clase Partida definida previamente
+class Partida {
+    constructor(nombreJugador, tiempo, dificultad, intentos) {
+      this.nombreJugador = nombreJugador;
+      this.tiempo = tiempo;
+      this.dificultad = dificultad;
+      this.intentos = intentos;
+      this.fecha = new Date().toISOString().split('T')[0];  // Fecha en formato YYYY-MM-DD
+    }
+  
+    // Método para mostrar los detalles de la partida
+    mostrarDetalles() {
+      return `
+        Jugador: ${this.nombreJugador}
+        Fecha: ${this.fecha}
+        Tiempo: ${this.tiempo} segundos
+        Dificultad: ${this.dificultad}
+        Intentos: ${this.intentos}
+      `;
+    }
+  }
+  
+  // Array para almacenar las partidas
+  let historialPartidas = [];
+  
+  // Función para agregar una nueva partida
+  function agregarPartida() {
+    // Obtener los valores del DOM
+    const cronometro = document.getElementById("cronometro").textContent;
+    const contador = document.getElementById("contador").textContent;
+    const nombre = document.getElementById("nombre").value;
+    const dificultad = document.getElementById("dificultad_partida").value;
+  
+    // Crear una nueva instancia de la clase Partida
+    const nuevaPartida = new Partida(nombre, parseInt(cronometro), dificultad, parseInt(contador));
+  
+    // Agregarla al historial
+    historialPartidas.push(nuevaPartida);
+  
+    // Mostrar el historial completo
+    mostrarHistorial();
+  }
+  
+  // Función para mostrar el historial de partidas
+  function mostrarHistorial() {
+    historialPartidas.forEach((partida, index) => {
+      console.log(`Partida ${index + 1}:`);
+      console.log(partida.mostrarDetalles());
+      console.log('---------------------');
+    });
+  }
+
+  
 
