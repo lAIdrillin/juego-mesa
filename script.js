@@ -310,7 +310,7 @@ function guardarPartida() {
     const nombre = document.getElementById("nombre").value;
     
     
-    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;
+    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;  
     let dificultad;
 
 
@@ -323,6 +323,7 @@ function guardarPartida() {
         dificultad = resultado;
     }
 
+   
     const nuevaPartida = {
         nombreJugador: nombre,
         tiempo: cronometro,
@@ -353,7 +354,7 @@ function mostrarHistorial() {
     if (historialPartidas.length > 0) {
         historialPartidas.forEach((partida, index) => {
             const item = document.createElement("li");
-            item.textContent = `Partida ${index + 1}: Jugador: ${partida.nombreJugador}, Fecha: ${partida.fecha}, Tiempo: ${partida.tiempo} segundos, Dificultad: ${partida.dificultad}, Intentos: ${partida.intentos}`;
+            item.textContent = `Partida ${index + 1}: Jugador: ${partida.nombreJugador}, Fecha: ${partida.fecha}, Tiempo: ${partida.tiempo}, Dificultad: ${partida.dificultad}, Intentos: ${partida.intentos}`;
             lista.appendChild(item);
         });
     } else {
@@ -364,7 +365,8 @@ function mostrarHistorial() {
     contenedorHistorial.appendChild(historialContenido);
 }
 
-btnLimpiarHistorial.addEventListener('click', () => {
-        localStorage.clear(); 
+btnLimpiarHistorial.forEach(boton => {
+    boton.addEventListener('click', () => {
+        localStorage.clear();
+    });
 });
-
