@@ -336,8 +336,6 @@ function guardarPartida() {
     historialPartidas.push(nuevaPartida);
 
     localStorage.setItem("historialPartidas", JSON.stringify(historialPartidas));
-
-    mostrarHistorial();
 }
 
 
