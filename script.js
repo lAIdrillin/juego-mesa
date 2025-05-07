@@ -213,14 +213,13 @@ function crearCartas(numero, tema) {
         cartas.appendChild(carta);
 
         function contarPares() {
-            cartasVolteadas.push(this); // Agregamos la carta volteada al array
+            cartasVolteadas.push(this);
 
             if (cartasVolteadas.length === 2) {
-                contadorPares++;  // Sumar uno cada vez que se voltean dos cartas
-                document.getElementById("contador").textContent = contadorPares; // Mostrar el contador
-                
-                // Reiniciar el proceso después de dos clics
-                cartasVolteadas = []; // Limpiar el array de cartas volteadas
+                contadorPares++; 
+                document.getElementById("contador").textContent = contadorPares; 
+
+                cartasVolteadas = []; 
             }
         }
 
