@@ -88,12 +88,6 @@ body{
     border-style: ridge;
     color: #70624c;
 }
-#empezar_partida{
-    background-color: #f0d4ad;
-    font-family:serif;
-    border-style: ridge;
-    color: #70624c;
-}
 #modo_partida{
   background-color: #f0d4ad;
   font-family:serif;
@@ -199,7 +193,7 @@ body{
   transform: rotateY(360deg); 
 }
 
-  .menu_principal{
+  .menu_principal, .historial, #empezar_partida{
     background-color: #f0d4ad;
     border-radius: 10%;
     height: 50px;

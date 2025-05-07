@@ -1,6 +1,8 @@
 const btnEmpezarPartida = document.getElementById("empezar_partida");
 
-const btnMenuPrincipal = document.querySelectorAll(".menu_principal")
+const btnMenuPrincipal = document.querySelectorAll(".menu_principal");
+
+const btnHistorial = document.querySelectorAll(".historial")
 
 const tablero = document.getElementById("tablero");
 
@@ -250,7 +252,7 @@ function cronometro() {
         minutos++;
     }
     const formato = 
-        //"Cronometro: "
+
         (minutos < 10 ? "0" + minutos : minutos) + ":" +
         (segundos < 10 ? "0" + segundos : segundos) + ":" +
         (centesimas < 10 ? "0" + centesimas : centesimas);
@@ -268,6 +270,20 @@ function iniciarCronometro() {
 btnMenuPrincipal.forEach(boton => {
     boton.addEventListener('click', () => {
         window.location.href = "index.html";
+    });
+});
+
+btnHistorial.forEach(boton => {
+    boton.addEventListener('click', () => {
+        header.style.display = "none"; 
+
+        table1.style.display = "none"; 
+    
+        final_partida.style.display = "none";
+
+        historial_partidas.style.display = "block";
+
+
     });
 });
 
