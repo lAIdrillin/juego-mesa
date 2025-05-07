@@ -20,9 +20,10 @@ const imagenesComida = ["burritos.jpg","curry.jpg", "cebiche.jpg", "espaguetis.j
 "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
 ];
 
-const imagenesFutbol = [
-
-];
+const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "celta.png", "atlmadrid.png", "sevilla.png", 
+    "barcelona.png", "athletic.png", "alaves.png", "deportivocoruna.png", "elche.png", "zaragoza.png", "realoviedo.png",
+    "sporting.png", "cordoba.png", "malaga.png", "villarreal.png", "valencia.png"];
+    
 
 btnEmpezarPartida.addEventListener('click', () => {
 
@@ -105,6 +106,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
     cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
     cartas.style.gap = "10px";
+    cartas.style.transform = "scaleX(-1)";
 
 });
 
@@ -115,10 +117,12 @@ function crearCartas(numero) {
     let imagenesSeleccionadas = [];
 
     while (imagenesSeleccionadas.length < totalImagenes) {
-        let imagenAleatoria = imagenesComida[Math.floor(Math.random() * imagenesComida.length)];
+        let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
         if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
             imagenesSeleccionadas.push(imagenAleatoria);
+           
         }
+        
     }
 
     imagenesSeleccionadas = [...imagenesSeleccionadas, ...imagenesSeleccionadas];
@@ -133,6 +137,7 @@ function crearCartas(numero) {
         carta.classList.add("carta");
         carta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
         carta.dataset.imagen = imagenesSeleccionadas[i];
+        
 
         carta.addEventListener('click', () => {
             if (bloqueo || carta.classList.contains("volteada") || carta.classList.contains("bloqueada")) return;
@@ -166,6 +171,7 @@ function crearCartas(numero) {
             }
         });
         cartas.appendChild(carta);
+        
     }
 
     function resetTurno() {
