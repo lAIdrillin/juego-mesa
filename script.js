@@ -214,7 +214,6 @@ function crearCartas(numero, tema) {
 
         function contarPares() {
             cartasVolteadas.push(this); // Agregamos la carta volteada al array
-            cartasVolteadas.push(this); 
 
             if (cartasVolteadas.length === 2) {
                 contadorPares++;  // Sumar uno cada vez que se voltean dos cartas
