@@ -354,7 +354,7 @@ function mostrarHistorial() {
     if (historialPartidas.length > 0) {
         historialPartidas.forEach((partida, index) => {
             const item = document.createElement("li");
-            item.textContent = `Partida ${index + 1}: Jugador: ${partida.nombreJugador}, Fecha: ${partida.fecha}, Tiempo: ${partida.tiempo} segundos, Dificultad: ${partida.dificultad}, Intentos: ${partida.intentos}`;
+            item.textContent = `Partida ${index + 1}: Jugador: ${partida.nombreJugador}, Fecha: ${partida.fecha}, Tiempo: ${partida.tiempo}, Dificultad: ${partida.dificultad}, Intentos: ${partida.intentos}`;
             lista.appendChild(item);
         });
     } else {
