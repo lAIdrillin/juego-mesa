@@ -193,6 +193,7 @@ function crearCartas(numero, tema) {
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
                     primeraCarta.classList.add("bloqueada");
                     segundaCarta.classList.add("bloqueada");
+                    almacenarPuntuaciones();
                     verificarFinDeJuego();
                     resetTurno();
                 } else {
@@ -213,16 +214,13 @@ function crearCartas(numero, tema) {
         cartas.appendChild(carta);
 
         function contarPares() {
-            cartasVolteadas.push(this); // Agregamos la carta volteada al array
+            cartasVolteadas.push(this); 
         
             if (cartasVolteadas.length === 2) {
-                contadorPares++;  // Sumar uno cada vez que se voltean dos cartas
-                document.getElementById("contador").textContent = contadorPares; // Mostrar el contador
-                
-                // Reiniciar el proceso después de dos clics
-                cartasVolteadas = []; // Limpiar el array de cartas volteadas
-        
-                verificarVictoria(); // Verificar si se ha ganado la partida
+                contadorPares++;  
+                document.getElementById("contador").textContent = contadorPares; 
+            
+                cartasVolteadas = []; 
             }
         }
         
@@ -234,7 +232,6 @@ function crearCartas(numero, tema) {
         bloqueo = false;
     }
 }
-
 
 let control;
 let centesimas = 0;
@@ -274,7 +271,6 @@ btnMenuPrincipal.forEach(boton => {
     });
 });
 
-
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
     const cartasPartida = document.querySelectorAll(".carta").length;
@@ -287,3 +283,5 @@ function verificarFinDeJuego() {
         }, 500);
     }
 }
+
+
