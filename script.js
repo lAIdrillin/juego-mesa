@@ -310,7 +310,7 @@ function guardarPartida() {
     const nombre = document.getElementById("nombre").value;
     
     
-    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;
+    const dificultadPersonalizada = document.getElementById("dificultad_personalizada").value.trim();
     let dificultad;
 
 
@@ -323,6 +323,7 @@ function guardarPartida() {
         dificultad = resultado;
     }
 
+   
     const nuevaPartida = {
         nombreJugador: nombre,
         tiempo: cronometro,
@@ -364,7 +365,8 @@ function mostrarHistorial() {
     contenedorHistorial.appendChild(historialContenido);
 }
 
-btnLimpiarHistorial.addEventListener('click', () => {
-        localStorage.clear(); 
+btnLimpiarHistorial.forEach(boton => {
+    boton.addEventListener('click', () => {
+        localStorage.clear();
+    });
 });
-
