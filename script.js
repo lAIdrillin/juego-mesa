@@ -280,6 +280,12 @@ function verificarFinDeJuego() {
     const cartasPartida = document.querySelectorAll(".carta").length;
 
     if (cartasBloqueadas.length === cartasPartida) {
+        const puntuacion = parseInt(document.getElementById("contador").textContent);
+const tiempo = document.getElementById("cronometro").textContent;
+const dificultad = document.getElementById("dificultad_partida").value;
+
+guardarEnHistorial(puntuacion, tiempo, dificultad);
+
         setTimeout(() => {
             tablero.style.display = "none"
 
@@ -287,3 +293,31 @@ function verificarFinDeJuego() {
         }, 500);
     }
 }
+function guardarEnHistorial(puntuacion, tiempo, dificultad) {
+    const historial = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+
+    const nuevaPartida = {
+        fecha: new Date().toLocaleString(),
+        puntuacion,
+        tiempo,
+        dificultad
+    };
+
+    historial.unshift(nuevaPartida); // añade al principio
+    localStorage.setItem("historialPartidas", JSON.stringify(historial));
+    mostrarHistorial(); // actualiza en pantalla
+}
+function mostrarHistorial() {
+    const historial = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+    const lista = document.getElementById("historial");
+    if (!lista) return; // Si aún no existe el elemento (previene errores)
+
+    lista.innerHTML = "";
+
+    historial.forEach((partida, index) => {
+        const item = document.createElement("li");
+        item.textContent = `Partida ${index + 1}: ${partida.puntuacion} puntos, ${partida.tiempo}, dificultad: ${partida.dificultad}, ${partida.fecha}`;
+        lista.appendChild(item);
+    });
+}
+
