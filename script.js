@@ -364,8 +364,7 @@ function mostrarHistorial() {
     contenedorHistorial.appendChild(historialContenido);
 }
 
-btnLimpiarHistorial.forEach(boton => {
-    boton.addEventListener('click', () => {
-        localStorage.clear();
-    });
+btnLimpiarHistorial.addEventListener('click', () => {
+        localStorage.clear(); 
 });
+
