@@ -1,6 +1,10 @@
 const btnEmpezarPartida = document.getElementById("empezar_partida");
 
-const btnMenuPrincipal = document.querySelectorAll(".menu_principal")
+const btnMenuPrincipal = document.querySelectorAll(".menu_principal");
+
+const btnHistorial = document.querySelectorAll(".historial")
+
+const btnLimpiarHistorial = document.querySelectorAll(".limpiar_historial")
 
 const tablero = document.getElementById("tablero");
 
@@ -20,9 +24,12 @@ const imagenesComida = ["burritos.jpg","curry.jpg", "cebiche.jpg", "espaguetis.j
 "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
 ];
 
-const imagenesFutbol = [
+const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "celta.png", "atlmadrid.png", "sevilla.png", 
+"barcelona.png", "athletic.png", "alaves.png", "deportivocoruna.png", "elche.png", "zaragoza.png", "realoviedo.png",
+"sporting.png", "cordoba.png", "malaga.png", "villarreal.png", "valencia.png"];
 
-];
+let contadorPares = 0;
+let cartasVolteadas= [];
 
 btnEmpezarPartida.addEventListener('click', () => {
 
@@ -38,11 +45,12 @@ btnEmpezarPartida.addEventListener('click', () => {
     const filas = document.getElementById("numero1").value;
     const columnas = document.getElementById("numero2").value;
     const resultado = filas * columnas;
-    //const tema = document.getElementById("tema_partida").value;
+    const tema = document.getElementById("tema_partida").value;
 
-   
+
+
     //AÑADIR VALIDACIÓN PARA QUE SI HAY SELECCIONADA UNA DIFICULTAD, NO SE PUEDA PERSONALIZAR EL TABLERO Y VICEVERSA
-    
+
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
         accederJuego = false;
@@ -67,7 +75,13 @@ btnEmpezarPartida.addEventListener('click', () => {
         accederJuego = false;
         return;
     }
-    
+
+    if (tema === "") {
+        alert("Por favor, selecciona el tema que más te guste para tu partida.")
+        accederJuego = false;
+        return;
+    }
+
     if(accederJuego){
 
     header.style.display = "none"; 
@@ -95,7 +109,8 @@ btnEmpezarPartida.addEventListener('click', () => {
             numero = resultado;
     }
 
-    crearCartas(numero);
+    crearCartas(numero, tema);
+
 
     }
 
@@ -105,20 +120,51 @@ btnEmpezarPartida.addEventListener('click', () => {
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
     cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
     cartas.style.gap = "10px";
+    cartas.style.transform = "scaleX(-1)";
 
 });
 
-function crearCartas(numero) {
+function crearCartas(numero, tema) {
     cartas.innerHTML = "";
 
     let totalImagenes = numero / 2;
     let imagenesSeleccionadas = [];
 
+    switch (tema) {
+        case "animales":
+            while (imagenesSeleccionadas.length < totalImagenes) {
+                let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
+                if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
+                    imagenesSeleccionadas.push(imagenAleatoria);
+
+                }  
+            }
+            break;        
+        case "comidas":
+            while (imagenesSeleccionadas.length < totalImagenes) {
+                let imagenAleatoria = imagenesComida[Math.floor(Math.random() * imagenesComida.length)];
+                if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
+                    imagenesSeleccionadas.push(imagenAleatoria);
+
+                }  
+            }
+            break;   
+        case "futbol":
+            while (imagenesSeleccionadas.length < totalImagenes) {
+                let imagenAleatoria = imagenesFutbol[Math.floor(Math.random() * imagenesFutbol.length)];
+                if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
+                    imagenesSeleccionadas.push(imagenAleatoria);
+
+                }  
+            }
+            break;   
+    }
     while (imagenesSeleccionadas.length < totalImagenes) {
-        let imagenAleatoria = imagenesComida[Math.floor(Math.random() * imagenesComida.length)];
+        let imagenAleatoria = imagenesFutbol[Math.floor(Math.random() * imagenesFutbol.length)];
         if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
             imagenesSeleccionadas.push(imagenAleatoria);
-        }
+
+        }  
     }
 
     imagenesSeleccionadas = [...imagenesSeleccionadas, ...imagenesSeleccionadas];
@@ -133,6 +179,7 @@ function crearCartas(numero) {
         carta.classList.add("carta");
         carta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
         carta.dataset.imagen = imagenesSeleccionadas[i];
+
 
         carta.addEventListener('click', () => {
             if (bloqueo || carta.classList.contains("volteada") || carta.classList.contains("bloqueada")) return;
@@ -164,8 +211,22 @@ function crearCartas(numero) {
                     },500);
                 }
             }
+            contarPares()
+
         });
         cartas.appendChild(carta);
+
+        function contarPares() {
+            cartasVolteadas.push(this);
+
+            if (cartasVolteadas.length === 2) {
+                contadorPares++; 
+                document.getElementById("contador").textContent = contadorPares; 
+
+                cartasVolteadas = []; 
+            }
+        }
+
     }
 
     function resetTurno() {
@@ -193,11 +254,11 @@ function cronometro() {
         minutos++;
     }
     const formato = 
-        //"Cronometro: "
+
         (minutos < 10 ? "0" + minutos : minutos) + ":" +
         (segundos < 10 ? "0" + segundos : segundos) + ":" +
         (centesimas < 10 ? "0" + centesimas : centesimas);
-    
+
     document.getElementById("cronometro").textContent = formato;
 }
 
@@ -214,6 +275,19 @@ btnMenuPrincipal.forEach(boton => {
     });
 });
 
+btnHistorial.forEach(boton => {
+    boton.addEventListener('click', () => {
+        header.style.display = "none"; 
+
+        table1.style.display = "none"; 
+    
+        final_partida.style.display = "none";
+
+        historial_partidas.style.display = "block";
+
+        mostrarHistorial()
+    });
+});
 
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
@@ -225,5 +299,74 @@ function verificarFinDeJuego() {
 
             final_partida.style.display = "block"
         }, 500);
+        guardarPartida();
     }
 }
+
+function guardarPartida() {
+
+    const cronometro = document.getElementById("cronometro").textContent; 
+    const contador = document.getElementById("contador").textContent;
+    const nombre = document.getElementById("nombre").value;
+    
+    
+    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;  
+    let dificultad;
+
+
+    if (dificultadPersonalizada) {
+        dificultad = dificultadPersonalizada;
+    } else {
+        const filas = document.getElementById("numero1").value;
+        const columnas = document.getElementById("numero2").value;
+        const resultado = filas * columnas;
+        dificultad = resultado;
+    }
+
+   
+    const nuevaPartida = {
+        nombreJugador: nombre,
+        tiempo: cronometro,
+        dificultad: dificultad, 
+        intentos: parseInt(contador), 
+        fecha: new Date().toISOString().split('T')[0], 
+    };
+
+
+    let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+
+    historialPartidas.push(nuevaPartida);
+
+    localStorage.setItem("historialPartidas", JSON.stringify(historialPartidas));
+}
+
+
+
+function mostrarHistorial() {
+    const contenedorHistorial = document.getElementById("historial_partidas");
+
+    const historialContenido = document.createElement('div');
+    
+    let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+
+    const lista = document.createElement("ul");
+
+    if (historialPartidas.length > 0) {
+        historialPartidas.forEach((partida, index) => {
+            const item = document.createElement("li");
+            item.textContent = `Partida ${index + 1}: Jugador: ${partida.nombreJugador}, Fecha: ${partida.fecha}, Tiempo: ${partida.tiempo}, Dificultad: ${partida.dificultad}, Intentos: ${partida.intentos}`;
+            lista.appendChild(item);
+        });
+    } else {
+        lista.textContent = "No hay partidas guardadas.";
+    }
+
+    historialContenido.appendChild(lista);
+    contenedorHistorial.appendChild(historialContenido);
+}
+
+btnLimpiarHistorial.forEach(boton => {
+    boton.addEventListener('click', () => {
+        localStorage.clear();
+    });
+});
