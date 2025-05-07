@@ -4,6 +4,8 @@ const btnMenuPrincipal = document.querySelectorAll(".menu_principal");
 
 const btnHistorial = document.querySelectorAll(".historial")
 
+const btnLimpiarHistorial = document.querySelectorAll(".limpiar_historial")
+
 const tablero = document.getElementById("tablero");
 
 const table1 = document.getElementById("table1");
@@ -362,3 +364,8 @@ function mostrarHistorial() {
     contenedorHistorial.appendChild(historialContenido);
 }
 
+btnLimpiarHistorial.forEach(boton => {
+    boton.addEventListener('click', () => {
+        localStorage.clear();
+    });
+});
