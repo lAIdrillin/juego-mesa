@@ -16,9 +16,9 @@ body{
   font-family: 'Press Start 2P' , cursive;
   font-size: 55px;
   font-weight: bold;
-  color: #fff;  /* Color blanco o marfil */
+  color: #fff;  
   text-align: center;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);  /* Sombra suave para darle profundidad */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);  
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -31,9 +31,9 @@ body{
   color:#70624c;
   font-family: 'Roboto Mono', monospace;
   font-weight: bold;
-  color: #fff;  /* Color blanco o marfil */
+  color: #fff;  
   text-align: center;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);  /* Sombra suave para darle profundidad */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); 
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -129,9 +129,9 @@ body{
 }
 #cartas {
     display: grid;
-    grid-template-columns: repeat(); /* 8 columnas */
+    grid-template-columns: repeat();
     gap: 10px;
-    width: 480px; /* ajusta al tamaño de las cartas * 8 + espacio */
+    width: 480px; 
     margin: auto;
   }
   
@@ -142,7 +142,7 @@ body{
     border-radius: 15%;
     position: relative;
     cursor: pointer;
-    perspective: 1000px; /* Para que la animación de voltear funcione */
+    perspective: 1000px; 
     background-size: cover;
     background-position: center;
     background-image: url("/images/besibol.jpg"); 
@@ -150,7 +150,7 @@ body{
 
   .grid-4x4#cartas {
     grid-template-columns: repeat(4, 1fr);
-    width: calc(80px * 4 + 10px * 3); /* 4 cartas + 3 espacios */
+    width: calc(80px * 4 + 10px * 3); 
   }
   
   .grid-5x4#cartas {
