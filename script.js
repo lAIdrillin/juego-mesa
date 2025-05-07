@@ -292,66 +292,63 @@ function verificarFinDeJuego() {
     const cartasPartida = document.querySelectorAll(".carta").length;
 
     if (cartasBloqueadas.length === cartasPartida) {
-        agregarPartida();
         setTimeout(() => {
             tablero.style.display = "none"
 
             final_partida.style.display = "block"
         }, 500);
+        guardarPartida();
     }
 }
 
-// Suponiendo que tienes la clase Partida definida previamente
-class Partida {
-    constructor(nombreJugador, tiempo, dificultad, intentos) {
-      this.nombreJugador = nombreJugador;
-      this.tiempo = tiempo;
-      this.dificultad = dificultad;
-      this.intentos = intentos;
-      this.fecha = new Date().toISOString().split('T')[0];  // Fecha en formato YYYY-MM-DD
-    }
-  
-    // Método para mostrar los detalles de la partida
-    mostrarDetalles() {
-      return `
-        Jugador: ${this.nombreJugador}
-        Fecha: ${this.fecha}
-        Tiempo: ${this.tiempo} segundos
-        Dificultad: ${this.dificultad}
-        Intentos: ${this.intentos}
-      `;
-    }
-  }
-  
-  // Array para almacenar las partidas
-  let historialPartidas = [];
-  
-  // Función para agregar una nueva partida
-  function agregarPartida() {
+function guardarPartida() {
     // Obtener los valores del DOM
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
     const dificultad = document.getElementById("dificultad_partida").value;
-  
-    // Crear una nueva instancia de la clase Partida
-    const nuevaPartida = new Partida(nombre, parseInt(cronometro), dificultad, parseInt(contador));
-  
-    // Agregarla al historial
-    historialPartidas.push(nuevaPartida);
-  
-    // Mostrar el historial completo
-    mostrarHistorial();
-  }
-  
-  // Función para mostrar el historial de partidas
-  function mostrarHistorial() {
-    historialPartidas.forEach((partida, index) => {
-      console.log(`Partida ${index + 1}:`);
-      console.log(partida.mostrarDetalles());
-      console.log('---------------------');
-    });
-  }
 
-  
+    // Crear un objeto con los datos de la partida
+    const nuevaPartida = {
+        nombreJugador: nombre,
+        tiempo: parseInt(cronometro), // Convertir tiempo a número
+        dificultad: dificultad,
+        intentos: parseInt(contador), // Convertir intentos a número
+        fecha: new Date().toISOString().split('T')[0], // Fecha en formato YYYY-MM-DD
+    };
+
+    let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+
+    historialPartidas.push(nuevaPartida);
+
+
+    localStorage.setItem("historialPartidas", JSON.stringify(historialPartidas));
+}
+
+function mostrarHistorial() {
+    const contenedorHistorial = document.getElementById("historial_partidas");
+
+    // Limpiar solo el contenido específico donde vamos a mostrar el historial
+    const historialContenido = document.createElement('div');
+    
+    let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+
+    // Crear una lista para mostrar las partidas
+    const lista = document.createElement("ul");
+
+    if (historialPartidas.length > 0) {
+        // Recorrer el historial de partidas y agregar cada partida a la lista
+        historialPartidas.forEach((partida, index) => {
+            const item = document.createElement("li");
+            item.textContent = `Partida ${index + 1}: Jugador: ${partida.nombreJugador}, Fecha: ${partida.fecha}, Tiempo: ${partida.tiempo} segundos, Dificultad: ${partida.dificultad}, Intentos: ${partida.intentos}`;
+            lista.appendChild(item);
+        });
+    } else {
+        // Si no hay partidas, agregar el mensaje al contenedor
+        lista.textContent = "No hay partidas guardadas.";
+    }
+
+    historialContenido.appendChild(lista);
+    contenedorHistorial.appendChild(historialContenido);
+}
 
