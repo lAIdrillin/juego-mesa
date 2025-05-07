@@ -114,3 +114,25 @@ y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos traba
 ## Ideas de mejora futura
 - Encuadramiento de las cartas y las imágenes.
 - Mejorar el fin de la partida.
+
+# Sesion 5: Sistema de Puntuaciones y Almacenamiento 7/05/2025
+
+## Resumen
+- Hemos conseguido establecer los difrentes temas de manera que le usuariio pueda elegir entre los tres luego hemos trabjado en el historial y en la clasificacion tambien insertamos un boton para que el usuario borre el historial cuando quiera
+
+## Dificultades encontradas
+- **Problema #1:** Implementacion del calculo de puntuacion
+
+## Soluciones aplicadas
+- **solucion Problema #1:** Estamos trabajando en ello
+
+# Fuentes consultaadas
+- codepen
+- youtube
+. w3school
+
+## Decisiones técnicas
+- Decisiones principalmente enfocadas al funcionamiento del historial
+
+## Ideas de mejora futura
+- Mejorar el localstorage
