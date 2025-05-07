@@ -21,9 +21,11 @@ const imagenesComida = ["burritos.jpg","curry.jpg", "cebiche.jpg", "espaguetis.j
 ];
 
 const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "celta.png", "atlmadrid.png", "sevilla.png", 
-    "barcelona.png", "athletic.png", "alaves.png", "deportivocoruna.png", "elche.png", "zaragoza.png", "realoviedo.png",
-    "sporting.png", "cordoba.png", "malaga.png", "villarreal.png", "valencia.png"];
-    
+"barcelona.png", "athletic.png", "alaves.png", "deportivocoruna.png", "elche.png", "zaragoza.png", "realoviedo.png",
+"sporting.png", "cordoba.png", "malaga.png", "villarreal.png", "valencia.png"];
+
+let contadorPares = 0;
+let cartasVolteadas= [];
 
 btnEmpezarPartida.addEventListener('click', () => {
 
@@ -104,6 +106,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     }
 
     crearCartas(numero, tema);
+
 
     }
 
@@ -204,8 +207,24 @@ function crearCartas(numero, tema) {
                     },500);
                 }
             }
+            contarPares()
+            
         });
         cartas.appendChild(carta);
+
+        function contarPares() {
+            cartasVolteadas.push(this); // Agregamos la carta volteada al array
+        
+            if (cartasVolteadas.length === 2) {
+                contadorPares++;  // Sumar uno cada vez que se voltean dos cartas
+                document.getElementById("contador").textContent = contadorPares; // Mostrar el contador
+                
+                // Reiniciar el proceso después de dos clics
+                cartasVolteadas = []; // Limpiar el array de cartas volteadas
+        
+                verificarVictoria(); // Verificar si se ha ganado la partida
+            }
+        }
         
     }
 
