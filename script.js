@@ -44,9 +44,9 @@ btnEmpezarPartida.addEventListener('click', () => {
     const tema = document.getElementById("tema_partida").value;
 
 
-   
+
     //AÑADIR VALIDACIÓN PARA QUE SI HAY SELECCIONADA UNA DIFICULTAD, NO SE PUEDA PERSONALIZAR EL TABLERO Y VICEVERSA
-    
+
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
         accederJuego = false;
@@ -77,7 +77,7 @@ btnEmpezarPartida.addEventListener('click', () => {
         accederJuego = false;
         return;
     }
-    
+
     if(accederJuego){
 
     header.style.display = "none"; 
@@ -132,7 +132,7 @@ function crearCartas(numero, tema) {
                 let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
                 if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
                     imagenesSeleccionadas.push(imagenAleatoria);
-                   
+
                 }  
             }
             break;        
@@ -141,7 +141,7 @@ function crearCartas(numero, tema) {
                 let imagenAleatoria = imagenesComida[Math.floor(Math.random() * imagenesComida.length)];
                 if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
                     imagenesSeleccionadas.push(imagenAleatoria);
-                   
+
                 }  
             }
             break;   
@@ -150,7 +150,7 @@ function crearCartas(numero, tema) {
                 let imagenAleatoria = imagenesFutbol[Math.floor(Math.random() * imagenesFutbol.length)];
                 if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
                     imagenesSeleccionadas.push(imagenAleatoria);
-                   
+
                 }  
             }
             break;   
@@ -159,7 +159,7 @@ function crearCartas(numero, tema) {
         let imagenAleatoria = imagenesFutbol[Math.floor(Math.random() * imagenesFutbol.length)];
         if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
             imagenesSeleccionadas.push(imagenAleatoria);
-           
+
         }  
     }
 
@@ -175,7 +175,7 @@ function crearCartas(numero, tema) {
         carta.classList.add("carta");
         carta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
         carta.dataset.imagen = imagenesSeleccionadas[i];
-        
+
 
         carta.addEventListener('click', () => {
             if (bloqueo || carta.classList.contains("volteada") || carta.classList.contains("bloqueada")) return;
@@ -193,7 +193,6 @@ function crearCartas(numero, tema) {
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
                     primeraCarta.classList.add("bloqueada");
                     segundaCarta.classList.add("bloqueada");
-                    almacenarPuntuaciones();
                     verificarFinDeJuego();
                     resetTurno();
                 } else {
@@ -209,21 +208,23 @@ function crearCartas(numero, tema) {
                 }
             }
             contarPares()
-            
+
         });
         cartas.appendChild(carta);
 
         function contarPares() {
+            cartasVolteadas.push(this); // Agregamos la carta volteada al array
             cartasVolteadas.push(this); 
-        
+
             if (cartasVolteadas.length === 2) {
-                contadorPares++;  
-                document.getElementById("contador").textContent = contadorPares; 
-            
-                cartasVolteadas = []; 
+                contadorPares++;  // Sumar uno cada vez que se voltean dos cartas
+                document.getElementById("contador").textContent = contadorPares; // Mostrar el contador
+                
+                // Reiniciar el proceso después de dos clics
+                cartasVolteadas = []; // Limpiar el array de cartas volteadas
             }
         }
-        
+
     }
 
     function resetTurno() {
@@ -232,6 +233,7 @@ function crearCartas(numero, tema) {
         bloqueo = false;
     }
 }
+
 
 let control;
 let centesimas = 0;
@@ -254,7 +256,7 @@ function cronometro() {
         (minutos < 10 ? "0" + minutos : minutos) + ":" +
         (segundos < 10 ? "0" + segundos : segundos) + ":" +
         (centesimas < 10 ? "0" + centesimas : centesimas);
-    
+
     document.getElementById("cronometro").textContent = formato;
 }
 
@@ -271,17 +273,12 @@ btnMenuPrincipal.forEach(boton => {
     });
 });
 
+
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
     const cartasPartida = document.querySelectorAll(".carta").length;
 
     if (cartasBloqueadas.length === cartasPartida) {
-        const puntuacion = parseInt(document.getElementById("contador").textContent);
-const tiempo = document.getElementById("cronometro").textContent;
-const dificultad = document.getElementById("dificultad_partida").value;
-
-guardarEnHistorial(puntuacion, tiempo, dificultad);
-
         setTimeout(() => {
             tablero.style.display = "none"
 
@@ -289,35 +286,4 @@ guardarEnHistorial(puntuacion, tiempo, dificultad);
         }, 500);
     }
 }
-<<<<<<< HEAD
-function guardarEnHistorial(puntuacion, tiempo, dificultad) {
-    const historial = JSON.parse(localStorage.getItem("historialPartidas")) || [];
-
-    const nuevaPartida = {
-        fecha: new Date().toLocaleString(),
-        puntuacion,
-        tiempo,
-        dificultad
-    };
-
-    historial.unshift(nuevaPartida); // añade al principio
-    localStorage.setItem("historialPartidas", JSON.stringify(historial));
-    mostrarHistorial(); // actualiza en pantalla
-}
-function mostrarHistorial() {
-    const historial = JSON.parse(localStorage.getItem("historialPartidas")) || [];
-    const lista = document.getElementById("historial");
-    if (!lista) return; // Si aún no existe el elemento (previene errores)
-
-    lista.innerHTML = "";
-
-    historial.forEach((partida, index) => {
-        const item = document.createElement("li");
-        item.textContent = `Partida ${index + 1}: ${partida.puntuacion} puntos, ${partida.tiempo}, dificultad: ${partida.dificultad}, ${partida.fecha}`;
-        lista.appendChild(item);
-    });
-}
-=======
-
->>>>>>> c0fc735df368206263c6bb5b532d6437fa9f9876
 
