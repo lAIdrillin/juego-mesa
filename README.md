@@ -130,6 +130,7 @@ y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos traba
 - codepen
 - youtube
 - w3school
+- https://ed.team/blog/que-es-y-como-utilizar-localstorage-y-sessionstorage
 
 ## Decisiones técnicas
 - Decisiones principalmente enfocadas al funcionamiento del historial.
