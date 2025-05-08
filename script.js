@@ -328,12 +328,13 @@ function guardarPartida() {
 
     if (dificultadPersonalizada) {
         dificultad = dificultadPersonalizada;
-    } else {
-        const filas = document.getElementById("numero1").value;
+        if(dificultad === "Personalizado") {
+            const filas = document.getElementById("numero1").value;
         const columnas = document.getElementById("numero2").value;
         const resultado = filas * columnas;
         dificultad = resultado + " cartas (personalizada)";
-    }
+        }
+    } 
 
    
     const nuevaPartida = {
