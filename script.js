@@ -354,10 +354,9 @@ function guardarPartida() {
 }
 
 
+// Función para mostrar el historial
 function mostrarHistorial() {
     const contenedorHistorial = document.getElementById("historial_partidas");
-
-    // Crear el contenedor para la tabla
     const tablaContenedor = document.getElementById("tabla_historial");
 
     // Limpiar el contenedor de la tabla antes de agregar nuevo contenido
@@ -366,10 +365,9 @@ function mostrarHistorial() {
     // Obtener el historial de partidas desde el localStorage
     let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
 
-    // Crear la tabla
+    // Crear la tabla con un ID específico para el historial
     const tabla = document.createElement("table");
-    tabla.style.width = "100%"; // Ajustar el ancho de la tabla
-    tabla.style.borderCollapse = "collapse"; // Para que las celdas se vean pegadas
+    tabla.id = "tabla_historial";  // Agregar ID único
 
     // Crear la fila de cabecera
     const cabecera = document.createElement("thead");
@@ -379,9 +377,6 @@ function mostrarHistorial() {
     cabeceras.forEach(texto => {
         const th = document.createElement("th");
         th.textContent = texto;
-        th.style.border = "1px solid #ddd"; // Estilo para las celdas
-        th.style.padding = "8px"; // Espaciado interno de las celdas
-        th.style.textAlign = "left"; // Alineación del texto
         filaCabecera.appendChild(th);
     });
 
@@ -407,9 +402,6 @@ function mostrarHistorial() {
             datos.forEach(dato => {
                 const td = document.createElement("td");
                 td.textContent = dato;
-                td.style.border = "1px solid #ddd"; // Estilo para las celdas
-                td.style.padding = "8px"; // Espaciado interno de las celdas
-                td.style.textAlign = "left"; // Alineación del texto
                 fila.appendChild(td);
             });
 
