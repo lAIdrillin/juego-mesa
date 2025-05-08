@@ -201,4 +201,10 @@ body{
     margin-top: 50px;
     font-family: serif ;
   }
-
+.mensaje-juego {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #8e44ad;
+    text-align: center;
+    font-weight: bold;
+}
