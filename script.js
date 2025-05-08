@@ -429,3 +429,16 @@ function mostrarMensaje(texto) {
         mensaje.textContent = "";
     }, 3000);
 }
+document.getElementById("compartir_facebook").addEventListener("click", () => {
+    const nombre = document.getElementById("nombre").value || "Un jugador misterioso";
+    const tiempo = document.getElementById("cronometro").textContent || "00:00:00";
+    const intentos = document.getElementById("contador").textContent || "0";
+
+    const mensaje = `¡${nombre} ha completado el juego en ${tiempo} con ${intentos} intentos! ¿Puedes superarlo?`;
+
+    const url = encodeURIComponent("https://tusitio.com"); // Reemplaza con tu URL real
+    const quote = encodeURIComponent(mensaje);
+
+    const compartirUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`;
+    window.open(compartirUrl, "_blank", "width=600,height=400");
+});
