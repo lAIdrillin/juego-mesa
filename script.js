@@ -46,7 +46,7 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
-    const nomJugador = document.getElementById("nomJugador")
+    const nomJugador = document.querySelector(".nomJugador")
     nomJugador.innerText = nombre;
     const dificultad = document.getElementById("dificultad_partida").value;
     const modo = document.get
@@ -295,7 +295,6 @@ document.querySelectorAll(".historial").forEach(boton => {
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
     const cartasPartida = document.querySelectorAll(".carta").length;
-
     if (cartasBloqueadas.length === cartasPartida) {
         setTimeout(() => {
             tablero.style.display = "none"
@@ -332,7 +331,7 @@ function guardarPartida() {
         nombreJugador: nombre,
         tiempo: cronometro,
         dificultad: dificultad, 
-        intentos: parseInt(contador), 
+        intentos: contador, 
         fecha: new Date().toISOString().split('T')[0], 
     };
 
@@ -392,10 +391,10 @@ function mostrarHistorial() {
             cuerpo.appendChild(fila);
         });
     } else {
-        // Si no hay partidas, mostrar mensaje en la tabla
+
         const filaVacia = document.createElement("tr");
         const tdVacio = document.createElement("td");
-        tdVacio.colSpan = 6; // Para que ocupe toda la fila
+        tdVacio.colSpan = 6; 
         tdVacio.textContent = "No hay partidas guardadas.";
         tdVacio.style.textAlign = "center";
         tdVacio.style.padding = "16px";
