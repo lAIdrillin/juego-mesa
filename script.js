@@ -1,11 +1,3 @@
-const btnEmpezarPartida = document.getElementById("empezar_partida");
-
-const btnMenuPrincipal = document.querySelectorAll(".menu_principal");
-
-const btnHistorial = document.querySelectorAll(".historial")
-
-const btnLimpiarHistorial = document.getElementById("limpiar_historial")
-
 const tablero = document.getElementById("tablero");
 
 const table1 = document.getElementById("table1");
@@ -49,8 +41,8 @@ document.getElementById("limpiar_historial").addEventListener("click", function(
     mostrarHistorial();
 });
 
-btnEmpezarPartida.addEventListener('click', () => {
-    
+document.getElementById("empezar_partida").addEventListener('click', () => {
+
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
@@ -126,9 +118,7 @@ btnEmpezarPartida.addEventListener('click', () => {
 
 
     }
-
-    //
-
+    
     cartas.style.display = "grid";
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
     cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
@@ -282,13 +272,13 @@ function iniciarCronometro() {
     }
 }
 
-btnMenuPrincipal.forEach(boton => {
+document.querySelectorAll(".menu_principal").forEach(boton => {
     boton.addEventListener('click', () => {
         window.location.href = "index.html";
     });
 });
 
-btnHistorial.forEach(boton => {
+document.querySelectorAll(".historial").forEach(boton => {
     boton.addEventListener('click', () => {
         header.style.display = "none"; 
 
