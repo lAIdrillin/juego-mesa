@@ -14,6 +14,18 @@ const header = document.getElementById("header");
 
 const cartas = document.getElementById("cartas");
 
+const selectDificultad = document.getElementById("dificultad_partida");
+
+selectDificultad.addEventListener("change", function() {
+    const personalizar_tablero = document.getElementById("personalizar_tablero")
+    const dificultadSeleccionada = selectDificultad.value;
+    if(dificultadSeleccionada === "Personalizado") {
+            personalizar_tablero.style.display = "block";
+        }
+    else {
+        personalizar_tablero.style.display = "none";
+    }
+    });
 const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
 "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
 "gallina.jpg", "koala.jpg", "lobo.jpg", "rana.jpg", "tigre.jpg"
@@ -93,15 +105,15 @@ btnEmpezarPartida.addEventListener('click', () => {
     let numero;
 
     switch (dificultad) {
-        case "facil":
+        case "Fácil":
             numero = 16
             cartas.className = "grid-4x4";
             break;
-        case "medio":
+        case "Medio":
             numero = 20;
             cartas.className = "grid-5x4";
             break;
-        case "dificil":
+        case "Difícil":
             numero = 36;
             cartas.className = "grid-6x6";
             break;
@@ -320,7 +332,7 @@ function guardarPartida() {
         const filas = document.getElementById("numero1").value;
         const columnas = document.getElementById("numero2").value;
         const resultado = filas * columnas;
-        dificultad = resultado;
+        dificultad = resultado + " cartas (personalizada)";
     }
 
    

@@ -26,14 +26,15 @@
                 <td>
                     <select id="dificultad_partida">
                         <option selected disabled value="">Dificultad:</option>
-                        <option value="facil">Fácil (4x4)</option>
-                        <option value="medio">Medio (5x4)</option>
-                        <option value="dificil">Difícil (6x6)</option>
+                        <option value="Fácil">Fácil (4x4)</option>
+                        <option value="Medio">Medio (5x4)</option>
+                        <option value="Difícil">Difícil (6x6)</option>
+                        <option value="Personalizado">Personalizar dificultad</option>
                     </select>
                 </td>
             </tr>
-            <tr>
-                <th class="th_text">O crea un tablero personalizado</th>
+            <tr id="personalizar_tablero" style="display: none;">
+                <th class="th_text">Crea un tu tablero personalizado</th>
                 <td>
                     <input type="number" min="1" step="1" class="input_numero" id="numero1" placeholder="Filas" autocomplete="off">
                 </td>
@@ -41,7 +42,7 @@
                     <input type="number" min="1" step="1" class="input_numero" id="numero2" placeholder="Columnas" autocomplete="off">
                 </td>
             </tr>
-            <tr>
+            <!--<tr>
                 <th class="th_text">Selecciona el modo de juego:</th>
                 <td>
                     <select id="modo_partida">
@@ -50,7 +51,7 @@
                         <option class="opt" value="flash">Flash</option>
                     </select>
                 </td>
-            </tr>
+            </tr>-->
             <tr>
                 <th class="th_text">Selecciona el tema de la partida:</th>
                 <td>

@@ -39,7 +39,7 @@ body{
 }
 
 #table1{
-  width: 600px;
+  width: 800px;
   min-height: 250px;
   margin: auto;
   background: #ffffff9c;
@@ -51,6 +51,7 @@ body{
   0.3em 0.3em 1em rgba(0, 0, 0, 0.3);;
 }
 .th_text{
+  text-align: left;
     color: #70624c;
     font-family:'Press Start 2P' , cursive;
     font-size: smaller;
@@ -124,7 +125,6 @@ body{
     display: grid;
     gap: 20px;
     align-items: center;
-    margin: auto;
     width: 1200px;
 }
 #cartas {
