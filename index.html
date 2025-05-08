@@ -57,6 +57,7 @@
                 <th colspan="2">
                     <button id="empezar_partida" class="boton">Empezar partida</button>
                     <button class="historial">Historial partidas</button>
+                    <button class="record">Récords</button>
                 </th>
             </tr>
         </table>
@@ -65,7 +66,7 @@
     <div id="tablero" class="vista" style="display: none">
         <div class="nomJugador"></div>
         <div id="cronometro">00.00.00</div>
-        <div id="contador">Contador: 0</div>
+        <div id="contador">0</div>
         <div id="cartas"></div>
         <div id="mensajeJuego" class="mensaje-juego"></div>
         <button class="menu_principal">Menú principal</button>
@@ -76,6 +77,7 @@
         <h3>¡Felicidades <div class="nomJugador"></div>! Has superado el juego</h3>
         <button class="menu_principal">Menú principal</button>
         <button class="historial">Historial partidas</button>
+        <button class="record">Récords</button>
     </div>
 
     <div id="historial_partidas" class="vista" style="display: none;">
@@ -83,6 +85,13 @@
         <div id="tabla_historial"></div>
         <button class="menu_principal">Menú principal</button>
         <button id="limpiar_historial">Limpiar historial</button>
+        <button class="record">Récords</button>
+    </div>
+
+    <div id="mejores_puntuaciones" class="vista" style="display: none;">
+        <h2>Mejores puntuaciones</h2>
+        <button class="menu_principal">Menú principal</button>
+        <button class="historial">Historial partidas</button>
     </div>
 
     <footer id="footer">
