@@ -26,6 +26,7 @@ selectDificultad.addEventListener("change", function() {
         personalizar_tablero.style.display = "none";
     }
     });
+    
 const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
 "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
 "gallina.jpg", "koala.jpg", "lobo.jpg", "rana.jpg", "tigre.jpg"
@@ -43,9 +44,13 @@ const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "c
 let contadorPares = 0;
 let cartasVolteadas= [];
 
+document.getElementById("limpiar_historial").addEventListener("click", function() {
+    localStorage.clear();
+    mostrarHistorial();
+});
+
 btnEmpezarPartida.addEventListener('click', () => {
-
-
+    
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
@@ -58,10 +63,6 @@ btnEmpezarPartida.addEventListener('click', () => {
     const columnas = document.getElementById("numero2").value;
     const resultado = filas * columnas;
     const tema = document.getElementById("tema_partida").value;
-
-
-
-    //AÑADIR VALIDACIÓN PARA QUE SI HAY SELECCIONADA UNA DIFICULTAD, NO SE PUEDA PERSONALIZAR EL TABLERO Y VICEVERSA
 
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
@@ -353,23 +354,17 @@ function guardarPartida() {
     localStorage.setItem("historialPartidas", JSON.stringify(historialPartidas));
 }
 
-
-// Función para mostrar el historial
 function mostrarHistorial() {
     const contenedorHistorial = document.getElementById("historial_partidas");
     const tablaContenedor = document.getElementById("tabla_historial");
 
-    // Limpiar el contenedor de la tabla antes de agregar nuevo contenido
-    tablaContenedor.innerHTML = "";  // Eliminar contenido previo
+    tablaContenedor.innerHTML = "";
 
-    // Obtener el historial de partidas desde el localStorage
     let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
 
-    // Crear la tabla con un ID específico para el historial
     const tabla = document.createElement("table");
-    tabla.id = "tabla_historial";  // Agregar ID único
+    tabla.id = "tabla_historial"; 
 
-    // Crear la fila de cabecera
     const cabecera = document.createElement("thead");
     const filaCabecera = document.createElement("tr");
 
@@ -383,7 +378,6 @@ function mostrarHistorial() {
     cabecera.appendChild(filaCabecera);
     tabla.appendChild(cabecera);
 
-    // Crear el cuerpo de la tabla
     const cuerpo = document.createElement("tbody");
 
     if (historialPartidas.length > 0) {
@@ -422,13 +416,6 @@ function mostrarHistorial() {
     tabla.appendChild(cuerpo);
     tablaContenedor.appendChild(tabla);
 
-    // Ahora insertamos la tabla justo después del <p> pero antes de los botones
     contenedorHistorial.insertBefore(tablaContenedor, contenedorHistorial.querySelector("button"));
 }
 
-
-
-btnLimpiarHistorial.addEventListener('click', () => {
-    localStorage.clear();
-    mostrarHistorial();
-});
