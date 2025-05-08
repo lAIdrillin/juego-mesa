@@ -354,30 +354,89 @@ function guardarPartida() {
 }
 
 
-
 function mostrarHistorial() {
     const contenedorHistorial = document.getElementById("historial_partidas");
 
-    const historialContenido = document.createElement('div');
-    
+    // Crear el contenedor para la tabla
+    const tablaContenedor = document.getElementById("tabla_historial");
+
+    // Limpiar el contenedor de la tabla antes de agregar nuevo contenido
+    tablaContenedor.innerHTML = "";  // Eliminar contenido previo
+
+    // Obtener el historial de partidas desde el localStorage
     let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
 
-    const lista = document.createElement("ul");
+    // Crear la tabla
+    const tabla = document.createElement("table");
+    tabla.style.width = "100%"; // Ajustar el ancho de la tabla
+    tabla.style.borderCollapse = "collapse"; // Para que las celdas se vean pegadas
+
+    // Crear la fila de cabecera
+    const cabecera = document.createElement("thead");
+    const filaCabecera = document.createElement("tr");
+
+    const cabeceras = ["Partida", "Jugador", "Fecha", "Tiempo", "Dificultad", "Intentos"];
+    cabeceras.forEach(texto => {
+        const th = document.createElement("th");
+        th.textContent = texto;
+        th.style.border = "1px solid #ddd"; // Estilo para las celdas
+        th.style.padding = "8px"; // Espaciado interno de las celdas
+        th.style.textAlign = "left"; // Alineación del texto
+        filaCabecera.appendChild(th);
+    });
+
+    cabecera.appendChild(filaCabecera);
+    tabla.appendChild(cabecera);
+
+    // Crear el cuerpo de la tabla
+    const cuerpo = document.createElement("tbody");
 
     if (historialPartidas.length > 0) {
         historialPartidas.forEach((partida, index) => {
-            const item = document.createElement("li");
-            item.textContent = `Partida ${index + 1}: Jugador: ${partida.nombreJugador}, Fecha: ${partida.fecha}, Tiempo: ${partida.tiempo}, Dificultad: ${partida.dificultad}, Intentos: ${partida.intentos}`;
-            lista.appendChild(item);
+            const fila = document.createElement("tr");
+
+            const datos = [
+                `Partida ${index + 1}`,
+                partida.nombreJugador,
+                partida.fecha,
+                partida.tiempo,
+                partida.dificultad,
+                partida.intentos
+            ];
+
+            datos.forEach(dato => {
+                const td = document.createElement("td");
+                td.textContent = dato;
+                td.style.border = "1px solid #ddd"; // Estilo para las celdas
+                td.style.padding = "8px"; // Espaciado interno de las celdas
+                td.style.textAlign = "left"; // Alineación del texto
+                fila.appendChild(td);
+            });
+
+            cuerpo.appendChild(fila);
         });
     } else {
-        lista.textContent = "No hay partidas guardadas.";
+        // Si no hay partidas, mostrar mensaje en la tabla
+        const filaVacia = document.createElement("tr");
+        const tdVacio = document.createElement("td");
+        tdVacio.colSpan = 6; // Para que ocupe toda la fila
+        tdVacio.textContent = "No hay partidas guardadas.";
+        tdVacio.style.textAlign = "center";
+        tdVacio.style.padding = "16px";
+        filaVacia.appendChild(tdVacio);
+        cuerpo.appendChild(filaVacia);
     }
 
-    historialContenido.appendChild(lista);
-    contenedorHistorial.appendChild(historialContenido);
+    tabla.appendChild(cuerpo);
+    tablaContenedor.appendChild(tabla);
+
+    // Ahora insertamos la tabla justo después del <p> pero antes de los botones
+    contenedorHistorial.insertBefore(tablaContenedor, contenedorHistorial.querySelector("button"));
 }
+
+
 
 btnLimpiarHistorial.addEventListener('click', () => {
     localStorage.clear();
+    mostrarHistorial();
 });
