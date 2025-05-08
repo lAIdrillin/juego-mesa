@@ -114,3 +114,28 @@ y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos traba
 ## Ideas de mejora futura
 - Encuadramiento de las cartas y las imágenes.
 - Mejorar el fin de la partida.
+
+# Sesion 5: Sistema de Puntuaciones y Almacenamiento 7/05/2025
+
+## Resumen
+- Hemos conseguido establecer los diferentes temas de manera que le usuario pueda elegir entre los tres. Luego hemos trabajado en el historial. Finalmente la clasificación ha quedado sin terminar. Se ha insertado un botón para que el usuario borre el historial cuando lo desee.
+
+## Dificultades encontradas
+- **Problema #1:** Implementación del cálculo de puntuación.
+
+## Soluciones aplicadas
+- **solucion Problema #1:** Estamos trabajando en ello
+
+# Fuentes consultadas
+- codepen
+- youtube
+- w3school
+- https://ed.team/blog/que-es-y-como-utilizar-localstorage-y-sessionstorage
+
+## Decisiones técnicas
+- Decisiones principalmente enfocadas al funcionamiento del historial.
+- Tales se pueden resumir en un alamacenamiento en localStorage.
+- Implementación de botones para limpiar el historial y volver al menú en las nuevas pantallas generadas.
+
+## Ideas de mejora futura
+- Mejorar el localstorage.
