@@ -198,6 +198,11 @@ function crearCartas(numero, tema) {
                 bloqueo = true;
 
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
+
+                    if (primeraCarta.dataset.imagen === "pollo.jpg") {
+                        mostrarMensaje("🐣 ¡Has desbloqueado el pollo de la suerte!");
+                    }
+                
                     primeraCarta.classList.add("bloqueada");
                     segundaCarta.classList.add("bloqueada");
                     verificarFinDeJuego();
@@ -224,7 +229,8 @@ function crearCartas(numero, tema) {
 
             if (cartasVolteadas.length === 2) {
                 contadorPares++; 
-                document.getElementById("contador").textContent = contadorPares; 
+                document.getElementById("contador").textContent = contadorPares;
+                
 
                 cartasVolteadas = []; 
             }
@@ -408,3 +414,18 @@ function mostrarHistorial() {
     contenedorHistorial.insertBefore(tablaContenedor, contenedorHistorial.querySelector("button"));
 }
 
+btnLimpiarHistorial.addEventListener('click', () => {
+    localStorage.clear();
+});
+
+function mostrarMensaje(texto) {
+    const mensaje = document.getElementById("mensajeJuego");
+    mensaje.textContent = texto;
+
+     
+       
+    
+    setTimeout(() => {
+        mensaje.textContent = "";
+    }, 3000);
+}
