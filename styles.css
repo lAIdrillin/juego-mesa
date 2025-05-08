@@ -150,4 +150,30 @@ button:hover {
   display: block;
 }
 
+#tabla_historial {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; 
+}
+
+#tabla_historial th, #tabla_historial td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#tabla_historial th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+#tabla_historial tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#tabla_historial td[colspan="6"] {
+  text-align: center;
+  padding: 16px;
+  color: #888;
+}
 
