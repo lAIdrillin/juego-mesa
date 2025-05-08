@@ -274,7 +274,7 @@ function cronometro() {
 function iniciarCronometro() {
     if (!cronometroIniciado) {
         control = setInterval(cronometro, 10);
-        cronometroIniciado = true;
+        cronometroIniciado = true; 
     }
 }
 
@@ -284,6 +284,22 @@ document.querySelectorAll(".menu_principal").forEach(boton => {
     });
 });
 
+
+document.querySelectorAll(".record").forEach(boton => {
+    boton.addEventListener('click', () => {
+        header.style.display = "none"; 
+
+        table1.style.display = "none"; 
+    
+        final_partida.style.display = "none";
+
+        historial_partidas.style.display = "none";
+
+        mejores_puntuaciones.style.display = "block";
+    });
+});
+
+
 document.querySelectorAll(".historial").forEach(boton => {
     boton.addEventListener('click', () => {
         header.style.display = "none"; 
@@ -291,6 +307,8 @@ document.querySelectorAll(".historial").forEach(boton => {
         table1.style.display = "none"; 
     
         final_partida.style.display = "none";
+
+        mejores_puntuaciones.style.display = "none";
 
         historial_partidas.style.display = "block";
 
