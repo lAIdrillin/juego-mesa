@@ -204,10 +204,11 @@ function crearCartas(numero, tema) {
                 bloqueo = true;
 
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
+                    const sonidoAcierto = document.getElementById("sonidoAcierto");
+                    sonidoAcierto.play();
 
                     if (primeraCarta.dataset.imagen === "pollo.jpg") {
-                        const sonidoAcierto = document.getElementById("sonidoAcierto");
-                    sonidoAcierto.play();
+                        
                         mostrarMensaje("🐣 ¡Has desbloqueado el pollo de la suerte!");
                     }
                 
