@@ -206,6 +206,8 @@ function crearCartas(numero, tema) {
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
 
                     if (primeraCarta.dataset.imagen === "pollo.jpg") {
+                        const sonidoAcierto = document.getElementById("sonidoAcierto");
+                    sonidoAcierto.play();
                         mostrarMensaje("🐣 ¡Has desbloqueado el pollo de la suerte!");
                     }
                 
