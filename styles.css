@@ -177,4 +177,50 @@ button {
   padding: 16px;
   color: #888;
 }
+#historial_partidas {
+  background-color: rgba(0, 0, 0, 0);
+  color: #FFD700;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
+#tabla_historial {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tabla_historial th, #tabla_historial td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#tabla_historial th {
+  background-color: #444;
+}
+
+#tabla_historial td {
+  background-color: #333;
+}
+
+#tabla_historial tr:nth-child(even) td {
+  background-color: #444444cc;
+}
+
+#tabla_historial tr:hover td {
+  background-color: #555555cc;
+}
+
+#historial_partidas button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #FFD700;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+#historial_partidas button:hover {
+  background-color: #FFD700;
+}
