@@ -200,8 +200,13 @@ function crearCartas(numero, tema) {
             if (!primeraCarta) {
                 primeraCarta = carta;
             } else {
+                  
                 segundaCarta = carta;
                 bloqueo = true;
+                cartasVolteadas.push(this);
+                contadorPares++; 
+                document.getElementById("contador").textContent = contadorPares;
+                cartasVolteadas = [];
 
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
 
@@ -225,20 +230,11 @@ function crearCartas(numero, tema) {
                     },500);
                 }
             }
-            contarPares()
+            
 
         });
         cartas.appendChild(carta);
 
-        function contarPares() {
-            cartasVolteadas.push(this);
-
-            if (cartasVolteadas.length === 2) {
-                contadorPares++; 
-                document.getElementById("contador").textContent = contadorPares;
-                cartasVolteadas = []; 
-            }
-        }
 
     }
 
@@ -340,22 +336,14 @@ function guardarPartida() {
     const cronometro = document.getElementById("cronometro").textContent; 
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
-    
-    
-    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;  
-    let dificultad;
-
-
-    if (dificultadPersonalizada) {
-        dificultad = dificultadPersonalizada;
-        if(dificultad === "Personalizado") {
-            const filas = document.getElementById("numero1").value;
+    let dificultad = document.getElementById("dificultad_partida").value;
+    if (dificultad === "Personalizado") {
+        const filas = document.getElementById("numero1").value;
         const columnas = document.getElementById("numero2").value;
         const resultado = filas * columnas;
-        dificultad = resultado + " cartas (personalizada)";
-        }
-    } 
-
+        dificultad = resultado + " cartas (personalizada)";  
+    }
+    
    
     const nuevaPartida = {
         nombreJugador: nombre,
@@ -460,3 +448,5 @@ function compartirEnFacebook() {
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlCompartir)}&quote=${texto}`;
     window.open(url, '_blank', 'width=600,height=400');
   }
+
+  //CAMBIAR LA LÓGICA DE LA DIFICULTAD PERSONALIZADA
