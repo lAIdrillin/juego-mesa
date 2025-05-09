@@ -498,7 +498,7 @@ function mostrarRecord() {
     tabla.appendChild(cuerpo);
     contenedorHistorial.appendChild(tabla);
 }
-//document.querySelector(".record").addEventListener("click", mostrarRecords);
+
 
 
 
@@ -510,4 +510,3 @@ function compartirEnFacebook() {
     window.open(url, '_blank', 'width=600,height=400');
   }
 
-  //CAMBIAR LA LÓGICA DE LA DIFICULTAD PERSONALIZADA
