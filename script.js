@@ -513,7 +513,7 @@ function mostrarRecord() {
 
     contenedorHistorial.insertBefore(tablaContenedor, contenedorHistorial.querySelector("button"));
 }
-function compartirEnFacebook() {
+function compartirEnFacebook() { //nuevo botón facebook
     const urlCompartir = 'https://www.tusitio.com/pagina-a-compartir';
     const texto = encodeURIComponent('¡Mira esto! Es muy interesante.');
 
