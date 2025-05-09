@@ -16,7 +16,7 @@ const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg"
 "gallina.jpg", "koala.jpg", "lobo.jpg", "rana.jpg", "tigre.jpg"
 ];
 
-const imagenesComida = ["burritos.jpg","curry.jpg", "cebiche.jpg", "espaguetis.jpg", "pollo.jpg", 
+const imagenesComida = ["burritos.jpg","curry.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
 "salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
 "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
 ];
