@@ -8,8 +8,10 @@
     <link rel="icon" href="images/icono_palmera.png" type="image/x-icon">
     <title>Memorión</title>
     <style>
-        table,th,td {
-            border:1px solid white;
+        table,
+        th,
+        td {
+            border: 1px solid white;
         }
     </style>
 </head>
@@ -41,8 +43,10 @@
             <tr id="personalizar_tablero">
                 <th class="th_text">Crea un tu tablero personalizado</th>
                 <td>
-                    <input type="number" min="1" max="6" step="1" class="input_numero" id="numero1" placeholder="Filas" autocomplete="off">
-                    <input type="number" min="1" max="6" step="1" class="input_numero" id="numero2" placeholder="Columnas" autocomplete="off">
+                    <input type="number" min="1" max="6" step="1" class="input_numero" id="numero1" placeholder="Filas"
+                        autocomplete="off">
+                    <input type="number" min="1" max="6" step="1" class="input_numero" id="numero2"
+                        placeholder="Columnas" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -53,7 +57,7 @@
                         <option value="animales">Animales 🐺</option>
                         <option value="comidas">Comidas 🍣</option>
                         <option value="futbol">Equipos de fútbol ⚽</option>
-                    </select> 
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -80,23 +84,35 @@
         <h3>¡Muchas felicidades! Has superado el juego <br> ¡No olvides compartirlo con tus amigos de Facebook! </h3>
         <button class="menu_principal">Menú principal</button>
         <button class="historial">Historial partidas</button>
-        <button onclick="compartirEnFacebook()">Compartir en Facebook</button> 
+        <button onclick="compartirEnFacebook()">Compartir en Facebook</button>
     </div>
 
     <div id="historial_partidas" class="vista" style="display: none;">
         <h2>Historial de partidas</h2>
         <div id="tabla_historial"></div>
-        <button class="menu_principal">Menú principal</button>
-        <button id="limpiar_historial">Limpiar historial</button>
-        <button class="record">Récords</button>
+        <table id="tablabotoneshistorial">
+            <tr>
+                <th colspan="2">
+                    <button class="menu_principal">Menú principal</button>
+                    <button id="limpiar_historial">Limpiar historial</button>
+                    <button class="record">Récords</button>
+                </th>
+            </tr>
+        </table>
     </div>
 
 
     <div id="mejores_puntuaciones" class="vista" style="display: none;">
         <h2>Mejores puntuaciones</h2>
-        <div id="tabla_record"></div> 
-        <button class="menu_principal">Menú principal</button>
-        <button class="historial">Historial partidas</button>
+        <div id="tabla_record"></div>
+        <table id="tablabotonesrecord">
+            <tr>
+                <th colspan="2">
+                    <button class="menu_principal">Menú principal</button>
+                    <button class="historial">Historial partidas</button>
+                </th>
+            </tr>
+        </table>
     </div>
 
     <footer id="footer">
@@ -109,13 +125,13 @@
     <audio id="sonidoFondo" loop>
         <source src="sonidos/sonido playa (prueba).mp3" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
-      </audio>
-  
-      <!-- Sonido al acertar una pareja de cartas -->
-      <audio id="sonidoAcierto">
+    </audio>
+
+    <!-- Sonido al acertar una pareja de cartas -->
+    <audio id="sonidoAcierto">
         <source src="sonidos/acierto.mp3" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
-      </audio>
+    </audio>
     <script src="script.js"></script>
 </body>
 
