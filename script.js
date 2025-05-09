@@ -1,11 +1,3 @@
-const tablero = document.getElementById("tablero");
-
-const table1 = document.getElementById("table1");
-
-const header = document.getElementById("header");
-
-const cartas = document.getElementById("cartas");
-
 const selectDificultad = document.getElementById("dificultad_partida");
 
 selectDificultad.addEventListener("change", function() {
@@ -18,13 +10,13 @@ selectDificultad.addEventListener("change", function() {
         personalizar_tablero.style.display = "none";
     }
 });
-    
+
 const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
 "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
 "gallina.jpg", "koala.jpg", "lobo.jpg", "rana.jpg", "tigre.jpg"
 ];
 
-const imagenesComida = ["burritos.jpg","curry.jpg", "cebiche.jpg", "espaguetis.jpg", "pollo.jpg", 
+const imagenesComida = ["burritos.jpg","curry.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
 "salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
 "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
 ];
@@ -43,35 +35,22 @@ document.getElementById("limpiar_historial").addEventListener("click", function(
 
 document.querySelectorAll(".historial").forEach(boton => {
     boton.addEventListener('click', () => {
-        header.style.display = "none"; 
-
-        table1.style.display = "none"; 
-    
-        final_partida.style.display = "none";
-
-        mejores_puntuaciones.style.display = "none";
-
-        historial_partidas.style.display = "block";
-
+        document.getElementById("header").style.display = "none"; 
+        document.getElementById("table1").style.display = "none"; 
+        document.getElementById("final_partida").style.display = "none"; 
+        document.getElementById("mejores_puntuaciones").style.display = "none"; 
+        document.getElementById("historial_partidas").style.display = "block"; 
         mostrarHistorial()
     });
 });
 
 
-document.getElementById("empezar_partida").addEventListener('click', () => {
+function validacionesPartida() {
 
-    const cronometro = document.getElementById("cronometro").textContent;
-    const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
     const nomJugador = document.querySelector(".nomJugador")
     nomJugador.innerText = nombre;
-    const dificultad = document.getElementById("dificultad_partida").value;
-    const modo = document.get
     var accederJuego = true;
-    const filas = document.getElementById("numero1").value;
-    const columnas = document.getElementById("numero2").value;
-    const resultado = filas * columnas;
-    const tema = document.getElementById("tema_partida").value;
 
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
@@ -103,6 +82,23 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
         accederJuego = false;
         return;
     }
+
+}
+document.getElementById("empezar_partida").addEventListener('click', () => {
+
+    const cronometro = document.getElementById("cronometro").textContent;
+    const contador = document.getElementById("contador").textContent;
+    const nombre = document.getElementById("nombre").value;
+    const nomJugador = document.querySelector(".nomJugador")
+    nomJugador.innerText = nombre;
+    const dificultad = document.getElementById("dificultad_partida").value;
+    const modo = document.get
+    const filas = document.getElementById("numero1").value;
+    const columnas = document.getElementById("numero2").value;
+    const resultado = filas * columnas;
+    const tema = document.getElementById("tema_partida").value;
+
+    validacionesPartida();
 
     if(accederJuego){
 
