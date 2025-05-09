@@ -139,3 +139,30 @@ y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos traba
 
 ## Ideas de mejora futura
 - Mejorar el localstorage.
+
+# Sesion 6:  Sesión 6: Mejoras Visuales, Pulido Final y Presentaciones 8/05/2025 y 9/05/2025
+
+## Resumen
+- Esta sesion nos hemos encargado de hacer y rematar muchas tareas pendientes que teniamos de las sesiones anteriores que son las siguientes.Las transiciones, adaptar el tablero en funcion de la pantalla, una funcion para guardar los intentos,el sistema de puntuacion y la pantalla, la interfaz para que sea agradable e intuitiva,otra funcion para que si selecciona la dificultad predefinida se desactiva la personalizada y vicebersa,depurar el codigo y poner un huevo de pascua
+## Dificultades encontradas
+- **Problema #1:** Publicar la puntuacion en Facebook
+- **Problema #2:** Insertar sonido de acierto cuando seleccionas dos cartas
+- **Problema #3:** Centrado de la seleccion de columnas y filas en el apartado personalizado
+
+## Soluciones aplicadas
+- **Solucion Problema #1:** Cambiar class por onclick en el html
+- **Solucion Problema #2:** Mover la funcion al if que declara lo que pasa si se acierta la pareja
+- **Solucion Problema #3:** 
+
+# Fuentes consultadas
+- codepen
+- youtube
+- w3school
+- 
+
+## Decisiones técnicas
+- Diseño e interfaz final de la pagina web
+
+## Ideas de mejora futura
+- Subir la pagina web a un servidor 
+- 
