@@ -143,7 +143,8 @@ y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos traba
 # Sesion 6:  Sesión 6: Mejoras Visuales, Pulido Final y Presentaciones 8/05/2025 y 9/05/2025
 
 ## Resumen
-- Esta sesion nos hemos encargado de hacer y rematar muchas tareas pendientes que teniamos de las sesiones anteriores que son las siguientes.Las transiciones, adaptar el tablero en funcion de la pantalla, una funcion para guardar los intentos,el sistema de puntuacion y la pantalla, la interfaz para que sea agradable e intuitiva,otra funcion para que si selecciona la dificultad predefinida se desactiva la personalizada y vicebersa,depurar el codigo y poner un huevo de pascua
+- Esta sesión nos hemos encargado de hacer y rematar muchas tareas pendientes que teniamos de las sesiones anteriores que son las siguientes.Las transiciones, adaptar el tablero en funcion de la pantalla, una funcion para guardar los intentos,el sistema de puntuacion y la pantalla, la interfaz para que sea agradable e intuitiva,otra funcion para que si selecciona la dificultad predefinida se desactiva la personalizada y vicebersa,depurar el codigo y poner un huevo de Pascua(Esta en la linea 220 de el scipt y funciona cuando le das la vuelta a una carta del tema comida)
+
 ## Dificultades encontradas
 - **Problema #1:** Publicar la puntuacion en Facebook
 - **Problema #2:** Insertar sonido de acierto cuando seleccionas dos cartas
@@ -164,5 +165,5 @@ y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos traba
 - Diseño e interfaz final de la pagina web
 
 ## Ideas de mejora futura
-- Subir la pagina web a un servidor 
+- Subir la pagina web a un servidor.
 - 
