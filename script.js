@@ -214,10 +214,11 @@ function crearCartas(numero, tema) {
                 cartasVolteadas = [];
 
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
+                    const sonidoAcierto = document.getElementById("sonidoAcierto");
+                    sonidoAcierto.play();
 
                     if (primeraCarta.dataset.imagen === "pollo.jpg") {
-                        const sonidoAcierto = document.getElementById("sonidoAcierto");
-                    sonidoAcierto.play();
+                        
                         mostrarMensaje("🐣 ¡Has desbloqueado el pollo de la suerte!");
                     }
                 
@@ -434,18 +435,71 @@ function mostrarHistorial() {
         filaVacia.appendChild(tdVacio);
         cuerpo.appendChild(filaVacia);
     }
-
     tabla.appendChild(cuerpo);
     contenedorHistorial.appendChild(tabla);
 }
 
+
 function mostrarRecord() {
+    const contenedorHistorial = document.getElementById("tabla_record");
+    contenedorHistorial.innerHTML = "";
+
     let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+
 
     historialPartidas.sort((a, b) => a.intentos - b.intentos);
 
-    mostrarHistorial();
+    const tabla = document.createElement("table");
+    tabla.id = "tabla_record";
+
+    const cabecera = document.createElement("thead");
+    const filaCabecera = document.createElement("tr");
+
+    const cabeceras = ["Jugador", "Intentos"];
+    cabeceras.forEach(texto => {
+        const th = document.createElement("th");
+        th.textContent = texto;
+        filaCabecera.appendChild(th);
+    });
+
+    cabecera.appendChild(filaCabecera);
+    tabla.appendChild(cabecera);
+
+    const cuerpo = document.createElement("tbody");
+
+    if (historialPartidas.length > 0) {
+        historialPartidas.forEach(partida => {
+            const fila = document.createElement("tr");
+
+            const datos = [
+                partida.nombreJugador,
+                partida.intentos
+            ];
+
+            datos.forEach(dato => {
+                const td = document.createElement("td");
+                td.textContent = dato;
+                fila.appendChild(td);
+            });
+
+            cuerpo.appendChild(fila);
+        });
+    } else {
+        const filaVacia = document.createElement("tr");
+        const tdVacio = document.createElement("td");
+        tdVacio.colSpan = 2;
+        tdVacio.textContent = "No hay récords aún.";
+        tdVacio.style.textAlign = "center";
+        tdVacio.style.padding = "16px";
+        filaVacia.appendChild(tdVacio);
+        cuerpo.appendChild(filaVacia);
+    }
+
+    tabla.appendChild(cuerpo);
+    contenedorHistorial.appendChild(tabla);
 }
+//document.querySelector(".record").addEventListener("click", mostrarRecords);
+
 
 
 function compartirEnFacebook() { 
