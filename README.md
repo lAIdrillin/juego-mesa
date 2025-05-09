@@ -152,7 +152,7 @@ y no hemos conseguido sincronizar todos los avances con éxito. Seguiremos traba
 ## Soluciones aplicadas
 - **Solucion Problema #1:** Cambiar class por onclick en el html
 - **Solucion Problema #2:** Mover la funcion al if que declara lo que pasa si se acierta la pareja
-- **Solucion Problema #3:** 
+- **Solucion Problema #3:** Si el usuario pone una dificultad predefinida se bloquee la personalizada
 
 # Fuentes consultadas
 - codepen
