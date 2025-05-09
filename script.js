@@ -17,7 +17,7 @@ selectDificultad.addEventListener("change", function() {
     else {
         personalizar_tablero.style.display = "none";
     }
-    });
+});
     
 const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
 "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
