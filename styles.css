@@ -18,7 +18,7 @@ body {
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
 }
 
-h2 {
+h1, h2  {
   text-align: center;
 }
 
@@ -163,7 +163,7 @@ button {
 #tabla_historial th, #tabla_historial td {
   border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
+  text-align: center;
 }
 
 #tabla_historial th {
