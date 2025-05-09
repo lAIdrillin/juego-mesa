@@ -518,7 +518,7 @@ document.getElementById("compartir_facebook").addEventListener("click", () => {
     const tiempo = document.getElementById("cronometro").textContent;
     const intentos = document.getElementById("contador").textContent;
 
-    const mensaje = `¡${nombre} ha completado el juego en ${tiempo} con ${intentos} intentos! ¿Puedes superarlo?`;
+    const mensaje = `¡${nombre} ha completado el juego en ${tiempo} con ${intentos++} intentos! ¿Puedes superarlo?`;
 
     const url = encodeURIComponent("https://tu-sitio.com"); // Poner la URL de tu sitio
     const quote = encodeURIComponent(mensaje);
