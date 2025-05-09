@@ -18,9 +18,11 @@ body {
   color: #FFD700;
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
 }
+
 h2 {
   text-align: center;
 }
+
 #memorion {
   font-size: 40px;
   font-weight: bold;
@@ -36,7 +38,7 @@ h2 {
 }
 
 #table1 {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.785);
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
