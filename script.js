@@ -2,12 +2,17 @@ const selectDificultad = document.getElementById("dificultad_partida");
 
 selectDificultad.addEventListener("change", function() {
     const personalizar_tablero = document.getElementById("personalizar_tablero")
+    const inputs = personalizar_tablero.querySelectorAll("input"); 
     const dificultadSeleccionada = selectDificultad.value;
-    if(dificultadSeleccionada === "Personalizado") {
-            personalizar_tablero.style.display = "block";
-        }
-    else {
-        personalizar_tablero.style.display = "none";
+    if (dificultadSeleccionada !== "Personalizado") {    
+        inputs.forEach(input => {
+            input.disabled = true;
+            input.value = '';
+        });
+    } else {
+        inputs.forEach(input => {
+            input.disabled = false;
+        });
     }
 });
     
