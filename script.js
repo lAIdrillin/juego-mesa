@@ -17,7 +17,7 @@ selectDificultad.addEventListener("change", function() {
     else {
         personalizar_tablero.style.display = "none";
     }
-});
+    });
     
 const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
 "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
@@ -103,7 +103,6 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
         accederJuego = false;
         return;
     }
-
 
     if(accederJuego){
 
@@ -467,3 +466,10 @@ function mostrarRecord() {
 }
 
 
+function compartirEnFacebook() { 
+    const urlCompartir = 'https://www.tusitio.com/pagina-a-compartir';
+    const texto = encodeURIComponent('¡Mira esto! Es muy interesante.');
+
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlCompartir)}&quote=${texto}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  }
