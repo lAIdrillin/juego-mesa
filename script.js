@@ -513,4 +513,16 @@ function mostrarRecord() {
 
     contenedorHistorial.insertBefore(tablaContenedor, contenedorHistorial.querySelector("button"));
 }
+document.getElementById("compartir_facebook").addEventListener("click", () => {
+    const nombre = document.getElementById("nombre").value;
+    const tiempo = document.getElementById("cronometro").textContent;
+    const intentos = document.getElementById("contador").textContent;
 
+    const mensaje = `¡${nombre} ha completado el juego en ${tiempo} con ${intentos++} intentos! ¿Puedes superarlo?`;
+
+    const url = encodeURIComponent("https://tu-sitio.com"); // Poner la URL de tu sitio
+    const quote = encodeURIComponent(mensaje);
+
+    const compartirUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`;
+    window.open(compartirUrl, "_blank");
+});
