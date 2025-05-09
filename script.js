@@ -2,18 +2,23 @@ const selectDificultad = document.getElementById("dificultad_partida");
 
 selectDificultad.addEventListener("change", function() {
     const personalizar_tablero = document.getElementById("personalizar_tablero")
+    const inputs = personalizar_tablero.querySelectorAll("input"); 
     const dificultadSeleccionada = selectDificultad.value;
-    if(dificultadSeleccionada === "Personalizado") {
-            personalizar_tablero.style.display = "block";
-        }
-    else {
-        personalizar_tablero.style.display = "none";
+    if (dificultadSeleccionada !== "Personalizado") {    
+        inputs.forEach(input => {
+            input.disabled = true;
+            input.value = '';
+        });
+    } else {
+        inputs.forEach(input => {
+            input.disabled = false;
+        });
     }
 });
     
-const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
+const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cabra.jpg", "elefante.jpg", "conejo.jpg",
 "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
-"gallina.jpg", "koala.jpg", "lobo.jpg", "rana.jpg", "tigre.jpg"
+"gallina.jpg", "serpiente.jpg", "lobo.jpg", "pinguino.jpg", "tigre.jpg", "gato.jpg", "jirafa.jpg"
 ];
 
 const imagenesComida = ["burritos.jpg","curry.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
@@ -493,7 +498,7 @@ function mostrarRecord() {
     tabla.appendChild(cuerpo);
     contenedorHistorial.appendChild(tabla);
 }
-//document.querySelector(".record").addEventListener("click", mostrarRecords);
+
 
 
 
@@ -504,5 +509,3 @@ function compartirEnFacebook() {
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlCompartir)}&quote=${texto}`;
     window.open(url, '_blank', 'width=600,height=400');
   }
-
-  //CAMBIAR LA LÓGICA DE LA DIFICULTAD PERSONALIZADA
