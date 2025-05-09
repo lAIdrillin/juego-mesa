@@ -41,6 +41,23 @@ document.getElementById("limpiar_historial").addEventListener("click", function(
     mostrarHistorial();
 });
 
+document.querySelectorAll(".historial").forEach(boton => {
+    boton.addEventListener('click', () => {
+        header.style.display = "none"; 
+
+        table1.style.display = "none"; 
+    
+        final_partida.style.display = "none";
+
+        mejores_puntuaciones.style.display = "none";
+
+        historial_partidas.style.display = "block";
+
+        mostrarHistorial()
+    });
+});
+
+
 document.getElementById("empezar_partida").addEventListener('click', () => {
 
     const cronometro = document.getElementById("cronometro").textContent;
@@ -370,75 +387,6 @@ function guardarPartida() {
     localStorage.setItem("historialPartidas", JSON.stringify(historialPartidas));
 }
 
-function mostrarHistorial() {
-    const contenedorHistorial = document.getElementById("historial_partidas");
-    const tablaContenedor = document.getElementById("tabla_historial");
-
-    tablaContenedor.innerHTML = "";
-
-    let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
-
-    const tabla = document.createElement("table");
-    tabla.id = "tabla_historial"; 
-
-    const cabecera = document.createElement("thead");
-    const filaCabecera = document.createElement("tr");
-
-    const cabeceras = ["Partida", "Jugador", "Fecha", "Tiempo", "Dificultad", "Intentos"];
-    cabeceras.forEach(texto => {
-        const th = document.createElement("th");
-        th.textContent = texto;
-        filaCabecera.appendChild(th);
-    });
-
-    cabecera.appendChild(filaCabecera);
-    tabla.appendChild(cabecera);
-
-    const cuerpo = document.createElement("tbody");
-
-    if (historialPartidas.length > 0) {
-        historialPartidas.forEach((partida, index) => {
-            const fila = document.createElement("tr");
-
-            const datos = [
-                `Partida ${index + 1}`,
-                partida.nombreJugador,
-                partida.fecha,
-                partida.tiempo,
-                partida.dificultad,
-                partida.intentos
-            ];
-
-            datos.forEach(dato => {
-                const td = document.createElement("td");
-                td.textContent = dato;
-                fila.appendChild(td);
-            });
-
-            cuerpo.appendChild(fila);
-        });
-    } else {
-
-        const filaVacia = document.createElement("tr");
-        const tdVacio = document.createElement("td");
-        tdVacio.colSpan = 6; 
-        tdVacio.textContent = "No hay partidas guardadas.";
-        tdVacio.style.textAlign = "center";
-        tdVacio.style.padding = "16px";
-        filaVacia.appendChild(tdVacio);
-        cuerpo.appendChild(filaVacia);
-    }
-
-    tabla.appendChild(cuerpo);
-    tablaContenedor.appendChild(tabla);
-
-    contenedorHistorial.insertBefore(tablaContenedor, contenedorHistorial.querySelector("button"));
-}
-
-btnLimpiarHistorial.addEventListener('click', () => {
-    localStorage.clear();
-});
-
 function mostrarMensaje(texto) {
     const mensaje = document.getElementById("mensajeJuego");
     mensaje.textContent = texto;
@@ -448,19 +396,16 @@ function mostrarMensaje(texto) {
     }, 3000);
 }
 
-//REVISAR ESTO BIEN; CREAR UN ID PARA LA OTRA TABLA Y MIRAR QUE TODO FUNCIONE CORRECTAMENTE
-function mostrarRecord() {
-    const contenedorHistorial = document.getElementById("historial_partidas");
-    const tablaContenedor = document.getElementById("tabla_historial");
 
-    tablaContenedor.innerHTML = "";
+
+function mostrarHistorial() {
+    const contenedorHistorial = document.querySelector(".tabla_historial");
+    contenedorHistorial.innerHTML = "";  // Limpiar cualquier contenido previo
 
     let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
 
-    historialPartidas.sort((a, b) => b.intentos - a.intentos);
-
     const tabla = document.createElement("table");
-    tabla.id = "tabla_historial"; 
+    tabla.id = "tabla_historial";
 
     const cabecera = document.createElement("thead");
     const filaCabecera = document.createElement("tr");
@@ -501,7 +446,7 @@ function mostrarRecord() {
     } else {
         const filaVacia = document.createElement("tr");
         const tdVacio = document.createElement("td");
-        tdVacio.colSpan = 6; 
+        tdVacio.colSpan = 6;
         tdVacio.textContent = "No hay partidas guardadas.";
         tdVacio.style.textAlign = "center";
         tdVacio.style.padding = "16px";
@@ -510,20 +455,15 @@ function mostrarRecord() {
     }
 
     tabla.appendChild(cuerpo);
-    tablaContenedor.appendChild(tabla);
-
-    contenedorHistorial.insertBefore(tablaContenedor, contenedorHistorial.querySelector("button"));
+    contenedorHistorial.appendChild(tabla);
 }
-document.getElementById("compartir_facebook").addEventListener("click", () => {
-    const nombre = document.getElementById("nombre").value;
-    const tiempo = document.getElementById("cronometro").textContent;
-    const intentos = document.getElementById("contador").textContent;
 
-    const mensaje = `¡${nombre} ha completado el juego en ${tiempo} con ${intentos} intentos! ¿Puedes superarlo?`;
+function mostrarRecord() {
+    let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
 
-    const url = encodeURIComponent("https://tu-sitio.com"); 
-    const quote = encodeURIComponent(mensaje);
+    historialPartidas.sort((a, b) => a.intentos - b.intentos);
 
-    const compartirUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`;
-    window.open(compartirUrl, "_blank");
-});
+    mostrarHistorial();
+}
+
+
