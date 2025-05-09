@@ -17,7 +17,7 @@ selectDificultad.addEventListener("change", function() {
     else {
         personalizar_tablero.style.display = "none";
     }
-    });
+});
     
 const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
 "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
@@ -247,8 +247,6 @@ function crearCartas(numero, tema) {
             if (cartasVolteadas.length === 2) {
                 contadorPares++; 
                 document.getElementById("contador").textContent = contadorPares;
-                
-
                 cartasVolteadas = []; 
             }
         }
@@ -398,8 +396,8 @@ function mostrarMensaje(texto) {
 
 
 function mostrarHistorial() {
-    const contenedorHistorial = document.querySelector(".tabla_historial");
-    contenedorHistorial.innerHTML = "";  // Limpiar cualquier contenido previo
+    const contenedorHistorial = document.getElementById("tabla_historial");
+    contenedorHistorial.innerHTML = "";  
 
     let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
 

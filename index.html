@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/icono_palmera.png" type="image/x-icon">
-    <title>Memorión 🌴</title>
+    <title>Memorión</title>
 </head>
 
 <body>
@@ -36,10 +36,10 @@
             <tr id="personalizar_tablero" style="display: none;">
                 <th class="th_text">Crea un tu tablero personalizado</th>
                 <td>
-                    <input type="number" min="1" step="1" class="input_numero" id="numero1" placeholder="Filas" autocomplete="off">
+                    <input type="number" min="1" max="6" step="1" class="input_numero" id="numero1" placeholder="Filas" autocomplete="off">
                 </td>
                 <td>
-                    <input type="number" min="1" step="1" class="input_numero" id="numero2" placeholder="Columnas" autocomplete="off">
+                    <input type="number" min="1" max="6" step="1" class="input_numero" id="numero2" placeholder="Columnas" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -82,7 +82,7 @@
 
     <div id="historial_partidas" class="vista" style="display: none;">
         <h2>Historial de partidas</h2>
-        <div class="tabla_historial"></div>
+        <div id="tabla_historial"></div>
         <button class="menu_principal">Menú principal</button>
         <button id="limpiar_historial">Limpiar historial</button>
         <button class="record">Récords</button>
@@ -91,7 +91,7 @@
 
     <div id="mejores_puntuaciones" class="vista" style="display: none;">
         <h2>Mejores puntuaciones</h2>
-        <div class="tabla_historial"></div> 
+        <div id="tabla_record"></div> 
         <button class="menu_principal">Menú principal</button>
         <button class="historial">Historial partidas</button>
     </div>
