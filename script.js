@@ -132,6 +132,7 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
 
 });
 
+
 function crearCartas(numero, tema) {
     cartas.innerHTML = "";
 
