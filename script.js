@@ -1,25 +1,27 @@
-const btnEmpezarPartida = document.getElementById("empezar_partida");
+const selectDificultad = document.getElementById("dificultad_partida");
 
-const btnMenuPrincipal = document.querySelectorAll(".menu_principal");
-
-const btnHistorial = document.querySelectorAll(".historial")
-
-const btnLimpiarHistorial = document.querySelectorAll(".limpiar_historial")
-
-const tablero = document.getElementById("tablero");
-
-const table1 = document.getElementById("table1");
-
-const header = document.getElementById("header");
-
-const cartas = document.getElementById("cartas");
-
-const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg", "conejo.jpg",
+selectDificultad.addEventListener("change", function() {
+    const personalizar_tablero = document.getElementById("personalizar_tablero")
+    const inputs = personalizar_tablero.querySelectorAll("input"); 
+    const dificultadSeleccionada = selectDificultad.value;
+    if (dificultadSeleccionada !== "Personalizado") {    
+        inputs.forEach(input => {
+            input.disabled = true;
+            input.value = '';
+        });
+    } else {
+        inputs.forEach(input => {
+            input.disabled = false;
+        });
+    }
+});
+    
+const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cabra.jpg", "elefante.jpg", "conejo.jpg",
 "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
-"gallina.jpg", "koala.jpg", "lobo.jpg", "rana.jpg", "tigre.jpg"
+"gallina.jpg", "serpiente.jpg", "lobo.jpg", "pinguino.jpg", "tigre.jpg", "gato.jpg", "jirafa.jpg"
 ];
 
-const imagenesComida = ["burritos.jpg","curry.jpg", "cebiche.jpg", "espaguetis.jpg", "pollo.jpg", 
+const imagenesComida = ["burritos.jpg","nueces.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
 "salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
 "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
 ];
@@ -31,13 +33,30 @@ const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "c
 let contadorPares = 0;
 let cartasVolteadas= [];
 
-btnEmpezarPartida.addEventListener('click', () => {
+document.getElementById("limpiar_historial").addEventListener("click", function() {
+    localStorage.clear();
+    mostrarHistorial();
+});
 
+document.querySelectorAll(".historial").forEach(boton => {
+    boton.addEventListener('click', () => {
+
+        document.getElementById("header").style.display = "none"; 
+        document.getElementById("table1").style.display = "none"; 
+        document.getElementById("final_partida").style.display = "none"; 
+        document.getElementById("mejores_puntuaciones").style.display = "none"; 
+        document.getElementById("historial_partidas").style.display = "block"; 
+        mostrarHistorial()
+    });
+});
+
+
+document.getElementById("empezar_partida").addEventListener('click', () => {
 
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
-    const nomJugador = document.getElementById("nomJugador")
+    const nomJugador = document.querySelector(".nomJugador")
     nomJugador.innerText = nombre;
     const dificultad = document.getElementById("dificultad_partida").value;
     const modo = document.get
@@ -46,10 +65,6 @@ btnEmpezarPartida.addEventListener('click', () => {
     const columnas = document.getElementById("numero2").value;
     const resultado = filas * columnas;
     const tema = document.getElementById("tema_partida").value;
-
-
-
-    //AÑADIR VALIDACIÓN PARA QUE SI HAY SELECCIONADA UNA DIFICULTAD, NO SE PUEDA PERSONALIZAR EL TABLERO Y VICEVERSA
 
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
@@ -93,15 +108,15 @@ btnEmpezarPartida.addEventListener('click', () => {
     let numero;
 
     switch (dificultad) {
-        case "facil":
+        case "Fácil":
             numero = 16
             cartas.className = "grid-4x4";
             break;
-        case "medio":
+        case "Medio":
             numero = 20;
             cartas.className = "grid-5x4";
             break;
-        case "dificil":
+        case "Difícil":
             numero = 36;
             cartas.className = "grid-6x6";
             break;
@@ -113,9 +128,7 @@ btnEmpezarPartida.addEventListener('click', () => {
 
 
     }
-
-    //
-
+    
     cartas.style.display = "grid";
     cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
     cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
@@ -123,6 +136,7 @@ btnEmpezarPartida.addEventListener('click', () => {
     cartas.style.transform = "scaleX(-1)";
 
 });
+
 
 function crearCartas(numero, tema) {
     cartas.innerHTML = "";
@@ -191,10 +205,23 @@ function crearCartas(numero, tema) {
             if (!primeraCarta) {
                 primeraCarta = carta;
             } else {
+                  
                 segundaCarta = carta;
                 bloqueo = true;
+                cartasVolteadas.push(this);
+                contadorPares++; 
+                document.getElementById("contador").textContent = contadorPares;
+                cartasVolteadas = [];
 
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
+                    const sonidoAcierto = document.getElementById("sonidoAcierto");
+                    sonidoAcierto.play();
+
+                    if (primeraCarta.dataset.imagen === "pollo.jpg") {
+                        
+                        mostrarMensaje("🐣 ¡Has desbloqueado el pollo de la suerte!");
+                    }
+                
                     primeraCarta.classList.add("bloqueada");
                     segundaCarta.classList.add("bloqueada");
                     verificarFinDeJuego();
@@ -211,21 +238,11 @@ function crearCartas(numero, tema) {
                     },500);
                 }
             }
-            contarPares()
+            
 
         });
         cartas.appendChild(carta);
 
-        function contarPares() {
-            cartasVolteadas.push(this);
-
-            if (cartasVolteadas.length === 2) {
-                contadorPares++; 
-                document.getElementById("contador").textContent = contadorPares; 
-
-                cartasVolteadas = []; 
-            }
-        }
 
     }
 
@@ -265,23 +282,43 @@ function cronometro() {
 function iniciarCronometro() {
     if (!cronometroIniciado) {
         control = setInterval(cronometro, 10);
-        cronometroIniciado = true;
+        cronometroIniciado = true; 
     }
 }
 
-btnMenuPrincipal.forEach(boton => {
+document.querySelectorAll(".menu_principal").forEach(boton => {
     boton.addEventListener('click', () => {
         window.location.href = "index.html";
     });
 });
 
-btnHistorial.forEach(boton => {
+
+document.querySelectorAll(".record").forEach(boton => {
     boton.addEventListener('click', () => {
         header.style.display = "none"; 
 
         table1.style.display = "none"; 
     
         final_partida.style.display = "none";
+
+        historial_partidas.style.display = "none";
+
+        mejores_puntuaciones.style.display = "block";
+
+        mostrarRecord()
+    });
+});
+
+
+document.querySelectorAll(".historial").forEach(boton => {
+    boton.addEventListener('click', () => {
+        header.style.display = "none"; 
+
+        table1.style.display = "none"; 
+    
+        final_partida.style.display = "none";
+
+        mejores_puntuaciones.style.display = "none";
 
         historial_partidas.style.display = "block";
 
@@ -292,7 +329,6 @@ btnHistorial.forEach(boton => {
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
     const cartasPartida = document.querySelectorAll(".carta").length;
-
     if (cartasBloqueadas.length === cartasPartida) {
         setTimeout(() => {
             tablero.style.display = "none"
@@ -308,27 +344,20 @@ function guardarPartida() {
     const cronometro = document.getElementById("cronometro").textContent; 
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
-    
-    
-    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;  
-    let dificultad;
-
-
-    if (dificultadPersonalizada) {
-        dificultad = dificultadPersonalizada;
-    } else {
+    let dificultad = document.getElementById("dificultad_partida").value;
+    if (dificultad === "Personalizado") {
         const filas = document.getElementById("numero1").value;
         const columnas = document.getElementById("numero2").value;
         const resultado = filas * columnas;
-        dificultad = resultado;
+        dificultad = resultado + " cartas (personalizada)";  
     }
-
+    
    
     const nuevaPartida = {
         nombreJugador: nombre,
         tiempo: cronometro,
         dificultad: dificultad, 
-        intentos: parseInt(contador), 
+        intentos: contador, 
         fecha: new Date().toISOString().split('T')[0], 
     };
 
@@ -340,33 +369,143 @@ function guardarPartida() {
     localStorage.setItem("historialPartidas", JSON.stringify(historialPartidas));
 }
 
+function mostrarMensaje(texto) {
+    const mensaje = document.getElementById("mensajeJuego");
+    mensaje.textContent = texto;
+
+    setTimeout(() => {
+        mensaje.textContent = "";
+    }, 3000);
+}
+
 
 
 function mostrarHistorial() {
-    const contenedorHistorial = document.getElementById("historial_partidas");
+    const contenedorHistorial = document.getElementById("tabla_historial");
+    contenedorHistorial.innerHTML = "";  
 
-    const historialContenido = document.createElement('div');
-    
     let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
 
-    const lista = document.createElement("ul");
+    const tabla = document.createElement("table");
+    tabla.id = "tabla_historial";
+
+    const cabecera = document.createElement("thead");
+    const filaCabecera = document.createElement("tr");
+
+    const cabeceras = ["Partida", "Jugador", "Fecha", "Tiempo", "Dificultad", "Intentos"];
+    cabeceras.forEach(texto => {
+        const th = document.createElement("th");
+        th.textContent = texto;
+        filaCabecera.appendChild(th);
+    });
+
+    cabecera.appendChild(filaCabecera);
+    tabla.appendChild(cabecera);
+
+    const cuerpo = document.createElement("tbody");
 
     if (historialPartidas.length > 0) {
         historialPartidas.forEach((partida, index) => {
-            const item = document.createElement("li");
-            item.textContent = `Partida ${index + 1}: Jugador: ${partida.nombreJugador}, Fecha: ${partida.fecha}, Tiempo: ${partida.tiempo}, Dificultad: ${partida.dificultad}, Intentos: ${partida.intentos}`;
-            lista.appendChild(item);
+            const fila = document.createElement("tr");
+
+            const datos = [
+                `Partida ${index + 1}`,
+                partida.nombreJugador,
+                partida.fecha,
+                partida.tiempo,
+                partida.dificultad,
+                partida.intentos
+            ];
+
+            datos.forEach(dato => {
+                const td = document.createElement("td");
+                td.textContent = dato;
+                fila.appendChild(td);
+            });
+
+            cuerpo.appendChild(fila);
         });
     } else {
-        lista.textContent = "No hay partidas guardadas.";
+        const filaVacia = document.createElement("tr");
+        const tdVacio = document.createElement("td");
+        tdVacio.colSpan = 6;
+        tdVacio.textContent = "No hay partidas guardadas.";
+        tdVacio.style.textAlign = "center";
+        tdVacio.style.padding = "16px";
+        filaVacia.appendChild(tdVacio);
+        cuerpo.appendChild(filaVacia);
     }
-
-    historialContenido.appendChild(lista);
-    contenedorHistorial.appendChild(historialContenido);
+    tabla.appendChild(cuerpo);
+    contenedorHistorial.appendChild(tabla);
 }
 
-btnLimpiarHistorial.forEach(boton => {
-    boton.addEventListener('click', () => {
-        localStorage.clear();
+
+function mostrarRecord() {
+    const contenedorHistorial = document.getElementById("tabla_record");
+    contenedorHistorial.innerHTML = "";
+
+    let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+
+
+    historialPartidas.sort((a, b) => a.intentos - b.intentos);
+
+    const tabla = document.createElement("table");
+    tabla.id = "tabla_record";
+
+    const cabecera = document.createElement("thead");
+    const filaCabecera = document.createElement("tr");
+
+    const cabeceras = ["Jugador", "Intentos"];
+    cabeceras.forEach(texto => {
+        const th = document.createElement("th");
+        th.textContent = texto;
+        filaCabecera.appendChild(th);
     });
-});
+
+    cabecera.appendChild(filaCabecera);
+    tabla.appendChild(cabecera);
+
+    const cuerpo = document.createElement("tbody");
+
+    if (historialPartidas.length > 0) {
+        historialPartidas.forEach(partida => {
+            const fila = document.createElement("tr");
+
+            const datos = [
+                partida.nombreJugador,
+                partida.intentos
+            ];
+
+            datos.forEach(dato => {
+                const td = document.createElement("td");
+                td.textContent = dato;
+                fila.appendChild(td);
+            });
+
+            cuerpo.appendChild(fila);
+        });
+    } else {
+        const filaVacia = document.createElement("tr");
+        const tdVacio = document.createElement("td");
+        tdVacio.colSpan = 2;
+        tdVacio.textContent = "No hay récords aún.";
+        tdVacio.style.textAlign = "center";
+        tdVacio.style.padding = "16px";
+        filaVacia.appendChild(tdVacio);
+        cuerpo.appendChild(filaVacia);
+    }
+
+    tabla.appendChild(cuerpo);
+    contenedorHistorial.appendChild(tabla);
+}
+
+
+
+
+function compartirEnFacebook() { 
+    const urlCompartir = 'https://www.tusitio.com/pagina-a-compartir';
+    const texto = encodeURIComponent('¡Mira esto! Es muy interesante.');
+
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlCompartir)}&quote=${texto}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  }

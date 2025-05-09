@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Juego de tarjetas</title>
+    <link rel="icon" href="images/icono_palmera.png" type="image/x-icon">
+    <title>Memorión</title>
 </head>
 
 <body>
     <header id="header">
         <h1 id="memorion">MEMORIÓN</h1>
-        <h4>Por favor, elige el nivel de dificultad, el modo de juego y el tema de las cartas😊</h4>
     </header>
     <main id="configuracion" class="vista_activa">
         <table id="table1">
@@ -26,29 +26,20 @@
                 <td>
                     <select id="dificultad_partida">
                         <option selected disabled value="">Dificultad:</option>
-                        <option value="facil">Fácil (4x4)</option>
-                        <option value="medio">Medio (5x4)</option>
-                        <option value="dificil">Difícil (6x6)</option>
+                        <option value="Fácil">Fácil (4x4)</option>
+                        <option value="Medio">Medio (5x4)</option>
+                        <option value="Difícil">Difícil (6x6)</option>
+                        <option value="Personalizado">Personalizar dificultad</option>
                     </select>
                 </td>
             </tr>
-            <tr>
-                <th class="th_text">O crea un tablero personalizado</th>
+            <tr id="personalizar_tablero">
+                <th class="th_text">Crea un tu tablero personalizado</th>
                 <td>
-                    <input type="number" min="1" step="1" class="input_numero" id="numero1" placeholder="Filas" autocomplete="off">
-                </td>
-                <td>
-                    <input type="number" min="1" step="1" class="input_numero" id="numero2" placeholder="Columnas" autocomplete="off">
-                </td>
-            </tr>
-            <tr>
-                <th class="th_text">Selecciona el modo de juego:</th>
-                <td>
-                    <select id="modo_partida">
-                        <option class="opt" selected disabled value="">Modo:</option>
-                        <option class="opt" value="normal">Normal</option>
-                        <option class="opt" value="flash">Flash</option>
-                    </select>
+                    <input type="number" min="1" max="6" step="1" class="input_numero" id="numero1" placeholder="Filas"
+                        autocomplete="off">
+                    <input type="number" min="1" max="6" step="1" class="input_numero" id="numero2"
+                        placeholder="Columnas" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -56,41 +47,65 @@
                 <td>
                     <select id="tema_partida">
                         <option selected disabled value="">Selecciona el tema de las cartas:</option>
-                        <option value="animales">Animales 🦁</option>
-                        <option value="comidas">Comidas 🍕</option>
+                        <option value="animales">Animales 🐺</option>
+                        <option value="comidas">Comidas 🍣</option>
                         <option value="futbol">Equipos de fútbol ⚽</option>
-                    </select> 
+                    </select>
                 </td>
             </tr>
             <tr>
                 <th colspan="2">
-                    <button id="empezar_partida" class="boton">
-                        <boton href="juego.html"> Empezar partida </boton>
-                    </button>
+                    <button id="empezar_partida" class="boton">Empezar partida</button>
                     <button class="historial">Historial partidas</button>
+                    <button class="record">Récords</button>
                 </th>
             </tr>
         </table>
     </main>
 
     <div id="tablero" class="vista" style="display: none">
-        <div id="nomJugador"></div>
+        <div class="nomJugador"></div>
         <div id="cronometro">00.00.00</div>
-        <div id="contador">Contador: 0</div>
+        <div id="contador">0</div>
         <div id="cartas"></div>
+        <div id="mensajeJuego" class="mensaje-juego"></div>
         <button class="menu_principal">Menú principal</button>
     </div>
 
     <div id="final_partida" class="vista" style="display: none">
-        <p>Felicidades</p>
+        <h1>🎉🥳¡Enhorabuena!🎉🥳</h1>
+        <h3>¡Muchas felicidades! Has superado el juego <br> ¡No olvides compartirlo con tus amigos de Facebook! </h3>
         <button class="menu_principal">Menú principal</button>
         <button class="historial">Historial partidas</button>
+        <button onclick="compartirEnFacebook()">Compartir en Facebook</button>
     </div>
 
     <div id="historial_partidas" class="vista" style="display: none;">
-        <p>Historial de partidas</p>
-        <button class="menu_principal">Menú principal</button>
-        <button class="limpiar_historial">Limpiar historial</button>
+        <h2>Historial de partidas</h2>
+        <div id="tabla_historial"></div>
+        <table id="tablabotoneshistorial">
+            <tr>
+                <th colspan="2">
+                    <button class="menu_principal">Menú principal</button>
+                    <button id="limpiar_historial">Limpiar historial</button>
+                    <button class="record">Récords</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+
+    <div id="mejores_puntuaciones" class="vista" style="display: none;">
+        <h2>Mejores puntuaciones</h2>
+        <div id="tabla_record"></div>
+        <table id="tablabotonesrecord">
+            <tr>
+                <th colspan="2">
+                    <button class="menu_principal">Menú principal</button>
+                    <button class="historial">Historial partidas</button>
+                </th>
+            </tr>
+        </table>
     </div>
 
     <footer id="footer">
@@ -100,6 +115,16 @@
             ©2025
         </p>
     </footer>
+    <audio id="sonidoFondo" loop>
+        <source src="sonidos/sonido playa (prueba).mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Sonido al acertar una pareja de cartas -->
+    <audio id="sonidoAcierto">
+        <source src="sonidos/acierto.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
     <script src="script.js"></script>
 </body>
 
