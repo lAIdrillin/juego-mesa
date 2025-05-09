@@ -200,8 +200,13 @@ function crearCartas(numero, tema) {
             if (!primeraCarta) {
                 primeraCarta = carta;
             } else {
+                  
                 segundaCarta = carta;
                 bloqueo = true;
+                cartasVolteadas.push(this);
+                contadorPares++; 
+                document.getElementById("contador").textContent = contadorPares;
+                cartasVolteadas = [];
 
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
                     const sonidoAcierto = document.getElementById("sonidoAcierto");
@@ -228,20 +233,11 @@ function crearCartas(numero, tema) {
                     },500);
                 }
             }
-            contarPares()
+            
 
         });
         cartas.appendChild(carta);
 
-        function contarPares() {
-            cartasVolteadas.push(this);
-
-            if (cartasVolteadas.length === 2) {
-                contadorPares++; 
-                document.getElementById("contador").textContent = contadorPares;
-                cartasVolteadas = []; 
-            }
-        }
 
     }
 
@@ -343,22 +339,14 @@ function guardarPartida() {
     const cronometro = document.getElementById("cronometro").textContent; 
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
-    
-    
-    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;  
-    let dificultad;
-
-
-    if (dificultadPersonalizada) {
-        dificultad = dificultadPersonalizada;
-        if(dificultad === "Personalizado") {
-            const filas = document.getElementById("numero1").value;
+    let dificultad = document.getElementById("dificultad_partida").value;
+    if (dificultad === "Personalizado") {
+        const filas = document.getElementById("numero1").value;
         const columnas = document.getElementById("numero2").value;
         const resultado = filas * columnas;
-        dificultad = resultado + " cartas (personalizada)";
-        }
-    } 
-
+        dificultad = resultado + " cartas (personalizada)";  
+    }
+    
    
     const nuevaPartida = {
         nombreJugador: nombre,
@@ -442,18 +430,71 @@ function mostrarHistorial() {
         filaVacia.appendChild(tdVacio);
         cuerpo.appendChild(filaVacia);
     }
-
     tabla.appendChild(cuerpo);
     contenedorHistorial.appendChild(tabla);
 }
 
+
 function mostrarRecord() {
+    const contenedorHistorial = document.getElementById("tabla_record");
+    contenedorHistorial.innerHTML = "";
+
     let historialPartidas = JSON.parse(localStorage.getItem("historialPartidas")) || [];
+
 
     historialPartidas.sort((a, b) => a.intentos - b.intentos);
 
-    mostrarHistorial();
+    const tabla = document.createElement("table");
+    tabla.id = "tabla_record";
+
+    const cabecera = document.createElement("thead");
+    const filaCabecera = document.createElement("tr");
+
+    const cabeceras = ["Jugador", "Intentos"];
+    cabeceras.forEach(texto => {
+        const th = document.createElement("th");
+        th.textContent = texto;
+        filaCabecera.appendChild(th);
+    });
+
+    cabecera.appendChild(filaCabecera);
+    tabla.appendChild(cabecera);
+
+    const cuerpo = document.createElement("tbody");
+
+    if (historialPartidas.length > 0) {
+        historialPartidas.forEach(partida => {
+            const fila = document.createElement("tr");
+
+            const datos = [
+                partida.nombreJugador,
+                partida.intentos
+            ];
+
+            datos.forEach(dato => {
+                const td = document.createElement("td");
+                td.textContent = dato;
+                fila.appendChild(td);
+            });
+
+            cuerpo.appendChild(fila);
+        });
+    } else {
+        const filaVacia = document.createElement("tr");
+        const tdVacio = document.createElement("td");
+        tdVacio.colSpan = 2;
+        tdVacio.textContent = "No hay récords aún.";
+        tdVacio.style.textAlign = "center";
+        tdVacio.style.padding = "16px";
+        filaVacia.appendChild(tdVacio);
+        cuerpo.appendChild(filaVacia);
+    }
+
+    tabla.appendChild(cuerpo);
+    contenedorHistorial.appendChild(tabla);
 }
+//document.querySelector(".record").addEventListener("click", mostrarRecords);
+
 
 
 function compartirEnFacebook() { 
@@ -463,3 +504,5 @@ function compartirEnFacebook() {
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlCompartir)}&quote=${texto}`;
     window.open(url, '_blank', 'width=600,height=400');
   }
+
+  //CAMBIAR LA LÓGICA DE LA DIFICULTAD PERSONALIZADA
