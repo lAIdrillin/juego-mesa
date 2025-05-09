@@ -16,7 +16,7 @@ const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cebra.jpg", "elefante.jpg"
 "gallina.jpg", "koala.jpg", "lobo.jpg", "rana.jpg", "tigre.jpg"
 ];
 
-const imagenesComida = ["burritos.jpg","curry.jpg", "cebiche.jpg", "espaguetis.jpg", "pollo.jpg", 
+const imagenesComida = ["burritos.jpg","curry.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
 "salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
 "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
 ];
@@ -200,12 +200,19 @@ function crearCartas(numero, tema) {
             if (!primeraCarta) {
                 primeraCarta = carta;
             } else {
+                  
                 segundaCarta = carta;
                 bloqueo = true;
+                cartasVolteadas.push(this);
+                contadorPares++; 
+                document.getElementById("contador").textContent = contadorPares;
+                cartasVolteadas = [];
 
                 if (primeraCarta.dataset.imagen === segundaCarta.dataset.imagen) {
 
                     if (primeraCarta.dataset.imagen === "pollo.jpg") {
+                        const sonidoAcierto = document.getElementById("sonidoAcierto");
+                    sonidoAcierto.play();
                         mostrarMensaje("🐣 ¡Has desbloqueado el pollo de la suerte!");
                     }
                 
@@ -225,20 +232,11 @@ function crearCartas(numero, tema) {
                     },500);
                 }
             }
-            contarPares()
+            
 
         });
         cartas.appendChild(carta);
 
-        function contarPares() {
-            cartasVolteadas.push(this);
-
-            if (cartasVolteadas.length === 2) {
-                contadorPares++; 
-                document.getElementById("contador").textContent = contadorPares;
-                cartasVolteadas = []; 
-            }
-        }
 
     }
 
@@ -340,22 +338,14 @@ function guardarPartida() {
     const cronometro = document.getElementById("cronometro").textContent; 
     const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
-    
-    
-    const dificultadPersonalizada = document.getElementById("dificultad_partida").value;  
-    let dificultad;
-
-
-    if (dificultadPersonalizada) {
-        dificultad = dificultadPersonalizada;
-        if(dificultad === "Personalizado") {
-            const filas = document.getElementById("numero1").value;
+    let dificultad = document.getElementById("dificultad_partida").value;
+    if (dificultad === "Personalizado") {
+        const filas = document.getElementById("numero1").value;
         const columnas = document.getElementById("numero2").value;
         const resultado = filas * columnas;
-        dificultad = resultado + " cartas (personalizada)";
-        }
-    } 
-
+        dificultad = resultado + " cartas (personalizada)";  
+    }
+    
    
     const nuevaPartida = {
         nombreJugador: nombre,
@@ -513,3 +503,5 @@ function compartirEnFacebook() {
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(urlCompartir)}&quote=${texto}`;
     window.open(url, '_blank', 'width=600,height=400');
   }
+
+  //CAMBIAR LA LÓGICA DE LA DIFICULTAD PERSONALIZADA
