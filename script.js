@@ -488,7 +488,7 @@ function mostrarRecord() {
         const filaVacia = document.createElement("tr");
         const tdVacio = document.createElement("td");
         tdVacio.colSpan = 2;
-        tdVacio.textContent = "No hay récords aún.";
+        tdVacio.textContent = "No hay partidas guardadas.";
         tdVacio.style.textAlign = "center";
         tdVacio.style.padding = "16px";
         filaVacia.appendChild(tdVacio);
