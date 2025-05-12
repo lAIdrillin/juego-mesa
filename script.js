@@ -16,21 +16,18 @@ selectDificultad.addEventListener("change", function() {
     }
 });
 
-
 document.getElementById("empezar_partida").addEventListener('click', () => {
 
-    const cronometro = document.getElementById("cronometro").textContent;
-    const contador = document.getElementById("contador").textContent;
     const nombre = document.getElementById("nombre").value;
     const nomJugador = document.querySelector(".nomJugador")
     nomJugador.innerText = nombre;
     const dificultad = document.getElementById("dificultad_partida").value;
-    const modo = document.get
-    var accederJuego = true;
     const filas = document.getElementById("numero1").value;
     const columnas = document.getElementById("numero2").value;
     const resultado = filas * columnas;
     const tema = document.getElementById("tema_partida").value;
+
+    var accederJuego = true;
 
     if(nombre === "") {
         alert("¡Nombre vacío! Necesitas un nombre para jugar.")
@@ -39,7 +36,7 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
     }
 
 
-    if (dificultad === "" && (numero1 === "" || numero2 === "")) {
+    if (dificultad === "" && (filas === "" || columnas === "")) {
         alert("Por favor, selecciona una dificultad o crea un tablero personalizado.");
         accederJuego = false;
         return;
@@ -89,6 +86,18 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
         default:
             numero = resultado;
     }
+
+    crearCartas(numero, tema);
+
+    }
+    
+    cartas.style.display = "grid";
+    cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
+    cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
+    cartas.style.gap = "10px";
+    cartas.style.transform = "scaleX(-1)";
+
+});
 
 
     
@@ -149,17 +158,22 @@ document.querySelectorAll(".historial").forEach(boton => {
     });
 });
 
-    crearCartas(numero, tema);
-
-    }
+const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cabra.jpg", "elefante.jpg", "conejo.jpg",
+    "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
+    "gallina.jpg", "serpiente.jpg", "lobo.jpg", "pinguino.jpg", "tigre.jpg", "gato.jpg", "jirafa.jpg"
+    ];
     
-    cartas.style.display = "grid";
-    cartas.style.gridTemplateColumns = `repeat(${columnas}, 1fr)`;
-    cartas.style.gridTemplateRows = `repeat(${filas}, 1fr)`;
-    cartas.style.gap = "10px";
-    cartas.style.transform = "scaleX(-1)";
-
-});
+    const imagenesComida = ["burritos.jpg","nueces.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
+    "salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
+    "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
+    ];
+    
+    const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "celta.png", "atlmadrid.png", "sevilla.png", 
+    "barcelona.png", "athletic.png", "alaves.png", "deportivocoruna.png", "elche.png", "zaragoza.png", "realoviedo.png",
+    "sporting.png", "cordoba.png", "malaga.png", "villarreal.png", "valencia.png"];
+    
+    let contadorPares = 0;
+    let cartasVolteadas= [];
 
 
 function crearCartas(numero, tema) {
@@ -357,8 +371,6 @@ function mostrarMensaje(texto) {
         mensaje.textContent = "";
     }, 3000);
 }
-
-
 
 function mostrarHistorial() {
     const contenedorHistorial = document.getElementById("tabla_historial");
