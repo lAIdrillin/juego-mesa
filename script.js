@@ -49,9 +49,17 @@ document.querySelectorAll(".historial").forEach(boton => {
         mostrarHistorial()
     });
 });
+const sonidoFondo = document.getElementById("sonidoFondo");
+
+// Reproducir el sonido de fondo cuando la página se cargue
+window.addEventListener('load', function() {
+    sonidoFondo.play();
+});
 
 
 document.getElementById("empezar_partida").addEventListener('click', () => {
+    sonidoFondo.pause();  // Detener el sonido
+    sonidoFondo.currentTime = 0;
 
     const cronometro = document.getElementById("cronometro").textContent;
     const contador = document.getElementById("contador").textContent;
