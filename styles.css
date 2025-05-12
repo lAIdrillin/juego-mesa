@@ -220,7 +220,7 @@ button {
 
 #historial_partidas button:hover,
 #tablabotonesrecord button:hover {
-  background-color: #FFD700;
+  background-color: #ffd90085;
 }
 
 #tablabotoneshistorial {
