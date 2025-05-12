@@ -37,9 +37,9 @@
                 <th class="th_text">Crea un tu tablero personalizado</th>
                 <td>
                     <input type="number" min="1" max="6" step="1" class="input_numero" id="numero1" placeholder="Filas"
-                        autocomplete="off">
+                        autocomplete="off" disabled>
                     <input type="number" min="1" max="6" step="1" class="input_numero" id="numero2"
-                        placeholder="Columnas" autocomplete="off">
+                        placeholder="Columnas" autocomplete="off" disabled>
                 </td>
             </tr>
             <tr>
@@ -75,9 +75,15 @@
     <div id="final_partida" class="vista" style="display: none">
         <h1>🎉🥳¡Enhorabuena!🎉🥳</h1>
         <h3>¡Muchas felicidades! Has superado el juego <br> ¡No olvides compartirlo con tus amigos de Facebook! </h3>
-        <button class="menu_principal">Menú principal</button>
-        <button class="historial">Historial partidas</button>
-        <button onclick="compartirEnFacebook()">Compartir en Facebook</button>
+        <table id="tablabotonesfin">
+            <tr>
+                <th colspan="2">
+                    <button class="menu_principal">Menú principal</button>
+                    <button class="historial">Historial partidas</button>
+                    <button onclick="compartirEnFacebook()">Compartir en Facebook</button>
+                </th>
+            </tr>
+        </table>
     </div>
 
     <div id="historial_partidas" class="vista" style="display: none;">
