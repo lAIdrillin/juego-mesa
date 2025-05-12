@@ -16,6 +16,30 @@ selectDificultad.addEventListener("change", function() {
     }
 });
 
+document.getElementById("limpiar_historial").addEventListener("click", function() {
+    localStorage.clear();
+    mostrarHistorial();
+});
+
+
+document.querySelectorAll(".historial").forEach(boton => {
+    boton.addEventListener('click', () => {
+
+        document.getElementById("header").style.display = "none"; 
+        document.getElementById("table1").style.display = "none"; 
+        document.getElementById("final_partida").style.display = "none"; 
+        document.getElementById("mejores_puntuaciones").style.display = "none"; 
+        document.getElementById("historial_partidas").style.display = "block"; 
+        mostrarHistorial()
+    });
+});
+const sonidoFondo = document.getElementById("sonidoFondo");
+
+window.addEventListener('load', function() {
+    sonidoFondo.play();
+});
+
+
 document.getElementById("empezar_partida").addEventListener('click', () => {
     const nombre = document.getElementById("nombre").value;
     const nomJugador = document.querySelector(".nomJugador")
