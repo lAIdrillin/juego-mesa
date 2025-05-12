@@ -33,6 +33,47 @@ const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "c
 let contadorPares = 0;
 let cartasVolteadas= [];
 
+
+document.querySelectorAll(".record").forEach(boton => {
+    boton.addEventListener('click', () => {
+        header.style.display = "none"; 
+
+        table1.style.display = "none"; 
+    
+        final_partida.style.display = "none";
+
+        historial_partidas.style.display = "none";
+
+        mejores_puntuaciones.style.display = "block";
+
+        mostrarRecord()
+    });
+});
+
+
+document.querySelectorAll(".historial").forEach(boton => {
+    boton.addEventListener('click', () => {
+        header.style.display = "none"; 
+
+        table1.style.display = "none"; 
+    
+        final_partida.style.display = "none";
+
+        mejores_puntuaciones.style.display = "none";
+
+        historial_partidas.style.display = "block";
+
+        mostrarHistorial()
+    });
+});
+
+
+document.querySelectorAll(".menu_principal").forEach(boton => {
+    boton.addEventListener('click', () => {
+        window.location.href = "index.html";
+    });
+});
+
 document.getElementById("limpiar_historial").addEventListener("click", function() {
     localStorage.clear();
     mostrarHistorial();
@@ -49,7 +90,6 @@ document.querySelectorAll(".historial").forEach(boton => {
         mostrarHistorial()
     });
 });
-
 
 document.getElementById("empezar_partida").addEventListener('click', () => {
 
@@ -126,7 +166,6 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
 
     crearCartas(numero, tema);
 
-
     }
     
     cartas.style.display = "grid";
@@ -150,7 +189,6 @@ function crearCartas(numero, tema) {
                 let imagenAleatoria = imagenesAnimales[Math.floor(Math.random() * imagenesAnimales.length)];
                 if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
                     imagenesSeleccionadas.push(imagenAleatoria);
-
                 }  
             }
             break;        
@@ -159,7 +197,6 @@ function crearCartas(numero, tema) {
                 let imagenAleatoria = imagenesComida[Math.floor(Math.random() * imagenesComida.length)];
                 if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
                     imagenesSeleccionadas.push(imagenAleatoria);
-
                 }  
             }
             break;   
@@ -168,7 +205,6 @@ function crearCartas(numero, tema) {
                 let imagenAleatoria = imagenesFutbol[Math.floor(Math.random() * imagenesFutbol.length)];
                 if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
                     imagenesSeleccionadas.push(imagenAleatoria);
-
                 }  
             }
             break;   
@@ -177,7 +213,6 @@ function crearCartas(numero, tema) {
         let imagenAleatoria = imagenesFutbol[Math.floor(Math.random() * imagenesFutbol.length)];
         if (!imagenesSeleccionadas.includes(imagenAleatoria)) {
             imagenesSeleccionadas.push(imagenAleatoria);
-
         }  
     }
 
@@ -285,46 +320,6 @@ function iniciarCronometro() {
         cronometroIniciado = true; 
     }
 }
-
-document.querySelectorAll(".menu_principal").forEach(boton => {
-    boton.addEventListener('click', () => {
-        window.location.href = "index.html";
-    });
-});
-
-
-document.querySelectorAll(".record").forEach(boton => {
-    boton.addEventListener('click', () => {
-        header.style.display = "none"; 
-
-        table1.style.display = "none"; 
-    
-        final_partida.style.display = "none";
-
-        historial_partidas.style.display = "none";
-
-        mejores_puntuaciones.style.display = "block";
-
-        mostrarRecord()
-    });
-});
-
-
-document.querySelectorAll(".historial").forEach(boton => {
-    boton.addEventListener('click', () => {
-        header.style.display = "none"; 
-
-        table1.style.display = "none"; 
-    
-        final_partida.style.display = "none";
-
-        mejores_puntuaciones.style.display = "none";
-
-        historial_partidas.style.display = "block";
-
-        mostrarHistorial()
-    });
-});
 
 function verificarFinDeJuego() {
     const cartasBloqueadas = document.querySelectorAll(".carta.bloqueada");
@@ -498,9 +493,6 @@ function mostrarRecord() {
     tabla.appendChild(cuerpo);
     contenedorHistorial.appendChild(tabla);
 }
-
-
-
 
 function compartirEnFacebook() { 
     const urlCompartir = 'https://www.tusitio.com/pagina-a-compartir';
