@@ -18,13 +18,11 @@ selectDificultad.addEventListener("change", function() {
 
 document.getElementById("empezar_partida").addEventListener('click', () => {
 
-    const cronometro = document.getElementById("cronometro").textContent;
-    const contador = document.getElementById("contador").textContent;
+    
     const nombre = document.getElementById("nombre").value;
     const nomJugador = document.querySelector(".nomJugador")
     nomJugador.innerText = nombre;
     const dificultad = document.getElementById("dificultad_partida").value;
-    const modo = document.get
     var accederJuego = true;
     const filas = document.getElementById("numero1").value;
     const columnas = document.getElementById("numero2").value;
