@@ -15,81 +15,6 @@ selectDificultad.addEventListener("change", function() {
         });
     }
 });
-    
-const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cabra.jpg", "elefante.jpg", "conejo.jpg",
-"castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
-"gallina.jpg", "serpiente.jpg", "lobo.jpg", "pinguino.jpg", "tigre.jpg", "gato.jpg", "jirafa.jpg"
-];
-
-const imagenesComida = ["burritos.jpg","nueces.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
-"salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
-"polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
-];
-
-const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "celta.png", "atlmadrid.png", "sevilla.png", 
-"barcelona.png", "athletic.png", "alaves.png", "deportivocoruna.png", "elche.png", "zaragoza.png", "realoviedo.png",
-"sporting.png", "cordoba.png", "malaga.png", "villarreal.png", "valencia.png"];
-
-let contadorPares = 0;
-let cartasVolteadas= [];
-
-
-document.querySelectorAll(".record").forEach(boton => {
-    boton.addEventListener('click', () => {
-        header.style.display = "none"; 
-
-        table1.style.display = "none"; 
-    
-        final_partida.style.display = "none";
-
-        historial_partidas.style.display = "none";
-
-        mejores_puntuaciones.style.display = "block";
-
-        mostrarRecord()
-    });
-});
-
-
-document.querySelectorAll(".historial").forEach(boton => {
-    boton.addEventListener('click', () => {
-        header.style.display = "none"; 
-
-        table1.style.display = "none"; 
-    
-        final_partida.style.display = "none";
-
-        mejores_puntuaciones.style.display = "none";
-
-        historial_partidas.style.display = "block";
-
-        mostrarHistorial()
-    });
-});
-
-
-document.querySelectorAll(".menu_principal").forEach(boton => {
-    boton.addEventListener('click', () => {
-        window.location.href = "index.html";
-    });
-});
-
-document.getElementById("limpiar_historial").addEventListener("click", function() {
-    localStorage.clear();
-    mostrarHistorial();
-});
-
-document.querySelectorAll(".historial").forEach(boton => {
-    boton.addEventListener('click', () => {
-
-        document.getElementById("header").style.display = "none"; 
-        document.getElementById("table1").style.display = "none"; 
-        document.getElementById("final_partida").style.display = "none"; 
-        document.getElementById("mejores_puntuaciones").style.display = "none"; 
-        document.getElementById("historial_partidas").style.display = "block"; 
-        mostrarHistorial()
-    });
-});
 
 document.getElementById("empezar_partida").addEventListener('click', () => {
 
@@ -164,6 +89,64 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
             numero = resultado;
     }
 
+
+document.querySelectorAll(".record").forEach(boton => {
+    boton.addEventListener('click', () => {
+        header.style.display = "none"; 
+
+        table1.style.display = "none"; 
+    
+        final_partida.style.display = "none";
+
+        historial_partidas.style.display = "none";
+
+        mejores_puntuaciones.style.display = "block";
+
+        mostrarRecord()
+    });
+});
+
+
+document.querySelectorAll(".historial").forEach(boton => {
+    boton.addEventListener('click', () => {
+        header.style.display = "none"; 
+
+        table1.style.display = "none"; 
+    
+        final_partida.style.display = "none";
+
+        mejores_puntuaciones.style.display = "none";
+
+        historial_partidas.style.display = "block";
+
+        mostrarHistorial()
+    });
+});
+
+
+document.querySelectorAll(".menu_principal").forEach(boton => {
+    boton.addEventListener('click', () => {
+        window.location.href = "index.html";
+    });
+});
+
+document.getElementById("limpiar_historial").addEventListener("click", function() {
+    localStorage.clear();
+    mostrarHistorial();
+});
+
+document.querySelectorAll(".historial").forEach(boton => {
+    boton.addEventListener('click', () => {
+
+        document.getElementById("header").style.display = "none"; 
+        document.getElementById("table1").style.display = "none"; 
+        document.getElementById("final_partida").style.display = "none"; 
+        document.getElementById("mejores_puntuaciones").style.display = "none"; 
+        document.getElementById("historial_partidas").style.display = "block"; 
+        mostrarHistorial()
+    });
+});
+
     crearCartas(numero, tema);
 
     }
@@ -175,6 +158,24 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
     cartas.style.transform = "scaleX(-1)";
 
 });
+
+    
+const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cabra.jpg", "elefante.jpg", "conejo.jpg",
+    "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
+    "gallina.jpg", "serpiente.jpg", "lobo.jpg", "pinguino.jpg", "tigre.jpg", "gato.jpg", "jirafa.jpg"
+    ];
+    
+    const imagenesComida = ["burritos.jpg","nueces.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
+    "salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
+    "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
+    ];
+    
+    const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "celta.png", "atlmadrid.png", "sevilla.png", 
+    "barcelona.png", "athletic.png", "alaves.png", "deportivocoruna.png", "elche.png", "zaragoza.png", "realoviedo.png",
+    "sporting.png", "cordoba.png", "malaga.png", "villarreal.png", "valencia.png"];
+    
+    let contadorPares = 0;
+    let cartasVolteadas= [];
 
 
 function crearCartas(numero, tema) {
