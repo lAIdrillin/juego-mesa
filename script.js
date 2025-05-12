@@ -17,7 +17,7 @@ selectDificultad.addEventListener("change", function() {
 });
 
 document.getElementById("empezar_partida").addEventListener('click', () => {
-    sonidoFondo.pause();  // Detener el sonido
+    sonidoFondo.pause(); 
     sonidoFondo.currentTime = 0;
 
     const nombre = document.getElementById("nombre").value;
@@ -116,23 +116,6 @@ document.querySelectorAll(".record").forEach(boton => {
         mejores_puntuaciones.style.display = "block";
 
         mostrarRecord()
-    });
-});
-
-
-document.querySelectorAll(".historial").forEach(boton => {
-    boton.addEventListener('click', () => {
-        header.style.display = "none"; 
-
-        table1.style.display = "none"; 
-    
-        final_partida.style.display = "none";
-
-        mejores_puntuaciones.style.display = "none";
-
-        historial_partidas.style.display = "block";
-
-        mostrarHistorial()
     });
 });
 
