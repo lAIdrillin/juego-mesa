@@ -15,60 +15,13 @@ selectDificultad.addEventListener("change", function() {
         });
     }
 });
-<<<<<<< HEAD
-    
-const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cabra.jpg", "elefante.jpg", "conejo.jpg",
-"castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
-"gallina.jpg", "serpiente.jpg", "lobo.jpg", "pinguino.jpg", "tigre.jpg", "gato.jpg", "jirafa.jpg"
-];
-
-const imagenesComida = ["burritos.jpg","nueces.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
-"salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
-"polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
-];
-
-const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "celta.png", "atlmadrid.png", "sevilla.png", 
-"barcelona.png", "athletic.png", "alaves.png", "deportivocoruna.png", "elche.png", "zaragoza.png", "realoviedo.png",
-"sporting.png", "cordoba.png", "malaga.png", "villarreal.png", "valencia.png"];
-
-let contadorPares = 0;
-let cartasVolteadas= [];
-
-document.getElementById("limpiar_historial").addEventListener("click", function() {
-    localStorage.clear();
-    mostrarHistorial();
-});
-
-document.querySelectorAll(".historial").forEach(boton => {
-    boton.addEventListener('click', () => {
-
-        document.getElementById("header").style.display = "none"; 
-        document.getElementById("table1").style.display = "none"; 
-        document.getElementById("final_partida").style.display = "none"; 
-        document.getElementById("mejores_puntuaciones").style.display = "none"; 
-        document.getElementById("historial_partidas").style.display = "block"; 
-        mostrarHistorial()
-    });
-});
-const sonidoFondo = document.getElementById("sonidoFondo");
-
-// Reproducir el sonido de fondo cuando la página se cargue
-window.addEventListener('load', function() {
-    sonidoFondo.play();
-});
-
-=======
->>>>>>> 9fe1a9bc271ac43e10ef6c524b8e820ba543f61d
 
 document.getElementById("empezar_partida").addEventListener('click', () => {
-    sonidoFondo.pause();  // Detener el sonido
-    sonidoFondo.currentTime = 0;
-
     const nombre = document.getElementById("nombre").value;
     const nomJugador = document.querySelector(".nomJugador")
     nomJugador.innerText = nombre;
     const dificultad = document.getElementById("dificultad_partida").value;
-    const filas = document.getElementById("numero1").value;
+     const filas = document.getElementById("numero1").value;
     const columnas = document.getElementById("numero2").value;
     const resultado = filas * columnas;
     const tema = document.getElementById("tema_partida").value;
@@ -80,7 +33,6 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
         accederJuego = false;
         return;
     }
-
 
     if (dificultad === "" && (filas === "" || columnas === "")) {
         alert("Por favor, selecciona una dificultad o crea un tablero personalizado.");
@@ -145,14 +97,12 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
 
 });
 
-
-    
 document.querySelectorAll(".record").forEach(boton => {
     boton.addEventListener('click', () => {
         header.style.display = "none"; 
 
         table1.style.display = "none"; 
-    
+
         final_partida.style.display = "none";
 
         historial_partidas.style.display = "none";
@@ -169,7 +119,7 @@ document.querySelectorAll(".historial").forEach(boton => {
         header.style.display = "none"; 
 
         table1.style.display = "none"; 
-    
+
         final_partida.style.display = "none";
 
         mejores_puntuaciones.style.display = "none";
@@ -208,7 +158,7 @@ const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cabra.jpg", "elefante.jpg"
     "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
     "gallina.jpg", "serpiente.jpg", "lobo.jpg", "pinguino.jpg", "tigre.jpg", "gato.jpg", "jirafa.jpg"
     ];
-    
+
     const imagenesComida = ["burritos.jpg","nueces.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
     "salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
     "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
@@ -285,7 +235,7 @@ function crearCartas(numero, tema) {
             if (!primeraCarta) {
                 primeraCarta = carta;
             } else {
-                  
+
                 segundaCarta = carta;
                 bloqueo = true;
                 cartasVolteadas.push(this);
@@ -298,10 +248,10 @@ function crearCartas(numero, tema) {
                     sonidoAcierto.play();
 
                     if (primeraCarta.dataset.imagen === "pollo.jpg") {
-                        
+
                         mostrarMensaje("🐣 ¡Has desbloqueado el pollo de la suerte!");
                     }
-                
+
                     primeraCarta.classList.add("bloqueada");
                     segundaCarta.classList.add("bloqueada");
                     verificarFinDeJuego();
@@ -318,7 +268,7 @@ function crearCartas(numero, tema) {
                     },500);
                 }
             }
-            
+
 
         });
         cartas.appendChild(carta);
@@ -391,8 +341,8 @@ function guardarPartida() {
         const resultado = filas * columnas;
         dificultad = resultado + " cartas (personalizada)";  
     }
-    
-   
+
+
     const nuevaPartida = {
         nombreJugador: nombre,
         tiempo: cronometro,
@@ -417,6 +367,7 @@ function mostrarMensaje(texto) {
         mensaje.textContent = "";
     }, 3000);
 }
+
 
 function mostrarHistorial() {
     const contenedorHistorial = document.getElementById("tabla_historial");
