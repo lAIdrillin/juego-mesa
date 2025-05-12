@@ -16,6 +16,7 @@ selectDificultad.addEventListener("change", function() {
     }
 });
 
+
 document.getElementById("empezar_partida").addEventListener('click', () => {
 
     const cronometro = document.getElementById("cronometro").textContent;
@@ -90,6 +91,7 @@ document.getElementById("empezar_partida").addEventListener('click', () => {
     }
 
 
+    
 document.querySelectorAll(".record").forEach(boton => {
     boton.addEventListener('click', () => {
         header.style.display = "none"; 
@@ -158,24 +160,6 @@ document.querySelectorAll(".historial").forEach(boton => {
     cartas.style.transform = "scaleX(-1)";
 
 });
-
-    
-const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cabra.jpg", "elefante.jpg", "conejo.jpg",
-    "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
-    "gallina.jpg", "serpiente.jpg", "lobo.jpg", "pinguino.jpg", "tigre.jpg", "gato.jpg", "jirafa.jpg"
-    ];
-    
-    const imagenesComida = ["burritos.jpg","nueces.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
-    "salmon.jpg", "sushi.jpg", "paella.jpg", "quiche.jpg", "tacos.jpg", "pizza.jpg", "lentejas.jpg", "lasaña.jpg",
-    "polenta.jpg", "sawarma.jpg", "risoto.jpg", "yogur.jpg", "croquetas.jpg"
-    ];
-    
-    const imagenesFutbol = ["realmadrid.png", "realsociedad.png", "espanyol.png", "celta.png", "atlmadrid.png", "sevilla.png", 
-    "barcelona.png", "athletic.png", "alaves.png", "deportivocoruna.png", "elche.png", "zaragoza.png", "realoviedo.png",
-    "sporting.png", "cordoba.png", "malaga.png", "villarreal.png", "valencia.png"];
-    
-    let contadorPares = 0;
-    let cartasVolteadas= [];
 
 
 function crearCartas(numero, tema) {
