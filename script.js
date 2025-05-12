@@ -38,6 +38,7 @@ document.getElementById("limpiar_historial").addEventListener("click", function(
     mostrarHistorial();
 });
 
+
 document.querySelectorAll(".historial").forEach(boton => {
     boton.addEventListener('click', () => {
 
