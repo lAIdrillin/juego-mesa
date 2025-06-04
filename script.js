@@ -210,7 +210,7 @@ function crearCartas(numero, tema) {
     for (let i = 0; i < numero; i++) {
         const carta = document.createElement('div');
         carta.classList.add("carta");
-        carta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
+        carta.style.backgroundImage = `url('images/dorso_carta.jpg')`;
         carta.dataset.imagen = imagenesSeleccionadas[i];
 
 
@@ -218,7 +218,7 @@ function crearCartas(numero, tema) {
             if (bloqueo || carta.classList.contains("volteada") || carta.classList.contains("bloqueada")) return;
 
             carta.classList.add("volteada");
-            carta.style.backgroundImage = `url('/images/${carta.dataset.imagen}')`;
+            carta.style.backgroundImage = `url('images/${carta.dataset.imagen}')`;
             iniciarCronometro();
 
             if (!primeraCarta) {
@@ -248,10 +248,10 @@ function crearCartas(numero, tema) {
                 } else {
                     setTimeout(() => {
                         primeraCarta.classList.remove("volteada");
-                        primeraCarta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
+                        primeraCarta.style.backgroundImage = `url('images/dorso_carta.jpg')`;
 
                         segundaCarta.classList.remove("volteada");
-                        segundaCarta.style.backgroundImage = `url('/images/dorso_carta.jpg')`;
+                        segundaCarta.style.backgroundImage = `url('images/dorso_carta.jpg')`;
 
                         resetTurno();
                     },500);
