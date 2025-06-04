@@ -143,9 +143,9 @@ document.querySelectorAll(".historial").forEach(boton => {
     });
 });
 
-const imagenesAnimales = ["loro.jpg", "ardilla.jpg", "cabra.jpg", "elefante.jpg", "conejo.jpg",
-    "castor.jpg", "buho.jpg", "delfin.jpg", "mono.jpg", "perro.jpg", "leon.jpg", 
-    "gallina.jpg", "serpiente.jpg", "lobo.jpg", "pinguino.jpg", "tigre.jpg", "gato.jpg", "jirafa.jpg"
+const imagenesAnimales = ["images/loro.jpg", "images/ardilla.jpg", "images/cabra.jpg", "images/elefante.jpg", "images/conejo.jpg",
+    "images/castor.jpg", "images/buho.jpg", "images/delfin.jpg", "images/mono.jpg", "images/perro.jpg", "images/leon.jpg", 
+    "images/gallina.jpg", "images/serpiente.jpg", "images/lobo.jpg", "images/pinguino.jpg", "images/tigre.jpg", "images/gato.jpg", "images/jirafa.jpg"
     ];
     
     const imagenesComida = ["burritos.jpg","nueces.jpg", "ceviche.jpg", "espaguetis.jpg", "pollo.jpg", 
